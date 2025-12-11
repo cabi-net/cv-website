@@ -1,0 +1,435 @@
+.desktop-homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  background-color: #ffffff;
+}
+
+.desktop-homepage .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 30px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  background-color: transparent;
+}
+
+.desktop-homepage .container {
+  display: flex;
+  max-width: 1200px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.desktop-homepage .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.desktop-homepage .my-name {
+  justify-content: center;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  align-self: stretch;
+  flex: 0 0 auto;
+}
+
+.desktop-homepage .text-wrapper {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1.00px;
+  font-family: "Univers-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: 36px;
+}
+
+.desktop-homepage .my-role {
+  justify-content: flex-end;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  align-self: stretch;
+  flex: 0 0 auto;
+}
+
+.desktop-homepage .div {
+  position: relative;
+  width: fit-content;
+  font-family: "Univers-Light", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop-homepage .main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  background-color: #ffffff;
+}
+
+.desktop-homepage .decor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 89px 0px;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.desktop-homepage .lale {
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  aspect-ratio: 0.38;
+}
+
+.desktop-homepage .main-inner-wrapper {
+  display: inline-flex;
+  max-width: 1200px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: #ffffff;
+}
+
+.desktop-homepage .main-inner {
+  display: flex;
+  width: 1160px;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px;
+  position: relative;
+  background-color: #ffffff;
+}
+
+.desktop-homepage .navigation {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.desktop-homepage .text-wrapper-2 {
+  position: relative;
+  width: 126px;
+  margin-top: -1.00px;
+  font-family: "Univers-Regular", Helvetica;
+  font-weight: 400;
+  color: #ff6ce1;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop-homepage .text-wrapper-3 {
+  position: relative;
+  width: fit-content;
+  font-family: "Univers-Bold", Helvetica;
+  font-weight: 700;
+  color: #ff6ce1;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop-homepage .text-wrapper-4 {
+  position: relative;
+  width: 166px;
+  font-family: "Univers-Regular", Helvetica;
+  font-weight: 400;
+  color: #ff6ce1;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop-homepage .content {
+  display: flex;
+  flex-direction: column;
+  width: 834px;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px;
+  position: relative;
+  border: 1px solid;
+  border-color: #ff6ce1;
+}
+
+.desktop-homepage .div-2 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.desktop-homepage .section-title {
+  gap: 10px;
+  padding: 0px 15px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.desktop-homepage .text-wrapper-5 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Univers-Bold", Helvetica;
+  font-weight: 700;
+  color: #ff6ce1;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop-homepage .experience {
+  display: flex;
+  width: 814px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 14px;
+  position: relative;
+  flex: 0 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.desktop-homepage .exp-left {
+  position: relative;
+  width: 481px;
+  height: 110px;
+}
+
+.desktop-homepage .position {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.desktop-homepage .role {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Univers-BoldCondensed", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop-homepage .company {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Univers-Condensed", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop-homepage .skills-container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 7px;
+  position: absolute;
+  top: 57px;
+  left: 0;
+}
+
+.desktop-homepage .responsibilities {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.desktop-homepage .reponsibility {
+  display: inline-flex;
+  align-items: flex-start;
+  padding: 2px 5px;
+  position: relative;
+  flex: 0 0 auto;
+  border-radius: 7px;
+  border: 1px solid;
+  border-color: #ff6ce1;
+}
+
+.desktop-homepage .text-wrapper-6 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Univers-Condensed", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop-homepage .tools {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.desktop-homepage .tool {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 2px 5px;
+  position: relative;
+  flex: 0 0 auto;
+  border-radius: 7px;
+  border: 1px solid;
+  border-color: #ff6ce1;
+}
+
+.desktop-homepage .exp-right {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 5px 10px;
+  position: relative;
+  align-self: stretch;
+  flex: 0 0 auto;
+}
+
+.desktop-homepage .dates {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.desktop-homepage .text-wrapper-7 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Univers-Condensed", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop-homepage .exp-left-2 {
+  width: 334px;
+  position: relative;
+  height: 110px;
+}
+
+.desktop-homepage .exp-left-3 {
+  width: 240px;
+  position: relative;
+  height: 110px;
+}
+
+.desktop-homepage .section-content {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.desktop-homepage .exp-left-4 {
+  width: 352px;
+  position: relative;
+  height: 110px;
+}
+/* Inject original CSS code here */
+
+.desktop-homepage .text-wrapper-2,
+.desktop-homepage .text-wrapper-3,
+.desktop-homepage .text-wrapper-4 {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.desktop-homepage .text-wrapper-2:hover,
+.desktop-homepage .text-wrapper-3:hover,
+.desktop-homepage .text-wrapper-4:hover {
+  color: #ff3cc7;
+}
+
+.desktop-homepage .text-wrapper-2:focus,
+.desktop-homepage .text-wrapper-3:focus,
+.desktop-homepage .text-wrapper-4:focus {
+  outline: 2px solid #ff6ce1;
+  outline-offset: 2px;
+}
+
+.desktop-homepage .responsibilities,
+.desktop-homepage .tools {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
