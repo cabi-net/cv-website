@@ -8,7 +8,7 @@
   background-color: #ffffff;
 }
 
-.desktop-homepage .header {
+.desktop-homepage .container-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,28 +36,26 @@
 
 .desktop-homepage .header-inner {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
   position: relative;
   flex: 1;
   flex-grow: 1;
 }
 
 .desktop-homepage .my-name {
-  justify-content: center;
   display: inline-flex;
   flex-direction: column;
+  height: 53px;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   position: relative;
-  align-self: stretch;
-  flex: 0 0 auto;
 }
 
 .desktop-homepage .text-wrapper {
   position: relative;
   align-self: stretch;
-  margin-top: -1.00px;
   font-family: "Univers-Bold", Helvetica;
   font-weight: 700;
   color: #000000;
@@ -66,15 +64,16 @@
   line-height: 36px;
 }
 
-.desktop-homepage .my-role {
-  justify-content: flex-end;
-  display: inline-flex;
+.desktop-homepage .intro {
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  height: 53px;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
   position: relative;
   align-self: stretch;
-  flex: 0 0 auto;
+  width: 100%;
 }
 
 .desktop-homepage .div {
@@ -83,7 +82,7 @@
   font-family: "Univers-Light", Helvetica;
   font-weight: 300;
   color: #000000;
-  font-size: 20px;
+  font-size: 16px;
   letter-spacing: 0;
   line-height: normal;
 }
@@ -380,15 +379,15 @@
 }
 
 .desktop-homepage .exp-left-2 {
-  width: 334px;
   position: relative;
+  width: 334px;
   height: 110px;
 }
 
 .desktop-homepage .exp-left-3 {
-  width: 240px;
   position: relative;
-  height: 110px;
+  width: 240px;
+  height: 80px;
 }
 
 .desktop-homepage .section-content {
@@ -401,28 +400,67 @@
 }
 
 .desktop-homepage .exp-left-4 {
-  width: 352px;
   position: relative;
+  width: 352px;
   height: 110px;
+}
+
+.desktop-homepage .footer-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.desktop-homepage .email {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  flex: 0 0 auto;
+  border: none;
+  background: none;
+  align-self: stretch;
+  margin-top: -1.00px;
+  font-family: "Univers-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  padding: 0;
 }
 /* Inject original CSS code here */
 
-.desktop-homepage .text-wrapper-2,
-.desktop-homepage .text-wrapper-3,
-.desktop-homepage .text-wrapper-4 {
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.desktop-homepage .navigation a {
+  text-decoration: none;
+  color: inherit;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
-.desktop-homepage .text-wrapper-2:hover,
-.desktop-homepage .text-wrapper-3:hover,
-.desktop-homepage .text-wrapper-4:hover {
-  color: #ff3cc7;
+.desktop-homepage .navigation a:hover {
+  opacity: 0.7;
 }
 
-.desktop-homepage .text-wrapper-2:focus,
-.desktop-homepage .text-wrapper-3:focus,
-.desktop-homepage .text-wrapper-4:focus {
+.desktop-homepage .navigation a:focus {
   outline: 2px solid #ff6ce1;
   outline-offset: 2px;
 }
@@ -430,6 +468,16 @@
 .desktop-homepage .responsibilities,
 .desktop-homepage .tools {
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
+}
+
+.desktop-homepage .email:focus {
+  outline: 2px solid #ff6ce1;
+  outline-offset: 2px;
+}
+
+.desktop-homepage .email::placeholder {
+  color: #000000;
+  opacity: 1;
 }
