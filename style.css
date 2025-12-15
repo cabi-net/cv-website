@@ -28,7 +28,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 20px;
+  padding: 10px 20px;
   position: relative;
   width: 100%;
   flex: 0 0 auto;
@@ -121,6 +121,7 @@
 
 .desktop-homepage .main-inner-wrapper {
   display: inline-flex;
+  background-color: #ffffff;
   max-width: 1200px;
   align-items: center;
   justify-content: center;
@@ -128,26 +129,45 @@
   padding: 20px;
   position: relative;
   flex: 0 0 auto;
-  background-color: #ffffff;
 }
 
 .desktop-homepage .main-inner {
   display: flex;
+  flex-direction: column;
   width: 1160px;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 15px;
   padding: 30px;
   position: relative;
   background-color: #ffffff;
 }
 
-.desktop-homepage .navigation {
+.desktop-homepage .main-top {
+  display: inline-flex;
+  height: 623px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.desktop-homepage .nav-section {
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
   display: inline-flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 10px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.desktop-homepage .nav-menu {
+  align-items: flex-start;
   padding: 10px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
   position: relative;
   flex: 0 0 auto;
 }
@@ -193,9 +213,9 @@
   align-items: flex-start;
   justify-content: center;
   gap: 15px;
-  padding: 10px;
+  padding: 15px 10px;
   position: relative;
-  border: 1px solid;
+  border: 3px solid;
   border-color: #ff6ce1;
 }
 
@@ -222,12 +242,13 @@
   position: relative;
   width: fit-content;
   margin-top: -1.00px;
-  font-family: "Univers-Bold", Helvetica;
-  font-weight: 700;
+  font-family: var(--section-title-font-family);
+  font-weight: var(--section-title-font-weight);
   color: #ff6ce1;
-  font-size: 24px;
-  letter-spacing: 0;
-  line-height: normal;
+  font-size: var(--section-title-font-size);
+  letter-spacing: var(--section-title-letter-spacing);
+  line-height: var(--section-title-line-height);
+  font-style: var(--section-title-font-style);
 }
 
 .desktop-homepage .experience {
@@ -261,12 +282,13 @@
   position: relative;
   width: fit-content;
   margin-top: -1.00px;
-  font-family: "Univers-BoldCondensed", Helvetica;
-  font-weight: 700;
+  font-family: var(--title-font-family);
+  font-weight: var(--title-font-weight);
   color: #000000;
-  font-size: 20px;
-  letter-spacing: 0;
-  line-height: normal;
+  font-size: var(--title-font-size);
+  letter-spacing: var(--title-letter-spacing);
+  line-height: var(--title-line-height);
+  font-style: var(--title-font-style);
 }
 
 .desktop-homepage .company {
@@ -384,6 +406,18 @@
   height: 110px;
 }
 
+.desktop-homepage .role-2 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Univers-BoldCondensed", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
 .desktop-homepage .exp-left-3 {
   position: relative;
   width: 240px;
@@ -403,6 +437,57 @@
   position: relative;
   width: 352px;
   height: 110px;
+}
+
+.desktop-homepage .main-bottom {
+  display: flex;
+  flex-direction: column;
+  max-width: 1020px;
+  align-items: flex-end;
+  gap: 10px;
+  position: relative;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.desktop-homepage .message {
+  display: flex;
+  flex-direction: column;
+  max-width: 834px;
+  width: 834px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  position: relative;
+  border: 1px solid;
+  border-color: #ff6ce1;
+}
+
+.desktop-homepage .p {
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  margin-top: -1.00px;
+  font-family: "Univers-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop-homepage .footer-inner-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  position: relative;
+  flex: 0 0 auto;
 }
 
 .desktop-homepage .footer-inner {
@@ -437,7 +522,7 @@
 }
 /* Inject original CSS code here */
 
-.visually-hidden {
+.desktop-homepage .visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -449,18 +534,24 @@
   border-width: 0;
 }
 
-.desktop-homepage .navigation a {
+.desktop-homepage .nav-menu {
+  list-style: none;
+  margin: 0;
+}
+
+.desktop-homepage .nav-menu li {
+  display: block;
+}
+
+.desktop-homepage .nav-menu a {
+  display: block;
   text-decoration: none;
   color: inherit;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
 }
 
-.desktop-homepage .navigation a:hover {
-  opacity: 0.7;
-}
-
-.desktop-homepage .navigation a:focus {
+.desktop-homepage .nav-menu a:hover,
+.desktop-homepage .nav-menu a:focus {
+  text-decoration: underline;
   outline: 2px solid #ff6ce1;
   outline-offset: 2px;
 }
@@ -468,8 +559,13 @@
 .desktop-homepage .responsibilities,
 .desktop-homepage .tools {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+}
+
+.desktop-homepage .responsibilities li,
+.desktop-homepage .tools li {
+  display: inline-block;
 }
 
 .desktop-homepage .email:focus {

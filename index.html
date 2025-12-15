@@ -9,6 +9,7 @@
     />
     <title>Meric Sila Taskin - Portfolio</title>
     <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -32,143 +33,154 @@
         </aside>
         <div class="main-inner-wrapper">
           <div class="main-inner">
-            <nav class="navigation" aria-label="Main navigation">
-              <a href="#education" class="text-wrapper-2">Education</a>
-              <a href="#experience" class="text-wrapper-3">Experience</a>
-              <a href="#drafts" class="text-wrapper-4">Drafts + Musings</a>
-              <a href="#tools" class="text-wrapper-4">Tools + Capabilities</a>
-            </nav>
-            <section class="content" id="experience">
-              <article class="div-2">
-                <header class="section-title">
-                  <h2 class="text-wrapper-5">Professional</h2>
-                </header>
+            <div class="main-top">
+              <nav class="nav-section" aria-label="Main navigation">
+                <ul class="nav-menu" role="list">
+                  <li><a href="#education" class="text-wrapper-2">Education</a></li>
+                  <li><a href="#experience" class="text-wrapper-3" aria-current="page">Experience</a></li>
+                  <li><a href="#drafts" class="text-wrapper-4">Drafts + Musings</a></li>
+                  <li><a href="#tools" class="text-wrapper-4">Tools + Capabilities</a></li>
+                </ul>
+              </nav>
+              <section class="content" id="experience" aria-labelledby="professional-experience-heading">
                 <div class="div-2">
-                  <article class="experience">
-                    <div class="exp-left">
-                      <div class="position">
-                        <h3 class="role">QA Test Analyst &amp; Automation Developer</h3>
-                        <p class="company">Canadian Imperial Bank of Commerce (CIBC)</p>
+                  <header class="section-title">
+                    <h2 id="professional-experience-heading" class="text-wrapper-5">Professional Experience</h2>
+                  </header>
+                  <div class="div-2">
+                    <article class="experience">
+                      <div class="exp-left">
+                        <div class="position">
+                          <h3 class="role">QA Test Analyst &amp; Automation Developer</h3>
+                          <p class="company">Canadian Imperial Bank of Commerce (CIBC)</p>
+                        </div>
+                        <div class="skills-container">
+                          <ul class="responsibilities" role="list" aria-label="Responsibilities">
+                            <li class="reponsibility"><span class="text-wrapper-6">Test Automation</span></li>
+                            <li class="reponsibility"><span class="text-wrapper-6">Data Quality</span></li>
+                            <li class="reponsibility"><span class="text-wrapper-6">ETL Testing</span></li>
+                            <li class="reponsibility"><span class="text-wrapper-6">Test Design</span></li>
+                            <li class="reponsibility"><span class="text-wrapper-6">AI Automation</span></li>
+                          </ul>
+                          <ul class="tools" role="list" aria-label="Tools and technologies">
+                            <li class="tool"><span class="text-wrapper-6">Python</span></li>
+                            <li class="tool"><span class="text-wrapper-6">Selenium</span></li>
+                            <li class="tool"><span class="text-wrapper-6">Databricks</span></li>
+                            <li class="tool"><span class="text-wrapper-6">PySpark</span></li>
+                            <li class="tool"><span class="text-wrapper-6">SQL</span></li>
+                            <li class="tool"><span class="text-wrapper-6">JIRA</span></li>
+                            <li class="tool"><span class="text-wrapper-6">GitHub</span></li>
+                          </ul>
+                        </div>
                       </div>
-                      <div class="skills-container">
-                        <ul class="responsibilities" aria-label="Responsibilities">
-                          <li class="reponsibility"><span class="text-wrapper-6">Test Automation</span></li>
-                          <li class="reponsibility"><span class="text-wrapper-6">Data Quality</span></li>
-                          <li class="reponsibility"><span class="text-wrapper-6">ETL Testing</span></li>
-                          <li class="reponsibility"><span class="text-wrapper-6">Test Design</span></li>
-                          <li class="reponsibility"><span class="text-wrapper-6">AI Automation</span></li>
-                        </ul>
-                        <ul class="tools" aria-label="Tools and technologies">
-                          <li class="tool"><span class="text-wrapper-6">Python</span></li>
-                          <li class="tool"><span class="text-wrapper-6">Selenium</span></li>
-                          <li class="tool"><span class="text-wrapper-6">Databricks</span></li>
-                          <li class="tool"><span class="text-wrapper-6">PySpark</span></li>
-                          <li class="tool"><span class="text-wrapper-6">SQL</span></li>
-                          <li class="tool"><span class="text-wrapper-6">JIRA</span></li>
-                          <li class="tool"><span class="text-wrapper-6">GitHub</span></li>
-                        </ul>
+                      <div class="exp-right">
+                        <time class="dates" datetime="2024-02"
+                          ><span class="text-wrapper-7">Feb 2024 - Present</span></time
+                        >
                       </div>
-                    </div>
-                    <div class="exp-right">
-                      <time class="dates" datetime="2024-02/P">
-                        <span class="text-wrapper-7">Feb 2024 - Present</span>
-                      </time>
-                    </div>
-                  </article>
-                  <article class="experience">
-                    <div class="exp-left-2">
-                      <div class="position">
-                        <h3 class="role">Machine Learning Research Assistant</h3>
-                        <p class="company">University of Toronto</p>
+                    </article>
+                    <article class="experience">
+                      <div class="exp-left-2">
+                        <div class="position">
+                          <h3 class="role-2">Machine Learning Research Assistant</h3>
+                          <p class="company">University of&nbsp;&nbsp;Toronto</p>
+                        </div>
+                        <div class="skills-container">
+                          <ul class="responsibilities" role="list" aria-label="Responsibilities">
+                            <li class="reponsibility"><span class="text-wrapper-6">Web Scraping</span></li>
+                            <li class="reponsibility"><span class="text-wrapper-6">Data Mining</span></li>
+                            <li class="reponsibility"><span class="text-wrapper-6">Browser Automation</span></li>
+                          </ul>
+                          <ul class="tools" role="list" aria-label="Tools and technologies">
+                            <li class="tool"><span class="text-wrapper-6">Python</span></li>
+                            <li class="tool"><span class="text-wrapper-6">Selenium</span></li>
+                            <li class="tool"><span class="text-wrapper-6">Pandas</span></li>
+                            <li class="tool"><span class="text-wrapper-6">BeautifulSoup</span></li>
+                          </ul>
+                        </div>
                       </div>
-                      <div class="skills-container">
-                        <ul class="responsibilities" aria-label="Responsibilities">
-                          <li class="reponsibility"><span class="text-wrapper-6">Web Scraping</span></li>
-                          <li class="reponsibility"><span class="text-wrapper-6">Data Mining</span></li>
-                          <li class="reponsibility"><span class="text-wrapper-6">Browser Automation</span></li>
-                        </ul>
-                        <ul class="tools" aria-label="Tools and technologies">
-                          <li class="tool"><span class="text-wrapper-6">Python</span></li>
-                          <li class="tool"><span class="text-wrapper-6">Selenium</span></li>
-                          <li class="tool"><span class="text-wrapper-6">Pandas</span></li>
-                          <li class="tool"><span class="text-wrapper-6">BeautifulSoup</span></li>
-                        </ul>
+                      <div class="exp-right">
+                        <time class="dates" datetime="2023-02/2023-05"
+                          ><span class="text-wrapper-7">Feb&nbsp;&nbsp;- May 2023</span></time
+                        >
                       </div>
-                    </div>
-                    <div class="exp-right">
-                      <time class="dates" datetime="2023-02/2023-05">
-                        <span class="text-wrapper-7">Feb - May 2023</span>
-                      </time>
-                    </div>
-                  </article>
-                  <article class="experience">
-                    <div class="exp-left-3">
-                      <div class="position">
-                        <h3 class="role">Cybersecurity Analyst</h3>
-                        <p class="company">Bank of Montreal (BMO)</p>
+                    </article>
+                    <article class="experience">
+                      <div class="exp-left-3">
+                        <div class="position">
+                          <h3 class="role-2">Cybersecurity Analyst</h3>
+                          <p class="company">Bank of Montreal (BMO)</p>
+                        </div>
+                        <div class="skills-container">
+                          <ul class="responsibilities" role="list" aria-label="Responsibilities">
+                            <li class="reponsibility"><span class="text-wrapper-6">Data Monitoring</span></li>
+                            <li class="reponsibility"><span class="text-wrapper-6">Incident Response</span></li>
+                          </ul>
+                        </div>
                       </div>
-                      <div class="skills-container">
-                        <ul class="responsibilities" aria-label="Responsibilities">
-                          <li class="reponsibility"><span class="text-wrapper-6">Data Monitoring</span></li>
-                          <li class="reponsibility"><span class="text-wrapper-6">Incident Response</span></li>
-                        </ul>
+                      <div class="exp-right">
+                        <time class="dates" datetime="2022-05/2022-12"
+                          ><span class="text-wrapper-7">May&nbsp;&nbsp;- Dec 2022</span></time
+                        >
                       </div>
-                    </div>
-                    <div class="exp-right">
-                      <time class="dates" datetime="2022-05/2022-12">
-                        <span class="text-wrapper-7">May - Dec 2022</span>
-                      </time>
-                    </div>
-                  </article>
+                    </article>
+                  </div>
                 </div>
-              </article>
-              <article class="div-2">
-                <header class="section-title">
-                  <h2 class="text-wrapper-5">Freelance</h2>
-                </header>
-                <div class="section-content">
-                  <article class="experience">
-                    <div class="exp-left-4">
-                      <div class="position">
-                        <h3 class="role">Frontend Developer</h3>
-                        <p class="company">Real Estate Listings Platform (Client Project)</p>
+                <div class="div-2">
+                  <header class="section-title"><h2 class="text-wrapper-5">Freelance</h2></header>
+                  <div class="section-content">
+                    <article class="experience">
+                      <div class="exp-left-4">
+                        <div class="position">
+                          <h3 class="role-2">Frontend Developer</h3>
+                          <p class="company">Real Estate Listings Platform (Client Project)</p>
+                        </div>
+                        <div class="skills-container">
+                          <ul class="responsibilities" role="list" aria-label="Responsibilities">
+                            <li class="reponsibility">
+                              <span class="text-wrapper-6">Responsive Web Development</span>
+                            </li>
+                            <li class="reponsibility"><span class="text-wrapper-6">UI Design</span></li>
+                          </ul>
+                          <ul class="tools" role="list" aria-label="Tools and technologies">
+                            <li class="tool"><span class="text-wrapper-6">React</span></li>
+                            <li class="tool"><span class="text-wrapper-6">Typescript</span></li>
+                            <li class="tool"><span class="text-wrapper-6">CSS</span></li>
+                            <li class="tool"><span class="text-wrapper-6">HTML</span></li>
+                          </ul>
+                        </div>
                       </div>
-                      <div class="skills-container">
-                        <ul class="responsibilities" aria-label="Responsibilities">
-                          <li class="reponsibility"><span class="text-wrapper-6">Responsive Web Development</span></li>
-                          <li class="reponsibility"><span class="text-wrapper-6">UI Design</span></li>
-                        </ul>
-                        <ul class="tools" aria-label="Tools and technologies">
-                          <li class="tool"><span class="text-wrapper-6">React</span></li>
-                          <li class="tool"><span class="text-wrapper-6">Typescript</span></li>
-                          <li class="tool"><span class="text-wrapper-6">CSS</span></li>
-                          <li class="tool"><span class="text-wrapper-6">HTML</span></li>
-                        </ul>
+                      <div class="exp-right">
+                        <time class="dates" datetime="2025-03/2025-06"
+                          ><span class="text-wrapper-7">March&nbsp;&nbsp;- June 2025</span></time
+                        >
                       </div>
-                    </div>
-                    <div class="exp-right">
-                      <time class="dates" datetime="2025-03/2025-06">
-                        <span class="text-wrapper-7">March - June 2025</span>
-                      </time>
-                    </div>
-                  </article>
+                    </article>
+                  </div>
                 </div>
-              </article>
-            </section>
+              </section>
+            </div>
+            <div class="main-bottom">
+              <aside class="message" aria-label="Additional information">
+                <p class="p">
+                  here dwell the details on chips clicked. it is however not yet quite clear how wide or tall, how more
+                  to the left and how further down it must go.
+                </p>
+              </aside>
+            </div>
           </div>
         </div>
       </main>
       <footer class="container-wrapper">
-        <div class="container">
+        <div class="footer-inner-wrapper">
           <div class="footer-inner">
             <label for="email-input" class="visually-hidden">Email address</label>
             <input
-              id="email-input"
               class="email"
+              id="email-input"
               placeholder="silataskin@gmail.com"
               type="email"
-              aria-label="Email address"
-              name="email"
+              aria-label="Email contact"
             />
           </div>
         </div>
@@ -176,3 +188,4 @@
     </div>
   </body>
 </html>
+
