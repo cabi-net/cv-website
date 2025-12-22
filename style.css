@@ -102,6 +102,9 @@
 .silataskingmailcom {
   position: relative;
 }
+.text {
+  position: relative;
+}
 .container2,
 .main {
   background-color: var(--color-white);
@@ -310,123 +313,47 @@
   gap: var(--gap-7);
   font-size: var(--fs-15);
 }
-.responsibilities {
+.responsibilities,
+.responsibilities3,
+.tools,
+.tools3 {
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--gap-10);
 }
+.responsibilities3,
+.tools3 {
+  flex-shrink: 0;
+}
 .reponsibility,
 .reponsibility6,
-.reponsibility9 {
+.reponsibility9,
+.tool,
+.tool7,
+.tool8,
+.tool12,
+.tool15 {
   border-radius: var(--br-7);
   border: var(--border-1);
   display: flex;
   padding: var(--padding-2) var(--padding-5);
   flex-shrink: 0;
-}
-.reponsibility,
-.reponsibility6 {
   align-items: flex-start;
-}
-.reponsibility9 {
-  display: none;
-}
-.tool,
-.tool7,
-.tool8,
-.tool12,
-.tool15,
-.tools {
-  display: flex;
-  align-items: center;
-}
-.tools {
-  overflow: hidden;
-  gap: var(--gap-10);
-}
-.tool,
-.tool7,
-.tool8,
-.tool12,
-.tool15 {
   cursor: pointer;
-  border: var(--border-1);
-  padding: var(--padding-2) var(--padding-5);
-  border-radius: var(--br-7);
-  justify-content: center;
   background-color: transparent;
+  justify-content: center;
 }
+.reponsibility9,
+.tool7,
 .tool12,
 .tool15 {
   display: none;
-}
-.name {
-  position: relative;
-  font-size: var(--fs-15);
-  font-family: var(--font-univers);
-  color: var(--color-black);
-  text-align: left;
-}
-.dates,
-.exp-right {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-.exp-right {
-  align-self: stretch;
-  align-items: flex-start;
-  padding: var(--padding-5) var(--padding-10);
-  font-size: var(--fs-16);
-}
-.dates {
-  align-items: center;
-  justify-content: center;
-}
-.exp-left2 {
-  width: var(--exp-left-width-2);
-}
-.company2 {
-  position: relative;
-  font-size: inherit;
-  font-weight: 400;
-  font-family: inherit;
-  white-space: pre-wrap;
-  margin: -1px 0 0;
-}
-.reponsibility6 {
-  display: flex;
-  align-items: flex-start;
-}
-.tool8 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .feb-2024-2 {
   position: relative;
   white-space: pre-wrap;
-}
-.exp-left3 {
-  width: var(--exp-left-width-3);
-}
-.responsibilities3 {
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--gap-10);
-  flex-shrink: 0;
-}
-.tools3 {
-  overflow: hidden;
-  gap: var(--gap-10);
-  flex-shrink: 0;
-}
-.exp-left4 {
-  width: var(--exp-left-width-4);
 }
 .main-bottom {
   align-self: stretch;
