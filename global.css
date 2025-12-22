@@ -56,4 +56,12 @@ body {
 
   /* LineHeights */
   --lh-36: 36px;
+
+  /* Experience Section Sizing */
+  --exp-left-height-standard: 110px;
+  --exp-left-height-compact: 80px;
+  --exp-left-width-1: 481px;
+  --exp-left-width-2: 334px;
+  --exp-left-width-3: 240px;
+  --exp-left-width-4: 352px;
 }
