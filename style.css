@@ -131,7 +131,7 @@
   font-family: var(--font-univers);
 }
 .decor,
-.lale-2-icon {
+.lale-icon {
   align-self: stretch;
   overflow: hidden;
 }
@@ -144,7 +144,7 @@
   min-width: 135px;
   max-width: 180px;
 }
-.lale-2-icon {
+.lale-icon {
   position: relative;
   max-width: 100%;
   max-height: 100%;
@@ -173,26 +173,50 @@
   padding: var(--padding-10);
   gap: var(--gap-10);
 }
-.drafts-musings,
+
+/* .drafts-musings,
 .education,
-.experience,
+.experience-type,
 .tools-capabilities {
   margin: 0;
   position: relative;
   font-size: inherit;
   font-family: inherit;
+} */
+
+.experience-type {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 700;
 }
-.education {
+
+.nav-link{
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
   width: 126px;
   font-weight: 400;
   display: inline-block;
 }
-.drafts-musings,
-.experience,
+
+/* .education {
+  width: 126px;
+  font-weight: 400;
+  display: inline-block;
+} */
+
+
+/* .drafts-musings,
+.experience-type,
 .tools-capabilities {
   font-weight: 700;
-}
-.drafts-musings,
+} */
+ 
+
+/* .drafts-musings,
 .tools-capabilities {
   width: 126px;
   height: 59px;
@@ -202,9 +226,11 @@
 .tools-capabilities {
   width: 139px;
   height: 70px;
-}
+} */
+
+
 .content,
-.exp {
+.content-inner {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -219,7 +245,7 @@
   min-width: 646px;
   max-width: 814px;
 }
-.exp {
+.content-inner {
   border: 3px solid var(--color-violet);
   align-items: flex-start;
   padding: 11px var(--padding-12);
@@ -229,12 +255,12 @@
   color: var(--color-violet);
   font-family: var(--font-univers);
 }
-.exp,
-.exp-professional {
+.content-inner,
+.content-inner-section {
   align-self: stretch;
   gap: var(--gap-15);
 }
-.exp-professional,
+.content-inner-section,
 .section-content,
 .section-title {
   display: flex;
@@ -252,7 +278,7 @@
   color: var(--color-black);
   font-family: "Univers Condensed";
 }
-.experience-1 {
+.inner-section-content {
   align-self: stretch;
   border-radius: var(--br-15);
   overflow: hidden;
@@ -268,7 +294,7 @@
   min-width: var(--exp-left-width-1);
   flex-shrink: 0;
 }
-.position {
+.titles {
   position: absolute;
   top: 0;
   left: 0;
@@ -276,15 +302,15 @@
   flex-direction: column;
   align-items: flex-start;
 }
-.company,
-.role {
+.title-2,
+.title-1 {
   margin: 0;
   position: relative;
   font-size: inherit;
   font-weight: 700;
   font-family: inherit;
 }
-.company {
+.title-2 {
   font-weight: 400;
   margin: -1px 0 0;
   font-family: "Univers Condensed";
@@ -304,9 +330,7 @@
   box-sizing: border-box;
 }
 .responsibilities,
-.responsibilities3,
-.tools,
-.tools3 {
+.tools {
   overflow: visible;
   display: flex;
   flex-wrap: wrap;
@@ -314,18 +338,9 @@
   justify-content: flex-start;
   gap: var(--gap-10);
 }
-.responsibilities3,
-.tools3 {
-  flex-shrink: 0;
-}
-.reponsibility,
-.reponsibility6,
-.reponsibility9,
-.tool,
-.tool7,
-.tool8,
-.tool12,
-.tool15 {
+
+.responsibility,
+.tool {
   border-radius: var(--br-7);
   border: var(--border-1);
   display: flex;
@@ -336,12 +351,12 @@
   background-color: transparent;
   justify-content: center;
 }
-.reponsibility9,
+/* .responsibility9,
 .tool7,
 .tool12,
 .tool15 {
   display: none;
-}
+} */
 .name {
   position: relative;
   font-size: var(--fs-15);
@@ -357,11 +372,13 @@
   padding: var(--padding-0);
   font-size: var(--fs-16);
 }
-.dates {
+
+/* .dates-container {
   position: relative;
   font-family: "Univers Condensed";
-}
-.feb-2024-2 {
+} */
+
+.dates {
   position: relative;
   white-space: pre-wrap;
   font-family: "Univers Condensed";
@@ -448,10 +465,7 @@
   }
 }
 @media screen and (max-width: 450px) {
-  .drafts-musings,
-  .education,
-  .experience,
-  .tools-capabilities {
+  .nav-link {
     font-size: var(--fs-19);
   }
 }
