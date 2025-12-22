@@ -244,6 +244,7 @@
   align-items: flex-start;
   padding: 11px var(--padding-12);
   min-width: 613px;
+  height: 646px;
   text-align: left;
   font-size: var(--fs-24);
   color: var(--color-violet);
