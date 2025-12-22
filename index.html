@@ -70,23 +70,24 @@
             />
           </div>
 
-          <section class="nav-section">
+          <!-- TODO: fix nav link classes, standardize styling and implement boldening of active selection -->
+          <section class="nav-section"> 
             <div class="nav-menu">
-              <h3 class="education">Education</h3>
-              <h3 class="experience">Experience</h3>
-              <h2 class="drafts-musings">Drafts + Musings</h2>
-              <h2 class="tools-capabilities">Tools + Capabilities</h2>
+              <h3 class="education" data-content="education">Education</h3>
+              <h3 class="experience-type" data-content="experience">Experience</h3>
+              <h2 class="drafts-musings" data-content="drafts">Drafts + Musings</h2>
+              <h2 class="tools-capabilities" data-content="tools">Tools + Capabilities</h2>
             </div>
           </section>
           
-          <div class="content">
+          <div class="content" data-section="experience">
             <section class="exp">
               <div class="exp-professional">
                 <div class="section-title">
-                  <h3 class="experience">Professional Experience</h3>
+                  <h3 class="experience-type">Professional Experience</h3>
                 </div>
                 <div class="section-content">
-                  <div class="experience-1">
+                  <div class="experience">
                     <div class="exp-left">
                       <div class="position">
                         <h3 class="role">
@@ -170,7 +171,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="experience-1">
+                  <div class="experience">
                     <div class="exp-left">
                       <div class="position">
                         <h3 class="role">
@@ -223,7 +224,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="experience-1">
+                  <div class="experience">
                     <div class="exp-left">
                       <div class="position">
                         <h3 class="role">Cybersecurity Analyst</h3>
@@ -277,10 +278,10 @@
               </div>
               <div class="exp-professional">
                 <div class="section-title">
-                  <h3 class="experience">Freelance</h3>
+                  <h3 class="experience-type">Freelance</h3>
                 </div>
                 <div class="section-content">
-                  <div class="experience-1">
+                  <div class="experience">
                     <div class="exp-left">
                       <div class="position">
                         <h3 class="role">Frontend Developer</h3>
@@ -345,6 +346,22 @@
               </div>
             </div>
           </div>
+
+          <!-- Education Section -->
+          <div class="content" data-section="education" style="display: none;">
+            <p>Education content goes here</p>
+          </div>
+
+          <!-- Drafts + Musings Section -->
+          <div class="content" data-section="drafts" style="display: none;">
+            <p>Drafts + Musings content goes here</p>
+          </div>
+
+          <!-- Tools + Capabilities Section -->
+          <div class="content" data-section="tools" style="display: none;">
+            
+
+          </div>
         </section>
       </main>
       <div class="footer">
@@ -357,5 +374,34 @@
         </div>
       </div>
     </div>
+    
+    <script>
+      // Get all nav items and content sections
+      const navItems = document.querySelectorAll('[data-content]');
+      
+      // Add click listeners to nav items
+      navItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const contentType = this.getAttribute('data-content');
+          switchContent(contentType);
+        });
+      });
+      
+      function switchContent(contentType) {
+        // Hide all content sections
+        document.querySelectorAll('[data-section]').forEach(section => {
+          section.style.display = 'none';
+        });
+        
+        // Show the selected content section
+        const selectedSection = document.querySelector(`[data-section="${contentType}"]`);
+        if (selectedSection) {
+          selectedSection.style.display = 'block';
+        }
+      }
+      
+      // Show experience by default
+      switchContent('experience');
+    </script>
   </body>
 </html>

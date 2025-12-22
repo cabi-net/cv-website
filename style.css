@@ -175,7 +175,7 @@
 }
 .drafts-musings,
 .education,
-.experience,
+.experience-type,
 .tools-capabilities {
   margin: 0;
   position: relative;
@@ -188,7 +188,7 @@
   display: inline-block;
 }
 .drafts-musings,
-.experience,
+.experience-type,
 .tools-capabilities {
   font-weight: 700;
 }
@@ -252,7 +252,7 @@
   color: var(--color-black);
   font-family: "Univers Condensed";
 }
-.experience-1 {
+.experience {
   align-self: stretch;
   border-radius: var(--br-15);
   overflow: hidden;
@@ -450,7 +450,7 @@
 @media screen and (max-width: 450px) {
   .drafts-musings,
   .education,
-  .experience,
+  .experience-type,
   .tools-capabilities {
     font-size: var(--fs-19);
   }
