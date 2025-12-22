@@ -184,13 +184,7 @@
   font-family: inherit;
 } */
 
-.experience-type {
-  margin: 0;
-  position: relative;
-  font-size: inherit;
-  font-family: inherit;
-  font-weight: 700;
-}
+
 
 .nav-link{
   margin: 0;
@@ -271,6 +265,14 @@
   overflow: hidden;
   padding: var(--padding-0) var(--padding-15);
 }
+.section-title h3 {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 700;
+}
+
 .section-content {
   align-self: stretch;
   gap: var(--gap-15);
