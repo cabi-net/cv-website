@@ -318,10 +318,10 @@
 .responsibilities3,
 .tools,
 .tools3 {
-  overflow: hidden;
+  overflow: visible;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   gap: var(--gap-10);
 }
 .responsibilities3,
@@ -352,9 +352,29 @@
 .tool15 {
   display: none;
 }
+.name {
+  position: relative;
+  font-size: var(--fs-15);
+  font-family: var(--font-univers);
+  color: var(--color-black);
+  text-align: left;
+}
+.exp-right {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: var(--padding-0);
+  font-size: var(--fs-16);
+}
+.dates {
+  position: relative;
+  font-family: "Univers Condensed";
+}
 .feb-2024-2 {
   position: relative;
   white-space: pre-wrap;
+  font-family: "Univers Condensed";
 }
 .main-bottom {
   align-self: stretch;
