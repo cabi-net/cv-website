@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* Common Style Variables */
+
+  /* Color */
+  --color-black: #000;
+  --color-violet: #ff6de2;
+  --color-white: #fff;
+
+  /* Gap */
+  --gap-3: 3px;
+  --gap-7: 7px;
+  --gap-10: 10px;
+  --gap-15: 15px;
+  --gap-20: 20px;
+
+  /* Padding */
+  --padding-0: 0px;
+  --padding-2: 2px;
+  --padding-5: 5px;
+  --padding-6: 6px;
+  --padding-10: 10px;
+  --padding-12: 12px;
+  --padding-14: 14px;
+  --padding-15: 15px;
+  --padding-20: 20px;
+  --padding-24: 24px;
+  --padding-30: 30px;
+
+  /* BorderRadius */
+  --br-5: 5px;
+  --br-7: 7px;
+  --br-15: 15px;
+
+  /* Font */
+  --font-univers: Univers;
+
+  /* FontSize */
+  --fs-15: 15px;
+  --fs-16: 16px;
+  --fs-19: 19px;
+  --fs-20: 20px;
+  --fs-24: 24px;
+  --fs-36: 36px;
+
+  /* Borders */
+  --border-1: 1px solid var(--color-violet);
+
+  /* WidthHeights */
+  --height-100: 100px;
+  --max-w-1200: 1200px;
+
+  /* LineHeights */
+  --lh-36: 36px;
+
+  /* Experience Section Sizing */
+  --exp-left-height-standard: 110px;
+  --exp-left-height-compact: 80px;
+  --exp-left-width-1: 481px;
+  --exp-left-width-2: 334px;
+  --exp-left-width-3: 240px;
+  --exp-left-width-4: 352px;
+}
