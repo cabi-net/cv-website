@@ -36,17 +36,25 @@
       --color-black: #000;
       --color-violet: #ff6de2;
       --color-white: #fff;
+      --gap-3: 3px;
+      --gap-7: 7px;
       --gap-10: 10px;
       --gap-15: 15px;
       --gap-20: 20px;
+      --padding-6: 6px;
       --padding-10: 10px;
+      --padding-12: 12px;
+      --padding-14: 14px;
       --padding-15: 15px;
       --padding-20: 20px;
+      --padding-24: 24px;
       --padding-30: 30px;
       --br-5: 5px;
       --br-7: 7px;
       --br-15: 15px;
+      --fs-15: 15px;
       --fs-16: 16px;
+      --fs-19: 19px;
       --fs-20: 20px;
       --fs-24: 24px;
       --fs-36: 36px;
@@ -54,6 +62,7 @@
       --max-w-1200: 1200px;
       --border-1: 1px solid var(--color-violet);
       --font-univers: Univers, sans-serif;
+      --height-100: 100px;
     }
 
     * {
@@ -66,36 +75,39 @@
       font-size: var(--fs-16);
       color: var(--color-black);
       background-color: var(--color-white);
-      line-height: 1.5;
+      line-height: normal;
+      letter-spacing: normal;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      min-width: 977px;
+      display: flex;
+      flex-direction: column;
     }
 
     /* ==================== HEADER ==================== */
     .header {
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      padding: var(--padding-30) var(--padding-15);
-      border-bottom: 2px solid var(--color-violet);
+      padding: var(--padding-30) 0;
+      min-height: 160px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-w-1200);
+      padding: var(--padding-15);
     }
 
     .header-content {
-      width: 100%;
-      max-width: var(--max-w-1200);
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
+      width: 100%;
       gap: 20px;
-    }
-
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .header-decor {
-      width: 60px;
-      height: 60px;
-      opacity: 0.8;
     }
 
     .header-name h1 {
@@ -106,17 +118,24 @@
     }
 
     .header-info {
-      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: var(--gap-7);
     }
 
     .header-bio {
-      margin-bottom: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: var(--gap-3);
     }
 
-    .bio-text {
+    .bio-what,
+    .bio-where {
       margin: 0;
-      font-size: 14px;
       font-weight: 300;
+      font-size: var(--fs-16);
     }
 
     .header-contact a {
@@ -129,159 +148,197 @@
       text-decoration: underline;
     }
 
-    /* ==================== NAVIGATION ==================== */
-    .main-nav {
-      background: linear-gradient(to bottom, rgba(255, 109, 226, 0.05), transparent);
-      border-bottom: 1px solid rgba(255, 109, 226, 0.2);
+    /* ==================== MAIN LAYOUT ==================== */
+    .main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 var(--padding-30);
+      min-height: 783px;
+      background-color: var(--color-white);
     }
 
-    .nav-container {
+    .main-layout {
+      display: flex;
+      gap: var(--gap-10);
+      width: 100%;
       max-width: var(--max-w-1200);
-      margin: 0 auto;
-      padding: 0 var(--padding-15);
+      padding: var(--padding-15) 0;
+    }
+
+    /* ==================== SIDEBAR (LEFT) ==================== */
+    .sidebar-left {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-10);
+    }
+
+    .sidebar-decor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 135px;
+      max-width: 180px;
+      overflow: hidden;
+    }
+
+    .lale-icon {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      object-fit: cover;
+    }
+
+    /* ==================== NAVIGATION ==================== */
+    .main-nav {
+      min-width: 139px;
+      max-width: 186px;
     }
 
     .nav-list {
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: var(--padding-10);
       display: flex;
-      gap: 0;
+      flex-direction: column;
+      gap: var(--gap-10);
+    }
+
+    .nav-list li {
+      margin: 0;
+      padding: 0;
     }
 
     .nav-link {
-      padding: 15px 25px;
+      display: block;
+      width: 100%;
+      padding: 0;
+      margin: 0;
       background: none;
       border: none;
+      text-align: left;
       font-family: var(--font-univers);
-      font-size: var(--fs-20);
+      font-size: var(--fs-24);
       font-weight: 400;
       color: var(--color-violet);
       cursor: pointer;
-      transition: all 0.2s;
-      border-bottom: 3px solid transparent;
+      transition: font-weight 0.2s;
     }
 
     .nav-link:hover {
       font-weight: 700;
-      background-color: rgba(255, 109, 226, 0.05);
     }
 
     .nav-link.active {
       font-weight: 700;
-      border-bottom-color: var(--color-violet);
     }
 
-    /* ==================== MAIN CONTENT ==================== */
-    .main {
-      display: flex;
-      justify-content: center;
-      padding: var(--padding-30) var(--padding-15);
-      min-height: 600px;
-    }
-
+    /* ==================== CONTENT WRAPPER ==================== */
     .content-wrapper {
-      width: 100%;
-      max-width: 900px;
+      flex: 1;
+      min-width: 646px;
+      max-width: 814px;
+      display: flex;
+      flex-direction: column;
     }
 
     .content-section {
       display: none;
+      flex-direction: column;
+      border-radius: var(--br-5);
+      padding: var(--padding-15) var(--padding-10);
     }
 
     .content-section.active {
-      display: block;
+      display: flex;
     }
 
     .content-inner {
-      border: 2px solid var(--color-violet);
-      border-radius: var(--br-5);
-      padding: 30px;
-      margin-bottom: 20px;
+      border: 3px solid var(--color-violet);
+      padding: 11px var(--padding-12);
+      min-height: 646px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-15);
     }
 
+    /* ==================== SECTION GROUP ==================== */
     .section-group {
-      margin-bottom: 40px;
-    }
-
-    .section-group:last-child {
-      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-15);
     }
 
     .section-heading {
-      margin: 0 0 20px 0;
+      margin: 0;
+      padding: 0 var(--padding-15);
       font-size: var(--fs-24);
       font-weight: 700;
       color: var(--color-violet);
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(255, 109, 226, 0.2);
+      font-family: var(--font-univers);
     }
 
     /* ==================== EXPERIENCE ACCORDION ==================== */
     .experience-item {
-      border: 1px solid rgba(255, 109, 226, 0.3);
-      border-radius: var(--br-7);
-      margin-bottom: 15px;
+      padding: var(--padding-6) var(--padding-14);
+      border-radius: var(--br-15);
       overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .experience-item:hover {
-      border-color: var(--color-violet);
-      box-shadow: 0 2px 8px rgba(255, 109, 226, 0.1);
     }
 
     .exp-header {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
-      padding: 15px 20px;
+      gap: var(--gap-20);
       cursor: pointer;
-      background: white;
-      transition: background-color 0.2s;
-      gap: 20px;
+      transition: opacity 0.2s ease;
     }
 
     .exp-header:hover {
-      background-color: rgba(255, 109, 226, 0.03);
-    }
-
-    .experience-item.expanded .exp-header {
-      background-color: rgba(255, 109, 226, 0.05);
+      opacity: 0.7;
     }
 
     .exp-header-left {
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
     }
 
     .exp-title {
-      margin: 0 0 2px 0;
+      margin: 0;
       font-size: var(--fs-20);
       font-weight: 700;
-      font-family: "Univers Condensed", sans-serif;
       color: var(--color-black);
+      font-family: "Univers Condensed", sans-serif;
     }
 
     .exp-company {
       margin: 0;
-      font-size: 18px;
+      font-size: var(--fs-20);
       font-weight: 400;
+      color: var(--color-black);
       font-family: "Univers Condensed", sans-serif;
-      color: rgba(0, 0, 0, 0.7);
+    }
+
+    .exp-header-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .exp-date {
-      font-size: 15px;
+      flex-shrink: 0;
+      font-size: var(--fs-16);
       font-family: "Univers Condensed", sans-serif;
-      color: rgba(0, 0, 0, 0.6);
       white-space: nowrap;
     }
 
     .exp-expand-icon {
-      font-size: 18px;
+      font-size: 14px;
       color: var(--color-violet);
-      transition: transform 0.3s;
-      margin-left: 10px;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      user-select: none;
     }
 
     .experience-item.expanded .exp-expand-icon {
@@ -291,57 +348,78 @@
     .exp-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease;
-      padding: 0 20px;
+      opacity: 0;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                  margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-top: 0;
     }
 
     .experience-item.expanded .exp-content {
-      max-height: 500px;
-      padding: 0 20px 20px 20px;
+      max-height: 600px;
+      opacity: 1;
+      margin-top: 15px;
     }
 
     .exp-tags {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: var(--gap-7);
     }
 
     .tag-group {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: var(--gap-10);
     }
 
     .tag {
-      padding: 4px 12px;
+      display: inline-flex;
+      align-items: center;
+      padding: var(--padding-2) 10px;
       border: var(--border-1);
       border-radius: var(--br-7);
-      font-size: 14px;
-      background-color: white;
+      font-size: var(--fs-15);
+      font-family: var(--font-univers);
+      color: var(--color-black);
+      background-color: transparent;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       user-select: none;
     }
 
     .tag:hover {
       background-color: var(--color-violet);
-      color: white;
-      transform: translateY(-1px);
-      box-shadow: 0 2px 4px rgba(255, 109, 226, 0.3);
+      color: var(--color-white);
+      transform: translateY(-2px);
+      box-shadow: 0 3px 8px rgba(255, 109, 226, 0.35);
     }
 
     .tag.active {
       background-color: var(--color-violet);
-      color: white;
+      color: var(--color-white);
     }
 
     /* ==================== DETAIL PANEL ==================== */
+    .section-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 var(--padding-24);
+      min-height: var(--height-100);
+    }
+
     .detail-panel {
-      border: 2px solid var(--color-violet);
+      width: 100%;
+      max-width: 834px;
+      margin: 0;
+      padding: var(--padding-10) var(--padding-14);
+      border: var(--border-1);
       border-radius: var(--br-5);
-      padding: 25px;
-      min-height: 150px;
-      background-color: rgba(255, 109, 226, 0.02);
+      font-size: var(--fs-16);
+      line-height: 1.5;
+      min-height: 80px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .detail-panel.empty {
@@ -353,9 +431,10 @@
     }
 
     .detail-panel h3 {
-      margin: 0 0 15px 0;
+      margin: 0 0 10px 0;
       font-size: var(--fs-20);
       color: var(--color-violet);
+      font-weight: 700;
     }
 
     .detail-panel p {
@@ -364,25 +443,45 @@
     }
 
     .detail-panel ul {
-      margin: 10px 0;
+      margin: 8px 0 0 0;
       padding-left: 20px;
     }
 
     .detail-panel li {
-      margin-bottom: 8px;
-      line-height: 1.6;
+      margin-bottom: 6px;
+      line-height: 1.5;
     }
 
-    /* ==================== FOOTER ==================== */
+    /* ==================== SIDEBAR (RIGHT) ==================== */
+    .sidebar-right {
+      min-width: 135px;
+      max-width: 180px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 50px;
+    }
+
+    .sidebar-right .sidebar-decor {
+      transform: scaleX(-1);
+      opacity: 0.6;
+    }
+
+    /* ==================== PAGE FOOTER ==================== */
     .page-footer {
-      border-top: 2px solid var(--color-violet);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-content {
       padding: var(--padding-20);
-      text-align: center;
     }
 
     .footer-content a {
       color: var(--color-black);
       text-decoration: none;
+      font-size: var(--fs-16);
     }
 
     .footer-content a:hover {
@@ -390,257 +489,307 @@
     }
 
     /* ==================== RESPONSIVE ==================== */
-    @media screen and (max-width: 768px) {
-      .header-content {
-        flex-direction: column;
-        text-align: center;
+    @media screen and (max-width: 1200px) {
+      .container {
+        max-width: 100%;
+      }
+      
+      .header-bio {
+        display: none;
       }
 
-      .header-info {
-        text-align: center;
+      .sidebar-right {
+        display: none;
       }
+    }
 
-      .nav-list {
+    @media screen and (max-width: 1050px) {
+      .main-layout {
         flex-wrap: wrap;
-        justify-content: center;
       }
-
-      .exp-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+      
+      .content-wrapper,
+      .section-footer {
+        max-width: 100%;
       }
+    }
 
-      .exp-date {
-        align-self: flex-end;
+    @media screen and (max-width: 750px) {
+      .content-wrapper {
+        min-width: 100%;
+        flex: 1;
+      }
+    }
+
+    @media screen and (max-width: 450px) {
+      .nav-link {
+        font-size: var(--fs-19);
       }
     }
   </style>
 </head>
 <body>
-  <!-- HEADER -->
-  <header class="header">
-    <div class="header-content">
-      <div class="header-left">
-        <svg class="header-decor" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50 10 L60 30 L80 30 L65 45 L70 65 L50 50 L30 65 L35 45 L20 30 L40 30 Z" fill="#ff6de2" opacity="0.6"/>
-        </svg>
-        <div class="header-name">
-          <h1>Meric Sila Taskin</h1>
+  <div class="page-wrapper">
+    
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="header-name">
+            <h1>Meric Sila Taskin</h1>
+          </div>
+          <div class="header-info">
+            <div class="header-bio">
+              <p class="bio-what">developer, designer, digital forager and alchemist, etc.</p>
+              <p class="bio-where">currently based in Toronto, Canada</p>
+            </div>
+            <div class="header-contact">
+              <a href="mailto:silataskin@gmail.com">silataskin@gmail.com</a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="header-info">
-        <div class="header-bio">
-          <p class="bio-text">developer, designer, digital forager and alchemist, etc.</p>
-          <p class="bio-text">currently based in Toronto, Canada</p>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <div class="container">
+        <div class="main-layout">
+          
+          <!-- LEFT SIDEBAR -->
+          <aside class="sidebar-left">
+            <div class="sidebar-decor">
+              <img class="lale-icon" src="./gfx/lale.png" alt="Decorative tulip illustration" />
+            </div>
+            
+            <nav class="main-nav" aria-label="Main navigation">
+              <ul class="nav-list">
+                <li><button class="nav-link" data-section="education">Education</button></li>
+                <li><button class="nav-link active" data-section="experience">Experience</button></li>
+                <li><button class="nav-link" data-section="drafts">Drafts + Musings</button></li>
+                <li><button class="nav-link" data-section="tools">Tools + Capabilities</button></li>
+              </ul>
+            </nav>
+          </aside>
+
+          <!-- CONTENT AREA -->
+          <div class="content-wrapper">
+            
+            <!-- EXPERIENCE SECTION -->
+            <section class="content-section active" data-section="experience">
+              <div class="content-inner">
+                
+                <!-- Professional Experience -->
+                <div class="section-group">
+                  <h2 class="section-heading">Professional Experience</h2>
+                  
+                  <article class="experience-item" data-role="cibc">
+                    <div class="exp-header">
+                      <div class="exp-header-left">
+                        <h3 class="exp-title">QA Test Analyst & Automation Developer</h3>
+                        <p class="exp-company">Canadian Imperial Bank of Commerce (CIBC)</p>
+                      </div>
+                      <div class="exp-header-right">
+                        <time class="exp-date" datetime="2024-02">Feb 2024 - Present</time>
+                        <span class="exp-expand-icon">▼</span>
+                      </div>
+                    </div>
+                    <div class="exp-content">
+                      <div class="exp-tags">
+                        <div class="tag-group">
+                          <span class="tag" data-skill="test-automation">Test Automation</span>
+                          <span class="tag" data-skill="data-quality">Data Quality</span>
+                          <span class="tag" data-skill="etl-testing">ETL Testing</span>
+                          <span class="tag" data-skill="test-design">Test Design</span>
+                          <span class="tag" data-skill="automation">Automation</span>
+                        </div>
+                        <div class="tag-group">
+                          <span class="tag" data-skill="python">Python</span>
+                          <span class="tag" data-skill="selenium">Selenium</span>
+                          <span class="tag" data-skill="databricks">Databricks</span>
+                          <span class="tag" data-skill="pyspark">PySpark</span>
+                          <span class="tag" data-skill="sql">SQL</span>
+                          <span class="tag" data-skill="jira">JIRA</span>
+                          <span class="tag" data-skill="github">GitHub</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="experience-item" data-role="uoft">
+                    <div class="exp-header">
+                      <div class="exp-header-left">
+                        <h3 class="exp-title">Machine Learning Research Assistant</h3>
+                        <p class="exp-company">University of Toronto</p>
+                      </div>
+                      <div class="exp-header-right">
+                        <time class="exp-date" datetime="2023-02/2023-05">Feb - May 2023</time>
+                        <span class="exp-expand-icon">▼</span>
+                      </div>
+                    </div>
+                    <div class="exp-content">
+                      <div class="exp-tags">
+                        <div class="tag-group">
+                          <span class="tag" data-skill="web-scraping">Web Scraping</span>
+                          <span class="tag" data-skill="data-mining">Data Mining</span>
+                          <span class="tag" data-skill="browser-automation">Browser Automation</span>
+                        </div>
+                        <div class="tag-group">
+                          <span class="tag" data-skill="python">Python</span>
+                          <span class="tag" data-skill="selenium">Selenium</span>
+                          <span class="tag" data-skill="pandas">Pandas</span>
+                          <span class="tag" data-skill="beautifulsoup">BeautifulSoup</span>
+                          <span class="tag" data-skill="sql">SQL</span>
+                          <span class="tag" data-skill="jira">JIRA</span>
+                          <span class="tag" data-skill="github">GitHub</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="experience-item" data-role="bmo">
+                    <div class="exp-header">
+                      <div class="exp-header-left">
+                        <h3 class="exp-title">Cybersecurity Analyst</h3>
+                        <p class="exp-company">Bank of Montreal (BMO)</p>
+                      </div>
+                      <div class="exp-header-right">
+                        <time class="exp-date" datetime="2022-05/2022-12">May - Dec 2022</time>
+                        <span class="exp-expand-icon">▼</span>
+                      </div>
+                    </div>
+                    <div class="exp-content">
+                      <div class="exp-tags">
+                        <div class="tag-group">
+                          <span class="tag" data-skill="data-monitoring">Data Monitoring</span>
+                          <span class="tag" data-skill="incident-response">Incident Response</span>
+                        </div>
+                        <div class="tag-group">
+                          <span class="tag" data-skill="python">Python</span>
+                          <span class="tag" data-skill="selenium">Selenium</span>
+                          <span class="tag" data-skill="databricks">Databricks</span>
+                          <span class="tag" data-skill="pyspark">PySpark</span>
+                          <span class="tag" data-skill="sql">SQL</span>
+                          <span class="tag" data-skill="jira">JIRA</span>
+                          <span class="tag" data-skill="github">GitHub</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <!-- Freelance -->
+                <div class="section-group">
+                  <h2 class="section-heading">Freelance</h2>
+                  
+                  <article class="experience-item" data-role="freelance">
+                    <div class="exp-header">
+                      <div class="exp-header-left">
+                        <h3 class="exp-title">Frontend Developer</h3>
+                        <p class="exp-company">Real Estate Listings Platform (Client Project)</p>
+                      </div>
+                      <div class="exp-header-right">
+                        <time class="exp-date" datetime="2025-03/2025-06">Mar - Jun 2025</time>
+                        <span class="exp-expand-icon">▼</span>
+                      </div>
+                    </div>
+                    <div class="exp-content">
+                      <div class="exp-tags">
+                        <div class="tag-group">
+                          <span class="tag" data-skill="responsive-web">Responsive Web Development</span>
+                          <span class="tag" data-skill="ui-design">UI Design</span>
+                        </div>
+                        <div class="tag-group">
+                          <span class="tag" data-skill="react">React</span>
+                          <span class="tag" data-skill="typescript">Typescript</span>
+                          <span class="tag" data-skill="css">CSS</span>
+                          <span class="tag" data-skill="html">HTML</span>
+                          <span class="tag" data-skill="sql">SQL</span>
+                          <span class="tag" data-skill="jira">JIRA</span>
+                          <span class="tag" data-skill="github">GitHub</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+
+              <!-- DETAIL PANEL -->
+              <footer class="section-footer">
+                <div class="detail-panel empty">
+                  Click any skill tag to see details and examples
+                </div>
+              </footer>
+            </section>
+
+            <!-- EDUCATION SECTION -->
+            <section class="content-section" data-section="education">
+              <div class="content-inner">
+                <div class="section-group">
+                  <h2 class="section-heading">Education</h2>
+                  <p>Education content goes here</p>
+                </div>
+              </div>
+              <footer class="section-footer">
+                <div class="detail-panel empty">
+                  Click any skill tag to see details and examples
+                </div>
+              </footer>
+            </section>
+
+            <!-- DRAFTS SECTION -->
+            <section class="content-section" data-section="drafts">
+              <div class="content-inner">
+                <div class="section-group">
+                  <h2 class="section-heading">Drafts + Musings</h2>
+                  <p>Drafts + Musings content goes here</p>
+                </div>
+              </div>
+              <footer class="section-footer">
+                <div class="detail-panel empty">
+                  Click any skill tag to see details and examples
+                </div>
+              </footer>
+            </section>
+
+            <!-- TOOLS SECTION -->
+            <section class="content-section" data-section="tools">
+              <div class="content-inner">
+                <div class="section-group">
+                  <h2 class="section-heading">Tools + Capabilities</h2>
+                  <p>Tools content goes here</p>
+                </div>
+              </div>
+              <footer class="section-footer">
+                <div class="detail-panel empty">
+                  Click any skill tag to see details and examples
+                </div>
+              </footer>
+            </section>
+          </div>
+
+          <!-- RIGHT SIDEBAR -->
+          <aside class="sidebar-right">
+            <div class="sidebar-decor">
+              <img class="lale-icon" src="./gfx/lale.png" alt="Decorative tulip illustration" />
+            </div>
+          </aside>
         </div>
-        <div class="header-contact">
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+      <div class="container">
+        <div class="footer-content">
           <a href="mailto:silataskin@gmail.com">silataskin@gmail.com</a>
         </div>
       </div>
-    </div>
-  </header>
-
-  <!-- NAVIGATION -->
-  <nav class="main-nav">
-    <div class="nav-container">
-      <ul class="nav-list">
-        <li><button class="nav-link" data-section="education">Education</button></li>
-        <li><button class="nav-link active" data-section="experience">Experience</button></li>
-        <li><button class="nav-link" data-section="drafts">Drafts + Musings</button></li>
-        <li><button class="nav-link" data-section="tools">Tools + Capabilities</button></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- MAIN CONTENT -->
-  <main class="main">
-    <div class="content-wrapper">
-      
-      <!-- EXPERIENCE SECTION -->
-      <section class="content-section active" data-section="experience">
-        <div class="content-inner">
-          
-          <!-- Professional Experience -->
-          <div class="section-group">
-            <h2 class="section-heading">Professional Experience</h2>
-            
-            <article class="experience-item" data-role="cibc">
-              <div class="exp-header">
-                <div class="exp-header-left">
-                  <h3 class="exp-title">QA Test Analyst & Automation Developer</h3>
-                  <p class="exp-company">Canadian Imperial Bank of Commerce (CIBC)</p>
-                </div>
-                <div style="display: flex; align-items: center;">
-                  <time class="exp-date" datetime="2024-02">Feb 2024 - Present</time>
-                  <span class="exp-expand-icon">▼</span>
-                </div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-tags">
-                  <div class="tag-group">
-                    <span class="tag" data-skill="test-automation">Test Automation</span>
-                    <span class="tag" data-skill="data-quality">Data Quality</span>
-                    <span class="tag" data-skill="etl-testing">ETL Testing</span>
-                    <span class="tag" data-skill="test-design">Test Design</span>
-                    <span class="tag" data-skill="automation">Automation</span>
-                  </div>
-                  <div class="tag-group">
-                    <span class="tag" data-skill="python">Python</span>
-                    <span class="tag" data-skill="selenium">Selenium</span>
-                    <span class="tag" data-skill="databricks">Databricks</span>
-                    <span class="tag" data-skill="pyspark">PySpark</span>
-                    <span class="tag" data-skill="sql">SQL</span>
-                    <span class="tag" data-skill="jira">JIRA</span>
-                    <span class="tag" data-skill="github">GitHub</span>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="experience-item" data-role="uoft">
-              <div class="exp-header">
-                <div class="exp-header-left">
-                  <h3 class="exp-title">Machine Learning Research Assistant</h3>
-                  <p class="exp-company">University of Toronto</p>
-                </div>
-                <div style="display: flex; align-items: center;">
-                  <time class="exp-date" datetime="2023-02/2023-05">Feb - May 2023</time>
-                  <span class="exp-expand-icon">▼</span>
-                </div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-tags">
-                  <div class="tag-group">
-                    <span class="tag" data-skill="web-scraping">Web Scraping</span>
-                    <span class="tag" data-skill="data-mining">Data Mining</span>
-                    <span class="tag" data-skill="browser-automation">Browser Automation</span>
-                  </div>
-                  <div class="tag-group">
-                    <span class="tag" data-skill="python">Python</span>
-                    <span class="tag" data-skill="selenium">Selenium</span>
-                    <span class="tag" data-skill="pandas">Pandas</span>
-                    <span class="tag" data-skill="beautifulsoup">BeautifulSoup</span>
-                    <span class="tag" data-skill="sql">SQL</span>
-                    <span class="tag" data-skill="jira">JIRA</span>
-                    <span class="tag" data-skill="github">GitHub</span>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="experience-item" data-role="bmo">
-              <div class="exp-header">
-                <div class="exp-header-left">
-                  <h3 class="exp-title">Cybersecurity Analyst</h3>
-                  <p class="exp-company">Bank of Montreal (BMO)</p>
-                </div>
-                <div style="display: flex; align-items: center;">
-                  <time class="exp-date" datetime="2022-05/2022-12">May - Dec 2022</time>
-                  <span class="exp-expand-icon">▼</span>
-                </div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-tags">
-                  <div class="tag-group">
-                    <span class="tag" data-skill="data-monitoring">Data Monitoring</span>
-                    <span class="tag" data-skill="incident-response">Incident Response</span>
-                  </div>
-                  <div class="tag-group">
-                    <span class="tag" data-skill="python">Python</span>
-                    <span class="tag" data-skill="selenium">Selenium</span>
-                    <span class="tag" data-skill="databricks">Databricks</span>
-                    <span class="tag" data-skill="pyspark">PySpark</span>
-                    <span class="tag" data-skill="sql">SQL</span>
-                    <span class="tag" data-skill="jira">JIRA</span>
-                    <span class="tag" data-skill="github">GitHub</span>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <!-- Freelance -->
-          <div class="section-group">
-            <h2 class="section-heading">Freelance</h2>
-            
-            <article class="experience-item" data-role="freelance">
-              <div class="exp-header">
-                <div class="exp-header-left">
-                  <h3 class="exp-title">Frontend Developer</h3>
-                  <p class="exp-company">Real Estate Listings Platform (Client Project)</p>
-                </div>
-                <div style="display: flex; align-items: center;">
-                  <time class="exp-date" datetime="2025-03/2025-06">Mar - Jun 2025</time>
-                  <span class="exp-expand-icon">▼</span>
-                </div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-tags">
-                  <div class="tag-group">
-                    <span class="tag" data-skill="responsive-web">Responsive Web Development</span>
-                    <span class="tag" data-skill="ui-design">UI Design</span>
-                  </div>
-                  <div class="tag-group">
-                    <span class="tag" data-skill="react">React</span>
-                    <span class="tag" data-skill="typescript">Typescript</span>
-                    <span class="tag" data-skill="css">CSS</span>
-                    <span class="tag" data-skill="html">HTML</span>
-                    <span class="tag" data-skill="sql">SQL</span>
-                    <span class="tag" data-skill="jira">JIRA</span>
-                    <span class="tag" data-skill="github">GitHub</span>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <!-- DETAIL PANEL -->
-        <div class="detail-panel empty">
-          Click any skill tag to see details and examples
-        </div>
-      </section>
-
-      <!-- OTHER SECTIONS -->
-      <section class="content-section" data-section="education">
-        <div class="content-inner">
-          <div class="section-group">
-            <h2 class="section-heading">Education</h2>
-            <p>Education content goes here</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-section" data-section="drafts">
-        <div class="content-inner">
-          <div class="section-group">
-            <h2 class="section-heading">Drafts + Musings</h2>
-            <p>Drafts + Musings content goes here</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-section" data-section="tools">
-        <div class="content-inner">
-          <div class="section-group">
-            <h2 class="section-heading">Tools + Capabilities</h2>
-            <p>Tools content goes here</p>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="page-footer">
-    <div class="footer-content">
-      <a href="mailto:silataskin@gmail.com">silataskin@gmail.com</a>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
   <script>
-    // Skill details database
+    // Skill details database (placeholder - replace with your actual content)
     const skillDetails = {
       'test-automation': {
         title: 'Test Automation',
@@ -686,24 +835,6 @@
           'Performed data analysis for cybersecurity monitoring',
           'Designed database schemas for client projects'
         ]
-      },
-      'data-quality': {
-        title: 'Data Quality',
-        description: 'Ensuring accuracy, completeness, and reliability of data across systems and pipelines.',
-        examples: [
-          'Implemented automated data validation checks for financial data',
-          'Created reconciliation frameworks for ETL processes',
-          'Developed data quality metrics and monitoring dashboards'
-        ]
-      },
-      'web-scraping': {
-        title: 'Web Scraping',
-        description: 'Extracting structured data from websites for research and analysis purposes.',
-        examples: [
-          'Built automated data collection systems for ML research',
-          'Developed scraping tools handling dynamic JavaScript content',
-          'Implemented rate limiting and ethical scraping practices'
-        ]
       }
     };
 
@@ -720,6 +851,23 @@
         
         contentSections.forEach(section => {
           section.classList.toggle('active', section.dataset.section === targetSection);
+        });
+
+        // Reset detail panel when switching sections
+        const detailPanel = document.querySelector('.content-section.active .detail-panel');
+        if (detailPanel) {
+          detailPanel.classList.add('empty');
+          detailPanel.innerHTML = 'Click any skill tag to see details and examples';
+        }
+
+        // Collapse all accordions
+        document.querySelectorAll('.experience-item').forEach(item => {
+          item.classList.remove('expanded');
+        });
+
+        // Clear active tags
+        document.querySelectorAll('.tag').forEach(tag => {
+          tag.classList.remove('active');
         });
       });
     });
@@ -747,7 +895,6 @@
     });
 
     // Tag click functionality
-    const detailPanel = document.querySelector('.detail-panel');
     const tags = document.querySelectorAll('.tag');
     
     tags.forEach(tag => {
@@ -756,9 +903,12 @@
         
         const skillId = tag.dataset.skill;
         const skillData = skillDetails[skillId];
+        const detailPanel = document.querySelector('.content-section.active .detail-panel');
+        
+        if (!detailPanel) return;
         
         // Remove active class from all tags
-        tags.forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
         tag.classList.add('active');
         
         if (skillData) {
