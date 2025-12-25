@@ -93,7 +93,7 @@
       align-items: center;
       justify-content: center;
       padding: var(--padding-30) 0;
-      min-height: 160px;
+      min-height: 140px;
     }
 
     .container {
@@ -148,6 +148,49 @@
       text-decoration: underline;
     }
 
+    /* ==================== NAVIGATION ==================== */
+    .main-nav {
+      background: linear-gradient(to bottom, rgba(255, 109, 226, 0.05), transparent);
+      border-bottom: 1px solid rgba(255, 109, 226, 0.2);
+    }
+
+    .nav-container {
+      max-width: var(--max-w-1200);
+      margin: 0 auto;
+      padding: 0 var(--padding-15);
+    }
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 0;
+    }
+
+    .nav-link {
+      padding: 15px 25px;
+      background: none;
+      border: none;
+      font-family: var(--font-univers);
+      font-size: var(--fs-20);
+      font-weight: 400;
+      color: var(--color-violet);
+      cursor: pointer;
+      transition: all 0.2s;
+      border-bottom: 3px solid transparent;
+    }
+
+    .nav-link:hover {
+      font-weight: 700;
+      background-color: rgba(255, 109, 226, 0.05);
+    }
+
+    .nav-link.active {
+      font-weight: 700;
+      border-bottom-color: var(--color-violet);
+    }
+
     /* ==================== MAIN LAYOUT ==================== */
     .main {
       display: flex;
@@ -166,20 +209,28 @@
       padding: var(--padding-15) 0;
     }
 
-    /* ==================== SIDEBAR (LEFT) ==================== */
-    .sidebar-left {
+    /* ==================== SIDEBAR DECORATIONS ==================== */
+    .sidebar-left,
+    .sidebar-right {
       display: flex;
-      flex-direction: column;
-      gap: var(--gap-10);
+      align-items: flex-start;
+      justify-content: center;
+      min-width: 135px;
+      max-width: 180px;
+      padding-top: 50px;
     }
 
     .sidebar-decor {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-width: 135px;
-      max-width: 180px;
       overflow: hidden;
+      opacity: 0.8;
+    }
+
+    .sidebar-right .sidebar-decor {
+      transform: scaleX(-1);
+      opacity: 0.6;
     }
 
     .lale-icon {
@@ -187,50 +238,6 @@
       height: auto;
       max-width: 100%;
       object-fit: cover;
-    }
-
-    /* ==================== NAVIGATION ==================== */
-    .main-nav {
-      min-width: 139px;
-      max-width: 186px;
-    }
-
-    .nav-list {
-      list-style: none;
-      margin: 0;
-      padding: var(--padding-10);
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap-10);
-    }
-
-    .nav-list li {
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-link {
-      display: block;
-      width: 100%;
-      padding: 0;
-      margin: 0;
-      background: none;
-      border: none;
-      text-align: left;
-      font-family: var(--font-univers);
-      font-size: var(--fs-24);
-      font-weight: 400;
-      color: var(--color-violet);
-      cursor: pointer;
-      transition: font-weight 0.2s;
-    }
-
-    .nav-link:hover {
-      font-weight: 700;
-    }
-
-    .nav-link.active {
-      font-weight: 700;
     }
 
     /* ==================== CONTENT WRAPPER ==================== */
@@ -364,25 +371,23 @@
     .exp-tags {
       display: flex;
       flex-direction: column;
-      gap: var(--gap-7);
+      gap: 10px;
     }
 
     .tag-group {
       display: flex;
       flex-wrap: wrap;
-      gap: var(--gap-10);
+      gap: 8px;
     }
 
     .tag {
-      display: inline-flex;
-      align-items: center;
-      padding: var(--padding-2) 10px;
+      padding: 4px 12px;
       border: var(--border-1);
       border-radius: var(--br-7);
-      font-size: var(--fs-15);
+      font-size: 14px;
       font-family: var(--font-univers);
       color: var(--color-black);
-      background-color: transparent;
+      background-color: white;
       cursor: pointer;
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       user-select: none;
@@ -390,14 +395,14 @@
 
     .tag:hover {
       background-color: var(--color-violet);
-      color: var(--color-white);
-      transform: translateY(-2px);
-      box-shadow: 0 3px 8px rgba(255, 109, 226, 0.35);
+      color: white;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(255, 109, 226, 0.3);
     }
 
     .tag.active {
       background-color: var(--color-violet);
-      color: var(--color-white);
+      color: white;
     }
 
     /* ==================== DETAIL PANEL ==================== */
@@ -452,21 +457,6 @@
       line-height: 1.5;
     }
 
-    /* ==================== SIDEBAR (RIGHT) ==================== */
-    .sidebar-right {
-      min-width: 135px;
-      max-width: 180px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding-top: 50px;
-    }
-
-    .sidebar-right .sidebar-decor {
-      transform: scaleX(-1);
-      opacity: 0.6;
-    }
-
     /* ==================== PAGE FOOTER ==================== */
     .page-footer {
       display: flex;
@@ -512,12 +502,21 @@
       .section-footer {
         max-width: 100%;
       }
+
+      .sidebar-left {
+        display: none;
+      }
     }
 
     @media screen and (max-width: 750px) {
       .content-wrapper {
         min-width: 100%;
         flex: 1;
+      }
+
+      .nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
       }
     }
 
@@ -551,6 +550,18 @@
       </div>
     </header>
 
+    <!-- NAVIGATION -->
+    <nav class="main-nav">
+      <div class="nav-container">
+        <ul class="nav-list">
+          <li><button class="nav-link" data-section="education">Education</button></li>
+          <li><button class="nav-link active" data-section="experience">Experience</button></li>
+          <li><button class="nav-link" data-section="drafts">Drafts + Musings</button></li>
+          <li><button class="nav-link" data-section="tools">Tools + Capabilities</button></li>
+        </ul>
+      </div>
+    </nav>
+
     <!-- MAIN CONTENT -->
     <main class="main">
       <div class="container">
@@ -561,15 +572,6 @@
             <div class="sidebar-decor">
               <img class="lale-icon" src="./gfx/lale.png" alt="Decorative tulip illustration" />
             </div>
-            
-            <nav class="main-nav" aria-label="Main navigation">
-              <ul class="nav-list">
-                <li><button class="nav-link" data-section="education">Education</button></li>
-                <li><button class="nav-link active" data-section="experience">Experience</button></li>
-                <li><button class="nav-link" data-section="drafts">Drafts + Musings</button></li>
-                <li><button class="nav-link" data-section="tools">Tools + Capabilities</button></li>
-              </ul>
-            </nav>
           </aside>
 
           <!-- CONTENT AREA -->
@@ -669,7 +671,7 @@
                           <span class="tag" data-skill="selenium">Selenium</span>
                           <span class="tag" data-skill="databricks">Databricks</span>
                           <span class="tag" data-skill="pyspark">PySpark</span>
-                          <span class="tag" data-skill="sql">SQL</span>
+                          <span class="tag" data-skill="advanced-sql">SQL</span>
                           <span class="tag" data-skill="jira">JIRA</span>
                           <span class="tag" data-skill="github">GitHub</span>
                         </div>
@@ -932,3 +934,4 @@
   </script>
 </body>
 </html>
+
