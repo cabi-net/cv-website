@@ -35,6 +35,7 @@
     :root {
       --color-black: #000;
       --color-violet: #ff6de2;
+      --color-olive: #9bba6f;
       --color-white: #fff;
       --gap-3: 3px;
       --gap-7: 7px;
@@ -393,15 +394,33 @@
       user-select: none;
     }
 
-    .tag:hover {
+    /* Responsibility tags (first tag-group) - violet */
+    .tag-group:first-child .tag:hover {
       background-color: var(--color-violet);
       color: white;
       transform: translateY(-1px);
       box-shadow: 0 2px 4px rgba(255, 109, 226, 0.3);
     }
 
-    .tag.active {
+    .tag-group:first-child .tag.active {
       background-color: var(--color-violet);
+      color: white;
+    }
+
+    /* Tool tags (second tag-group) - olive green */
+    .tag-group:nth-child(2) .tag {
+      border: 1px solid var(--color-olive);
+    }
+
+    .tag-group:nth-child(2) .tag:hover {
+      background-color: var(--color-olive);
+      color: white;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(168, 184, 136, 0.3);
+    }
+
+    .tag-group:nth-child(2) .tag.active {
+      background-color: var(--color-olive);
       color: white;
     }
 
@@ -419,12 +438,13 @@
       max-width: 834px;
       margin: 0;
       padding: var(--padding-10) var(--padding-14);
-      border: var(--border-1);
+      border: 1px solid var(--color-olive);
       border-radius: var(--br-5);
       font-size: var(--fs-16);
       line-height: 1.5;
       min-height: 80px;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background-color: rgba(168, 184, 136, 0.03);
     }
 
     .detail-panel.empty {
@@ -438,7 +458,7 @@
     .detail-panel h3 {
       margin: 0 0 10px 0;
       font-size: var(--fs-20);
-      color: var(--color-violet);
+      color: var(--color-olive);
       font-weight: 700;
     }
 
@@ -934,4 +954,3 @@
   </script>
 </body>
 </html>
-
