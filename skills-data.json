@@ -325,5 +325,62 @@
       "Documented testing strategies and procedures",
       "Built team knowledge bases and runbooks"
     ]
+  },
+  "krita": {
+    "title": "Krita",
+    "description": "Open-source digital painting and illustration software for creating original artwork and visual experiments.",
+    "examples": [
+      "Digital collage and photo manipulation combining found imagery with hand-drawn elements",
+      "Layered compositions exploring botanical and organic forms",
+      "Experimental visuals for personal art projects"
+    ]
+  },
+  "aseprite": {
+    "title": "Aseprite",
+    "description": "Pixel art editor for creating sprites, animations, and retro-styled digital artwork.",
+    "examples": [
+      "Designed pixel art UI components including login interfaces and decorative frames",
+      "Created custom lettering and iconography in pixel style"
+    ]
+  },
+  "unity": {
+    "title": "Unity",
+    "description": "Game engine for creating interactive 2D and 3D experiences.",
+    "examples": [
+      "Developed 2D shooter game with custom art assets and gameplay mechanics",
+      "Implemented game logic using C# scripting"
+    ]
+  },
+  "p5js": {
+    "title": "p5.js",
+    "description": "JavaScript library for creative coding, generative art, and interactive visual experiments.",
+    "examples": [
+      "Currently learning and experimenting with generative visuals",
+      "Exploring algorithmic art and interactive sketches"
+    ]
+  },
+  "touchdesigner": {
+    "title": "TouchDesigner",
+    "description": "Visual programming environment for real-time interactive multimedia content.",
+    "examples": [
+      "Currently exploring as a tool for generative visuals and interactive installations"
+    ]
+  },
+  "creative-coding": {
+    "title": "Creative Coding",
+    "description": "Using code as a medium for artistic expression and visual experimentation.",
+    "examples": [
+      "Exploring generative art, algorithmic design, and interactive web experiences",
+      "Combining programming skills with artistic sensibility"
+    ]
+  },
+  "javascript": {
+    "title": "JavaScript",
+    "description": "Programming language for web interactivity and creative coding projects.",
+    "examples": [
+      "Built interactive portfolio features including sparkle cursor effects",
+      "Implemented accordion navigation and dynamic content loading",
+      "Learning p5.js for creative coding and generative art"
+    ]
   }
 }
