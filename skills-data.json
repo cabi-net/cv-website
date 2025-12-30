@@ -1,0 +1,329 @@
+{
+  "test-automation": {
+    "title": "Test Automation",
+    "description": "Designing and implementing automated test frameworks for UI and data validation across multiple applications.",
+    "examples": [
+      "Built complete UI automation framework from scratch using Robot Framework and SeleniumLibrary",
+      "Developed Databricks automation workflows for large-scale ETL data validation",
+      "Integrated Azure DevOps pipelines for continuous test execution",
+      "Serve as primary QA automation engineer for 2 production applications"
+    ]
+  },
+  "data-quality": {
+    "title": "Data Quality & Validation",
+    "description": "Ensuring data accuracy and integrity through comprehensive validation strategies across large-scale database systems.",
+    "examples": [
+      "Perform complex data comparisons and count validations using TOAD for Oracle",
+      "Validate VBAC and data tokenization processes against business requirements",
+      "Build parallel ETL scripts to compare DEV and QA data outputs for exact matches",
+      "Work with enterprise-scale databases containing millions of records"
+    ]
+  },
+  "etl-testing": {
+    "title": "ETL Testing",
+    "description": "Validating Extract, Transform, Load processes by developing independent QA ETL scripts and comparing outputs against development implementations.",
+    "examples": [
+      "Develop QA ETL scripts in parallel with DEV team based on BRDs",
+      "Create comparison frameworks to validate DEV ETL outputs in SIT environment",
+      "Use PySpark and SQL to replicate business logic for data transformation validation",
+      "Ensure exact data parity between QA and DEV ETL pipeline outputs"
+    ]
+  },
+  "test-design": {
+    "title": "Test Strategy & Design",
+    "description": "Creating comprehensive test strategies aligned with business requirements and technical specifications.",
+    "examples": [
+      "Design test cases based on Business Requirements Documents (BRDs)",
+      "Develop advanced testing strategies for complex data tokenization scenarios",
+      "Create validation frameworks for both UI and backend data consistency",
+      "Leverage AI tools to optimize and automate manual testing workflows"
+    ]
+  },
+  "automation": {
+    "title": "Test & Process Automation",
+    "description": "Building automation solutions to reduce manual effort and increase testing efficiency.",
+    "examples": [
+      "Automated repetitive manual tasks using AI-powered solutions",
+      "Built end-to-end UI test automation from requirements to execution",
+      "Created Databricks workflow automations for scheduled data validations",
+      "Integrated CI/CD pipelines for automated test execution on code deployment"
+    ]
+  },
+  "web-scraping": {
+    "title": "Web Scraping",
+    "description": "Large-scale data extraction from websites for research and machine learning applications.",
+    "examples": [
+      "Scraped millions of data points from Google Arts & Culture and Wikidata for NBER-published ML research",
+      "Collected 630,000+ paintings with metadata (artist info, dates, countries) for economic development study",
+      "Implemented anti-bot detection bypass strategies to scrape protected Google platforms",
+      "Handled dynamic content challenges including infinite scroll and lazy-loaded images"
+    ]
+  },
+  "data-mining": {
+    "title": "Data Mining",
+    "description": "Extracting and processing large-scale datasets for machine learning research and analysis.",
+    "examples": [
+      "Collected millions of data points for NBER research analyzing economic development through historical art",
+      "Mined structured and unstructured data from Google Arts & Culture and Wikidata APIs",
+      "Processed metadata for 630,000+ paintings including temporal, geographic, and artist information",
+      "Contributed to ML algorithm development for predicting emotions in historical artworks"
+    ]
+  },
+  "browser-automation": {
+    "title": "Browser Automation",
+    "description": "Automating complex browser interactions for large-scale data collection and testing.",
+    "examples": [
+      "Automated data collection from Google Arts & Culture platform overcoming anti-bot protections",
+      "Handled dynamic JavaScript content with infinite scroll and lazy-loaded images",
+      "Implemented strategic delays and human-like browsing patterns to bypass detection systems",
+      "Scraped millions of data points across multiple web platforms for ML research"
+    ]
+  },
+  "data-monitoring": {
+    "title": "Data Monitoring",
+    "description": "Continuous monitoring of user behavior, data flows, and systems for security threats and policy violations.",
+    "examples": [
+      "Monitored internal threats using McAfee and proprietary security platforms at enterprise banking scale",
+      "Tracked user behavior patterns including data extractions, communications, and web traffic",
+      "Identified anomalous activities and potential security violations through behavioral analysis",
+      "Maintained watchlists for ongoing monitoring of high-risk user activities"
+    ]
+  },
+  "incident-response": {
+    "title": "Incident Response",
+    "description": "Investigating and responding to security incidents, managing user communications, and enforcing regulatory compliance.",
+    "examples": [
+      "Assessed and classified security incidents based on threat level and regulatory requirements",
+      "Executed response actions including user warnings (template emails), escalations, and account restrictions",
+      "Communicated directly with flagged users to explain violations and regulatory procedures",
+      "Managed watchlist creation for users requiring ongoing monitoring and investigation"
+    ]
+  },
+  "responsive-web": {
+    "title": "Responsive Web Development",
+    "description": "Building polished, user-friendly web components that work seamlessly across all device sizes.",
+    "examples": [
+      "Developed footer component for real estate platform with responsive layout and social media integration",
+      "Implemented mobile-first design patterns ensuring cross-device compatibility",
+      "Created modular, reusable React components aligned with product requirements",
+      "Ensured frontend components remained flexible to accommodate evolving backend API structures"
+    ]
+  },
+  "ui-design": {
+    "title": "UI Design",
+    "description": "Creating polished, user-friendly interfaces with attention to visual hierarchy and interaction details.",
+    "examples": [
+      "Implemented footer design with social media iconography and external linking for real estate platform",
+      "Enhanced visual polish through strategic spacing, soft dividers, and hover state animations",
+      "Developed consistent button and link styling aligned with product design expectations",
+      "Improved overall usability through thoughtful interaction patterns and visual feedback"
+    ]
+  },
+  "python": {
+    "title": "Python",
+    "description": "Primary programming language for test automation, data processing, web scraping, and research tooling.",
+    "examples": [
+      "Built UI automation framework using Python with Selenium and Robot Framework",
+      "Developed large-scale web scraping pipelines for ML research (millions of records)",
+      "Created custom test utilities and helper functions for data validation",
+      "Write PySpark scripts for large-scale data transformation testing"
+    ]
+  },
+  "selenium": {
+    "title": "Selenium & SeleniumLibrary",
+    "description": "Browser automation framework for UI testing and large-scale web data extraction.",
+    "examples": [
+      "Built complete web application test suite using SeleniumLibrary in Robot Framework",
+      "Automated scraping of millions of records from Google Arts & Culture",
+      "Created reusable page object patterns for maintainable test code",
+      "Integrated Selenium tests with Azure DevOps CI/CD pipelines"
+    ]
+  },
+  "robot-framework": {
+    "title": "Robot Framework",
+    "description": "Keyword-driven test automation framework for UI testing.",
+    "examples": [
+      "Built complete UI automation framework from scratch for web application",
+      "Created custom keywords and libraries for reusable test components",
+      "Integrated SeleniumLibrary for browser automation",
+      "Designed test suites using keyword-driven testing approach"
+    ]
+  },
+  "databricks": {
+    "title": "Databricks",
+    "description": "Cloud-based platform for ETL testing, data validation, and workflow automation.",
+    "examples": [
+      "Develop QA ETL scripts in Databricks notebooks for data validation",
+      "Create automated workflows for scheduled data quality checks",
+      "Build comparison frameworks to validate DEV vs QA data outputs",
+      "Process and validate large-scale datasets using Databricks compute clusters"
+    ]
+  },
+  "pyspark": {
+    "title": "PySpark",
+    "description": "Distributed computing framework for processing and validating large-scale datasets.",
+    "examples": [
+      "Write PySpark ETL scripts to replicate business transformation logic",
+      "Perform data validations on enterprise-scale database tables",
+      "Create comparison queries to validate millions of records efficiently",
+      "Optimize PySpark jobs for performance on large data volumes"
+    ]
+  },
+  "sql": {
+    "title": "SQL",
+    "description": "Database query language for data validation, ETL testing, and quality assurance.",
+    "examples": [
+      "Write complex SQL queries for data comparison and validation",
+      "Develop ETL validation scripts using SQL in Databricks",
+      "Perform data count validations and integrity checks using TOAD for Oracle",
+      "Create database comparison queries to ensure DEV and QA parity"
+    ]
+  },
+  "toad": {
+    "title": "TOAD for Oracle",
+    "description": "Database management tool for data validation and quality testing.",
+    "examples": [
+      "Perform data comparisons between environments",
+      "Validate data counts and integrity across large datasets",
+      "Test VBAC and data tokenization implementations",
+      "Execute complex queries for business requirement validation"
+    ]
+  },
+  "azure-devops": {
+    "title": "Azure DevOps",
+    "description": "CI/CD platform for automating test execution and deployment pipelines.",
+    "examples": [
+      "Configured Azure DevOps pipelines for automated UI test execution",
+      "Set up continuous integration for test automation frameworks",
+      "Managed build and release pipelines for QA environments",
+      "Transitioned workflows to JIRA/GitHub while maintaining pipeline integrations"
+    ]
+  },
+  "jira": {
+    "title": "JIRA",
+    "description": "Agile project management and defect tracking tool (recently migrated from TFS/Azure DevOps).",
+    "examples": [
+      "Manage test cases, user stories, and defect tracking",
+      "Document test execution results and quality metrics",
+      "Coordinate with development teams on bug prioritization and resolution",
+      "Transitioned from TFS/Azure DevOps to JIRA for project management"
+    ]
+  },
+  "github": {
+    "title": "GitHub",
+    "description": "Version control and collaboration platform for test automation code and web development projects.",
+    "examples": [
+      "Manage test automation repositories and version control",
+      "Prepared clean pull requests for feature branch merges on real estate platform project",
+      "Conduct code reviews for test framework contributions and frontend components",
+      "Migrated team repositories from TFS to GitHub"
+    ]
+  },
+  "pandas": {
+    "title": "Pandas",
+    "description": "Python library for large-scale data manipulation, cleaning, and analysis.",
+    "examples": [
+      "Processed millions of scraped data points for NBER machine learning research project",
+      "Cleaned and structured metadata for 630,000+ paintings including temporal and geographic data",
+      "Performed data transformations and aggregations on large-scale research datasets",
+      "Created analysis pipelines for academic research contributing to published papers"
+    ]
+  },
+  "beautifulsoup": {
+    "title": "BeautifulSoup",
+    "description": "Python library for parsing HTML and XML documents to extract structured data.",
+    "examples": [
+      "Parsed millions of HTML and XML pages from Google Arts & Culture and Wikidata",
+      "Extracted structured metadata (artist info, dates, countries, painting details) for ML research",
+      "Cleaned and processed complex nested HTML structures from dynamic web applications",
+      "Combined with Selenium for comprehensive data extraction from JavaScript-heavy platforms"
+    ]
+  },
+  "react": {
+    "title": "React",
+    "description": "JavaScript library for building modular, maintainable user interface components.",
+    "examples": [
+      "Built modular footer component with social media integration for real estate listing platform",
+      "Developed frontend-only components compatible with existing application architecture",
+      "Implemented interactive features including hover effects and external link handling",
+      "Designed component APIs to align with evolving backend response structures (e.g., ListingResponse)"
+    ]
+  },
+  "typescript": {
+    "title": "TypeScript",
+    "description": "Typed superset of JavaScript for building type-safe, maintainable applications.",
+    "examples": [
+      "Developed type-safe React components aligned with backend API response structures",
+      "Created interface definitions for evolving API models (e.g., ListingResponse)",
+      "Ensured compile-time type safety while maintaining frontend-backend compatibility",
+      "Built modular components with clear type contracts for team collaboration"
+    ]
+  },
+  "css": {
+    "title": "CSS",
+    "description": "Styling language for creating polished, responsive web designs with attention to detail.",
+    "examples": [
+      "Implemented footer layouts with strategic spacing, soft dividers, and visual hierarchy",
+      "Created smooth hover states and transition animations for enhanced user feedback",
+      "Developed consistent button and link styling systems across components",
+      "Applied responsive design patterns ensuring cross-device visual consistency"
+    ]
+  },
+  "html": {
+    "title": "HTML",
+    "description": "Markup language for creating semantic, accessible web content structures.",
+    "examples": [
+      "Built semantic footer component with external social media links and iconography",
+      "Implemented accessible markup patterns for real estate platform components",
+      "Created well-structured layouts compatible with existing application architecture",
+      "Ensured proper link handling for external resources (Facebook, Instagram, TikTok, YouTube)"
+    ]
+  },
+  "npm": {
+    "title": "npm",
+    "description": "Node Package Manager for JavaScript dependency management and development workflows.",
+    "examples": [
+      "Managed project dependencies for React + TypeScript real estate platform",
+      "Installed and configured frontend libraries including icon packages for social media integration",
+      "Maintained package.json to ensure consistent development environment across team",
+      "Coordinated dependency versions compatible with existing application structure"
+    ]
+  },
+  "git": {
+    "title": "Git",
+    "description": "Distributed version control system for managing code changes and team collaboration.",
+    "examples": [
+      "Managed feature branch workflows by syncing with main and creating clean pull requests",
+      "Maintained clean commit history for component development and refinements",
+      "Collaborated with backend team through version control while developing independently",
+      "Resolved merge conflicts and coordinated code integration across team branches"
+    ]
+  },
+  "pytest": {
+    "title": "Pytest",
+    "description": "Python testing framework for writing and running test cases.",
+    "examples": [
+      "Created unit and integration test suites",
+      "Implemented fixtures for test data management",
+      "Integrated tests with CI/CD pipelines"
+    ]
+  },
+  "figma": {
+    "title": "Figma",
+    "description": "Collaborative design tool for UI/UX design and prototyping.",
+    "examples": [
+      "Created wireframes and high-fidelity mockups",
+      "Designed component libraries and design systems",
+      "Collaborated with teams on design iterations"
+    ]
+  },
+  "confluence": {
+    "title": "Confluence",
+    "description": "Documentation and collaboration platform for team knowledge sharing.",
+    "examples": [
+      "Created and maintained technical documentation",
+      "Documented testing strategies and procedures",
+      "Built team knowledge bases and runbooks"
+    ]
+  }
+}
