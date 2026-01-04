@@ -1330,177 +1330,124 @@
         console.log('Try running a local server or the data will not be available');
       });
 
-    // Tinkerbell Magic Sparkle effect
-    var colour="#ff6de2";
-    var sparkles=120;
+    // Global flower trail effect
+    const globalFlowers = [];
+    const flowerColors = {
+      violet: 'rgba(255, 109, 226, ',
+      olive: 'rgba(155, 186, 111, ',
+      pink: 'rgba(255, 182, 235, ',
+      sage: 'rgba(180, 200, 150, '
+    };
 
-    var x=ox=400;
-    var y=oy=300;
-    var swide=800;
-    var shigh=600;
-    var sleft=sdown=0;
-    var tiny=new Array();
-    var star=new Array();
-    var starv=new Array();
-    var starx=new Array();
-    var stary=new Array();
-    var tinyx=new Array();
-    var tinyy=new Array();
-    var tinyv=new Array();
+    let globalCanvas, globalCtx;
+    let lastGlobalMousePos = { x: 0, y: 0 };
+    let globalAnimationId = null;
 
-    function initSparkles() {
-      if (document.getElementById) {
-        var i, rats, rlef, rdow;
-        for (var i=0; i<sparkles; i++) {
-          var rats=createDiv(3, 3);
-          rats.style.visibility="hidden";
-          rats.style.zIndex="999";
-          document.body.appendChild(tiny[i]=rats);
-          starv[i]=0;
-          tinyv[i]=0;
-          var rats=createDiv(5, 5);
-          rats.style.backgroundColor="transparent";
-          rats.style.visibility="hidden";
-          rats.style.zIndex="999";
-          var rlef=createDiv(1, 5);
-          var rdow=createDiv(5, 1);
-          rats.appendChild(rlef);
-          rats.appendChild(rdow);
-          rlef.style.top="2px";
-          rlef.style.left="0px";
-          rdow.style.top="0px";
-          rdow.style.left="2px";
-          document.body.appendChild(star[i]=rats);
-        }
-        set_width();
-        sparkle();
-      }
+    function initGlobalFlowers() {
+      // Create canvas overlay
+      globalCanvas = document.createElement('canvas');
+      globalCanvas.style.position = 'fixed';
+      globalCanvas.style.top = '0';
+      globalCanvas.style.left = '0';
+      globalCanvas.style.width = '100%';
+      globalCanvas.style.height = '100%';
+      globalCanvas.style.pointerEvents = 'none';
+      globalCanvas.style.zIndex = '9999';
+      document.body.appendChild(globalCanvas);
+
+      globalCtx = globalCanvas.getContext('2d');
+      resizeGlobalCanvas();
+
+      // Start animation loop
+      globalFlowerLoop();
     }
 
-    function sparkle() {
-      var c;
-      if (x!=ox || y!=oy) {
-        ox=x;
-        oy=y;
-        for (c=0; c<sparkles; c++) if (!starv[c]) {
-          star[c].style.left=(starx[c]=x)+"px";
-          star[c].style.top=(stary[c]=y)+"px";
-          star[c].style.clip="rect(0px, 5px, 5px, 0px)";
-          star[c].style.visibility="visible";
-          starv[c]=50;
-          break;
+    function resizeGlobalCanvas() {
+      globalCanvas.width = window.innerWidth;
+      globalCanvas.height = window.innerHeight;
+    }
+
+    function addGlobalFlower(x, y) {
+      globalFlowers.push({
+        x: x,
+        y: y,
+        size: 3 + Math.random() * 5,
+        petals: 4 + Math.floor(Math.random() * 3),
+        rotation: Math.random() * Math.PI * 2,
+        color: Math.random() > 0.5 ? 'violet' : 'pink',
+        life: 1,
+        decay: 0.008 + Math.random() * 0.005
+      });
+    }
+
+    function updateGlobalFlowers() {
+      for (let i = globalFlowers.length - 1; i >= 0; i--) {
+        globalFlowers[i].life -= globalFlowers[i].decay;
+        if (globalFlowers[i].life <= 0) {
+          globalFlowers.splice(i, 1);
         }
       }
-      for (c=0; c<sparkles; c++) {
-        if (starv[c]) update_star(c);
-        if (tinyv[c]) update_tiny(c);
-      }
-      setTimeout("sparkle()", 40);
     }
 
-    function update_star(i) {
-      if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
-      if (starv[i]) {
-        stary[i]+=1+Math.random()*3;
-        if (stary[i]<shigh+sdown) {
-          star[i].style.top=stary[i]+"px";
-          starx[i]+=(i%5-2)/5;
-          star[i].style.left=starx[i]+"px";
+    function drawGlobalFlowers() {
+      globalFlowers.forEach(flower => {
+        globalCtx.save();
+        globalCtx.translate(flower.x, flower.y);
+        globalCtx.rotate(flower.rotation);
+        globalCtx.globalAlpha = flower.life * 0.6;
+
+        // Draw petals
+        globalCtx.fillStyle = flowerColors[flower.color] + '0.7)';
+        for (let i = 0; i < flower.petals; i++) {
+          const angle = (i / flower.petals) * Math.PI * 2;
+          globalCtx.beginPath();
+          globalCtx.ellipse(
+            Math.cos(angle) * flower.size * 0.5,
+            Math.sin(angle) * flower.size * 0.5,
+            flower.size * 0.6,
+            flower.size * 0.3,
+            angle,
+            0, Math.PI * 2
+          );
+          globalCtx.fill();
         }
-        else {
-          star[i].style.visibility="hidden";
-          starv[i]=0;
-          return;
-        }
-      }
-      else {
-        tinyv[i]=50;
-        tiny[i].style.top=(tinyy[i]=stary[i])+"px";
-        tiny[i].style.left=(tinyx[i]=starx[i])+"px";
-        tiny[i].style.width="2px";
-        tiny[i].style.height="2px";
-        star[i].style.visibility="hidden";
-        tiny[i].style.visibility="visible"
-      }
+
+        // Center
+        globalCtx.fillStyle = flowerColors.olive + '0.8)';
+        globalCtx.beginPath();
+        globalCtx.arc(0, 0, flower.size * 0.25, 0, Math.PI * 2);
+        globalCtx.fill();
+
+        globalCtx.restore();
+      });
     }
 
-    function update_tiny(i) {
-      if (--tinyv[i]==25) {
-        tiny[i].style.width="1px";
-        tiny[i].style.height="1px";
-      }
-      if (tinyv[i]) {
-        tinyy[i]+=1+Math.random()*3;
-        if (tinyy[i]<shigh+sdown) {
-          tiny[i].style.top=tinyy[i]+"px";
-          tinyx[i]+=(i%5-2)/5;
-          tiny[i].style.left=tinyx[i]+"px";
-        }
-        else {
-          tiny[i].style.visibility="hidden";
-          tinyv[i]=0;
-          return;
-        }
-      }
-      else tiny[i].style.visibility="hidden";
+    function globalFlowerLoop() {
+      globalCtx.clearRect(0, 0, globalCanvas.width, globalCanvas.height);
+
+      updateGlobalFlowers();
+      drawGlobalFlowers();
+
+      globalAnimationId = requestAnimationFrame(globalFlowerLoop);
     }
 
-    document.onmousemove=mouse;
-    function mouse(e) {
-      set_scroll();
-      var zoomFactor = 0.67;
-      y=(e)?(e.pageY / zoomFactor):(event.y+sdown) / zoomFactor;
-      x=(e)?(e.pageX / zoomFactor):(event.x+sleft) / zoomFactor;
-    }
+    // Track mouse movement globally
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
 
-    function set_scroll() {
-      if (typeof(self.pageYOffset)=="number") {
-        sdown=self.pageYOffset;
-        sleft=self.pageXOffset;
+      // Add flower every ~30px of movement
+      const dist = Math.hypot(x - lastGlobalMousePos.x, y - lastGlobalMousePos.y);
+      if (dist > 30) {
+        addGlobalFlower(x, y);
+        lastGlobalMousePos = { x, y };
       }
-      else if (document.body.scrollTop || document.body.scrollLeft) {
-        sdown=document.body.scrollTop;
-        sleft=document.body.scrollLeft;
-      }
-      else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
-        sleft=document.documentElement.scrollLeft;
-        sdown=document.documentElement.scrollTop;
-      }
-      else {
-        sdown=0;
-        sleft=0;
-      }
-    }
+    });
 
-    window.onresize=set_width;
-    function set_width() {
-      if (typeof(self.innerWidth)=="number") {
-        swide=self.innerWidth;
-        shigh=self.innerHeight;
-      }
-      else if (document.documentElement && document.documentElement.clientWidth) {
-        swide=document.documentElement.clientWidth;
-        shigh=document.documentElement.clientHeight;
-      }
-      else if (document.body.clientWidth) {
-        swide=document.body.clientWidth;
-        shigh=document.body.clientHeight;
-      }
-    }
+    window.addEventListener('resize', resizeGlobalCanvas);
 
-    function createDiv(height, width) {
-      var div=document.createElement("div");
-      div.style.position="absolute";
-      div.style.height=height+"px";
-      div.style.width=width+"px";
-      div.style.overflow="hidden";
-      div.style.backgroundColor=colour;
-      div.style.pointerEvents="none";
-      return (div);
-    }
-
-    // Initialize sparkles when page loads
-    window.addEventListener('load', initSparkles);
+    // Initialize when page loads
+    window.addEventListener('load', initGlobalFlowers);
 
     // Navigation switching
     const navLinks = document.querySelectorAll('.nav-link');
@@ -1695,7 +1642,6 @@
     };
 
     // State
-    let vines = [];
     let cursorFlowers = [];
     let hoverBlooms = [];
     let lastMousePos = { x: 0, y: 0 };
@@ -1707,76 +1653,6 @@
       const rect = workFolder.getBoundingClientRect();
       gardenCanvas.width = rect.width;
       gardenCanvas.height = rect.height;
-    }
-
-    // Initialize vines
-    function initVines() {
-      vines = [];
-      const numVines = 3;
-      for (let i = 0; i < numVines; i++) {
-        vines.push({
-          x: Math.random() * gardenCanvas.width,
-          y: gardenCanvas.height,
-          segments: [],
-          maxSegments: 8 + Math.floor(Math.random() * 6),
-          growTimer: 0,
-          growDelay: 60 + Math.random() * 40,
-          angle: -Math.PI / 2 + (Math.random() - 0.5) * 0.5,
-          color: Math.random() > 0.5 ? 'olive' : 'sage'
-        });
-      }
-    }
-
-    // Grow vines slowly
-    function updateVines() {
-      vines.forEach(vine => {
-        if (vine.segments.length < vine.maxSegments) {
-          vine.growTimer++;
-          if (vine.growTimer >= vine.growDelay) {
-            vine.growTimer = 0;
-            
-            const lastPoint = vine.segments.length > 0 
-              ? vine.segments[vine.segments.length - 1] 
-              : { x: vine.x, y: vine.y };
-            
-            vine.angle += (Math.random() - 0.5) * 0.6;
-            const length = 20 + Math.random() * 25;
-            
-            const endX = lastPoint.x + Math.cos(vine.angle) * length;
-            const endY = lastPoint.y + Math.sin(vine.angle) * length;
-            
-            // Store control points when segment is created, not when drawn
-            vine.segments.push({
-              x: endX,
-              y: endY,
-              cpX: (lastPoint.x + endX) / 2 + (Math.random() - 0.5) * 10,
-              cpY: (lastPoint.y + endY) / 2 + (Math.random() - 0.5) * 5,
-              thickness: Math.max(0.5, 2 - vine.segments.length * 0.15)
-            });
-          }
-        }
-      });
-    }
-
-    // Draw vines
-    function drawVines() {
-      vines.forEach(vine => {
-        if (vine.segments.length < 1) return;
-        
-        gardenCtx.strokeStyle = colors[vine.color] + '0.3)';
-        gardenCtx.lineCap = 'round';
-        
-        let prevPoint = { x: vine.x, y: vine.y };
-        vine.segments.forEach((seg, i) => {
-          gardenCtx.lineWidth = seg.thickness;
-          gardenCtx.beginPath();
-          gardenCtx.moveTo(prevPoint.x, prevPoint.y);
-          gardenCtx.quadraticCurveTo(seg.cpX, seg.cpY, seg.x, seg.y);
-          gardenCtx.stroke();
-          
-          prevPoint = seg;
-        });
-      });
     }
 
     // Cursor trail flowers
@@ -1892,17 +1768,14 @@
     // Main animation loop
     function gardenLoop() {
       gardenCtx.clearRect(0, 0, gardenCanvas.width, gardenCanvas.height);
-      
-      updateVines();
-      drawVines();
-      
+
       updateCursorFlowers();
       drawCursorFlowers();
-      
+
       const anyThumbHovered = document.querySelector('.work-thumb:hover');
       updateHoverBlooms(!!anyThumbHovered);
       drawHoverBlooms();
-      
+
       animationId = requestAnimationFrame(gardenLoop);
     }
 
@@ -1938,7 +1811,6 @@
     // Initialize garden
     function initGarden() {
       resizeGardenCanvas();
-      initVines();
       gardenLoop();
     }
 
@@ -1955,7 +1827,6 @@
           setTimeout(() => {
             resizeGardenCanvas();
             if (!animationId) {
-              initVines();
               gardenLoop();
             }
           }, 100);
