@@ -738,14 +738,10 @@
     }
 
     /* ==================== WORK SECTION ==================== */
-    .work-folder {
+    .work-container {
       position: relative;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      padding: 10px;
-      min-height: 400px;
-      align-content: flex-start;
+      padding: 15px 10px;
+      min-height: 300px;
     }
 
     .work-canvas {
@@ -758,92 +754,26 @@
       z-index: 0;
     }
 
-    .work-thumb {
+    .work-list {
       position: relative;
       z-index: 1;
-      width: 120px;
-      height: 90px;
-      border-radius: var(--br-5);
-      overflow: hidden;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-      flex-shrink: 0;
-    }
-
-    .work-thumb:hover {
-      border-color: var(--color-violet);
-    }
-
-    .work-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .work-thumb.hidden {
-      opacity: 0;
-      pointer-events: none;
-      width: 0;
-      height: 0;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Expanded state */
-    .work-expanded {
-      display: none;
+      display: flex;
       flex-direction: column;
       gap: 12px;
-      width: 100%;
-      animation: fadeIn 0.3s ease;
-      position: relative;
-      z-index: 1;
     }
 
-    .work-expanded.active {
-      display: flex;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .work-expanded img {
-      max-width: 100%;
-      max-height: 450px;
-      object-fit: contain;
-      border-radius: var(--br-5);
-      align-self: flex-start;
-    }
-
-    .work-expanded-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .work-expanded-title {
-      font-size: 15px;
+    .work-link {
       font-family: var(--font-univers);
-      color: rgba(0, 0, 0, 0.6);
-      font-style: italic;
+      font-size: var(--fs-20);
+      color: var(--color-black);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: inline-block;
+      width: fit-content;
     }
 
-    .work-close {
-      font-size: 14px;
-      font-family: var(--font-univers);
+    .work-link:hover {
       color: var(--color-violet);
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px 8px;
-      transition: opacity 0.2s;
-    }
-
-    .work-close:hover {
-      opacity: 0.6;
     }
 
     /* ==================== RESPONSIVE ==================== */
@@ -923,7 +853,7 @@
               <p class="bio-where">currently based in Toronto, Canada</p>
             </div>
             <div class="header-contact">
-              <a href="mailto:silataskin@gmail.com">silataskin@gmail.com</a>
+              <a href="/cdn-cgi/l/email-protection#a5d6ccc9c4d1c4d6cecccbe5c2c8c4ccc98bc6cac8"><span class="__cf_email__" data-cfemail="0a7963666b7e6b796163644a6d676b636624696567">[email&#160;protected]</span></a>
             </div>
           </div>
         </div>
@@ -963,29 +893,15 @@
                 <div class="section-group">
                   <h2 class="section-heading">Work</h2>
                   
-                  <div class="work-folder" id="work-folder">
+                  <div class="work-container" id="work-container">
                     <canvas class="work-canvas" id="garden-canvas"></canvas>
                     
-                    <div class="work-thumb" data-work="carmen">
-                      <img src="./work/carmenllg_png.png" alt="Carmen">
-                    </div>
-                    <div class="work-thumb" data-work="creatures">
-                      <img src="./work/anne_004.png" alt="Creatures">
-                    </div>
-                    <div class="work-thumb" data-work="ashes">
-                      <img src="./work/ashes.png" alt="Ashes">
-                    </div>
-                    <div class="work-thumb" data-work="ber">
-                      <img src="./work/ber.png" alt="Untitled">
-                    </div>
-                    
-                    <!-- Expanded view container -->
-                    <div class="work-expanded" id="work-expanded">
-                      <img id="work-expanded-img" src="" alt="">
-                      <div class="work-expanded-footer">
-                        <span class="work-expanded-title" id="work-expanded-title"></span>
-                        <button class="work-close" id="work-close">← back</button>
-                      </div>
+                    <div class="work-list">
+                      <a href="./work/carmen.html" class="work-link">Carmen</a>
+                      <a href="./work/creatures.html" class="work-link">Untitled (creatures)</a>
+                      <a href="./work/ashes.html" class="work-link">Ashes</a>
+                      <a href="./work/ber.html" class="work-link">Untitled</a>
+                      <a href="./work/mbomb/index.html" class="work-link">mbomb</a>
                     </div>
                   </div>
                 </div>
@@ -1302,13 +1218,13 @@
     <footer class="page-footer">
       <div class="container">
         <div class="footer-content">
-          <a href="mailto:silataskin@gmail.com">silataskin@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#54273d38352035273f3d3a143339353d387a373b39"><span class="__cf_email__" data-cfemail="9ceff5f0fde8fdeff7f5f2dcfbf1fdf5f0b2fff3f1">[email&#160;protected]</span></a>
         </div>
       </div>
     </footer>
   </div>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Load skill details from JSON file
     let skillDetails = {};
 
@@ -1593,249 +1509,122 @@
       });
     });
 
-    // Work folder functionality
-    const workData = {
-      carmen: { src: './work/carmenllg_png.png', title: 'Carmen' },
-      creatures: { src: './work/anne_004.png', title: 'Untitled (creatures)' },
-      ashes: { src: './work/ashes.png', title: 'Ashes' },
-      ber: { src: './work/ber.png', title: 'Untitled' }
-    };
-
-    const workThumbs = document.querySelectorAll('.work-thumb');
-    const workExpanded = document.getElementById('work-expanded');
-    const workExpandedImg = document.getElementById('work-expanded-img');
-    const workExpandedTitle = document.getElementById('work-expanded-title');
-    const workClose = document.getElementById('work-close');
-
-    workThumbs.forEach(thumb => {
-      thumb.addEventListener('click', () => {
-        const workId = thumb.dataset.work;
-        const data = workData[workId];
-        
-        if (data) {
-          workExpandedImg.src = data.src;
-          workExpandedTitle.textContent = data.title;
-          
-          // Hide all thumbs, show expanded
-          workThumbs.forEach(t => t.classList.add('hidden'));
-          workExpanded.classList.add('active');
-        }
-      });
-    });
-
-    workClose.addEventListener('click', () => {
-      workExpanded.classList.remove('active');
-      workThumbs.forEach(t => t.classList.remove('hidden'));
-    });
-
     // ==================== GENERATIVE GARDEN ====================
     const gardenCanvas = document.getElementById('garden-canvas');
-    const gardenCtx = gardenCanvas.getContext('2d');
-    const workFolder = document.getElementById('work-folder');
+    const workContainer = document.getElementById('work-container');
     
-    // Colors from your palette
-    const colors = {
-      violet: 'rgba(255, 109, 226, ',
-      olive: 'rgba(155, 186, 111, ',
-      pink: 'rgba(255, 182, 235, ',
-      sage: 'rgba(180, 200, 150, '
-    };
-
-    // State
-    let cursorFlowers = [];
-    let hoverBlooms = [];
-    let lastMousePos = { x: 0, y: 0 };
-    let mouseInFolder = false;
-    let animationId = null;
-
-    // Resize canvas
-    function resizeGardenCanvas() {
-      const rect = workFolder.getBoundingClientRect();
-      gardenCanvas.width = rect.width;
-      gardenCanvas.height = rect.height;
-    }
-
-    // Cursor trail flowers
-    function addCursorFlower(x, y) {
-      cursorFlowers.push({
-        x: x,
-        y: y,
-        size: 3 + Math.random() * 5,
-        petals: 4 + Math.floor(Math.random() * 3),
-        rotation: Math.random() * Math.PI * 2,
-        color: Math.random() > 0.5 ? 'violet' : 'pink',
-        life: 1,
-        decay: 0.008 + Math.random() * 0.005
-      });
-    }
-
-    function updateCursorFlowers() {
-      cursorFlowers = cursorFlowers.filter(f => {
-        f.life -= f.decay;
-        return f.life > 0;
-      });
-    }
-
-    function drawCursorFlowers() {
-      cursorFlowers.forEach(flower => {
-        gardenCtx.save();
-        gardenCtx.translate(flower.x, flower.y);
-        gardenCtx.rotate(flower.rotation);
-        gardenCtx.globalAlpha = flower.life * 0.6;
-        
-        // Draw petals
-        gardenCtx.fillStyle = colors[flower.color] + '0.7)';
-        for (let i = 0; i < flower.petals; i++) {
-          const angle = (i / flower.petals) * Math.PI * 2;
-          gardenCtx.beginPath();
-          gardenCtx.ellipse(
-            Math.cos(angle) * flower.size * 0.5,
-            Math.sin(angle) * flower.size * 0.5,
-            flower.size * 0.6,
-            flower.size * 0.3,
-            angle,
-            0, Math.PI * 2
-          );
-          gardenCtx.fill();
-        }
-        
-        // Center
-        gardenCtx.fillStyle = colors.olive + '0.8)';
-        gardenCtx.beginPath();
-        gardenCtx.arc(0, 0, flower.size * 0.25, 0, Math.PI * 2);
-        gardenCtx.fill();
-        
-        gardenCtx.restore();
-      });
-    }
-
-    // Hover blooms behind thumbnails
-    function addHoverBloom(thumbRect) {
-      const folderRect = workFolder.getBoundingClientRect();
-      const centerX = thumbRect.left - folderRect.left + thumbRect.width / 2;
-      const centerY = thumbRect.top - folderRect.top + thumbRect.height / 2;
+    if (gardenCanvas && workContainer) {
+      const gardenCtx = gardenCanvas.getContext('2d');
       
-      // Add multiple petals blooming outward
-      const numPetals = 6 + Math.floor(Math.random() * 4);
-      for (let i = 0; i < numPetals; i++) {
-        const angle = (i / numPetals) * Math.PI * 2 + Math.random() * 0.3;
-        hoverBlooms.push({
-          x: centerX,
-          y: centerY,
-          angle: angle,
-          distance: 0,
-          maxDistance: 40 + Math.random() * 30,
-          size: 8 + Math.random() * 10,
-          color: ['violet', 'pink', 'olive'][Math.floor(Math.random() * 3)],
-          growing: true,
-          life: 1
+      const colors = {
+        violet: 'rgba(255, 109, 226, ',
+        olive: 'rgba(155, 186, 111, ',
+        pink: 'rgba(255, 182, 235, ',
+        sage: 'rgba(180, 200, 150, '
+      };
+
+      let cursorFlowers = [];
+      let lastMousePos = { x: 0, y: 0 };
+      let animationId = null;
+
+      function resizeGardenCanvas() {
+        const rect = workContainer.getBoundingClientRect();
+        gardenCanvas.width = rect.width;
+        gardenCanvas.height = rect.height;
+      }
+
+      function addCursorFlower(x, y) {
+        cursorFlowers.push({
+          x, y,
+          size: 3 + Math.random() * 5,
+          petals: 4 + Math.floor(Math.random() * 3),
+          rotation: Math.random() * Math.PI * 2,
+          color: Math.random() > 0.5 ? 'violet' : 'pink',
+          life: 1,
+          decay: 0.008 + Math.random() * 0.005
         });
       }
-    }
 
-    function updateHoverBlooms(isHovering) {
-      hoverBlooms = hoverBlooms.filter(bloom => {
-        if (bloom.growing && isHovering) {
-          bloom.distance = Math.min(bloom.distance + 3, bloom.maxDistance);
-        } else {
-          bloom.growing = false;
-          bloom.life -= 0.03;
-        }
-        return bloom.life > 0;
-      });
-    }
-
-    function drawHoverBlooms() {
-      hoverBlooms.forEach(bloom => {
-        const x = bloom.x + Math.cos(bloom.angle) * bloom.distance;
-        const y = bloom.y + Math.sin(bloom.angle) * bloom.distance;
-        
-        gardenCtx.save();
-        gardenCtx.translate(x, y);
-        gardenCtx.rotate(bloom.angle);
-        gardenCtx.globalAlpha = bloom.life * 0.5;
-        
-        // Petal shape
-        gardenCtx.fillStyle = colors[bloom.color] + '0.6)';
-        gardenCtx.beginPath();
-        gardenCtx.ellipse(0, 0, bloom.size, bloom.size * 0.5, 0, 0, Math.PI * 2);
-        gardenCtx.fill();
-        
-        gardenCtx.restore();
-      });
-    }
-
-    // Main animation loop
-    function gardenLoop() {
-      gardenCtx.clearRect(0, 0, gardenCanvas.width, gardenCanvas.height);
-
-      updateCursorFlowers();
-      drawCursorFlowers();
-
-      const anyThumbHovered = document.querySelector('.work-thumb:hover');
-      updateHoverBlooms(!!anyThumbHovered);
-      drawHoverBlooms();
-
-      animationId = requestAnimationFrame(gardenLoop);
-    }
-
-    // Mouse tracking within folder
-    workFolder.addEventListener('mousemove', (e) => {
-      const rect = workFolder.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      // Add flower every ~30px of movement
-      const dist = Math.hypot(x - lastMousePos.x, y - lastMousePos.y);
-      if (dist > 30) {
-        addCursorFlower(x, y);
-        lastMousePos = { x, y };
+      function updateCursorFlowers() {
+        cursorFlowers = cursorFlowers.filter(f => {
+          f.life -= f.decay;
+          return f.life > 0;
+        });
       }
-    });
 
-    workFolder.addEventListener('mouseenter', () => {
-      mouseInFolder = true;
-    });
+      function drawCursorFlowers() {
+        cursorFlowers.forEach(flower => {
+          gardenCtx.save();
+          gardenCtx.translate(flower.x, flower.y);
+          gardenCtx.rotate(flower.rotation);
+          gardenCtx.globalAlpha = flower.life * 0.6;
+          
+          gardenCtx.fillStyle = colors[flower.color] + '0.7)';
+          for (let i = 0; i < flower.petals; i++) {
+            const angle = (i / flower.petals) * Math.PI * 2;
+            gardenCtx.beginPath();
+            gardenCtx.ellipse(
+              Math.cos(angle) * flower.size * 0.5,
+              Math.sin(angle) * flower.size * 0.5,
+              flower.size * 0.6,
+              flower.size * 0.3,
+              angle, 0, Math.PI * 2
+            );
+            gardenCtx.fill();
+          }
+          
+          gardenCtx.fillStyle = colors.olive + '0.8)';
+          gardenCtx.beginPath();
+          gardenCtx.arc(0, 0, flower.size * 0.25, 0, Math.PI * 2);
+          gardenCtx.fill();
+          
+          gardenCtx.restore();
+        });
+      }
 
-    workFolder.addEventListener('mouseleave', () => {
-      mouseInFolder = false;
-    });
+      function gardenLoop() {
+        gardenCtx.clearRect(0, 0, gardenCanvas.width, gardenCanvas.height);
+        updateCursorFlowers();
+        drawCursorFlowers();
+        animationId = requestAnimationFrame(gardenLoop);
+      }
 
-    // Hover bloom trigger
-    workThumbs.forEach(thumb => {
-      thumb.addEventListener('mouseenter', () => {
-        addHoverBloom(thumb.getBoundingClientRect());
-      });
-    });
-
-    // Initialize garden
-    function initGarden() {
-      resizeGardenCanvas();
-      gardenLoop();
-    }
-
-    // Start when Work section is visible
-    const workSection = document.querySelector('[data-section="work"]');
-    if (workSection.classList.contains('active')) {
-      initGarden();
-    }
-
-    // Restart garden when navigating to Work
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (link.dataset.section === 'work') {
-          setTimeout(() => {
-            resizeGardenCanvas();
-            if (!animationId) {
-              gardenLoop();
-            }
-          }, 100);
+      workContainer.addEventListener('mousemove', (e) => {
+        const rect = workContainer.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const dist = Math.hypot(x - lastMousePos.x, y - lastMousePos.y);
+        if (dist > 30) {
+          addCursorFlower(x, y);
+          lastMousePos = { x, y };
         }
       });
-    });
 
-    window.addEventListener('resize', resizeGardenCanvas);
+      function initGarden() {
+        resizeGardenCanvas();
+        gardenLoop();
+      }
+
+      const workSection = document.querySelector('[data-section="work"]');
+      if (workSection && workSection.classList.contains('active')) {
+        initGarden();
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (link.dataset.section === 'work') {
+            setTimeout(() => {
+              resizeGardenCanvas();
+              if (!animationId) gardenLoop();
+            }, 100);
+          }
+        });
+      });
+
+      window.addEventListener('resize', resizeGardenCanvas);
+    }
   </script>
-  
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 </body>
 </html>
