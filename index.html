@@ -78,7 +78,6 @@
       background-color: var(--color-white);
       line-height: normal;
       letter-spacing: normal;
-      /* Subtle paper texture background */
       background-image:
         url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" /></filter><rect width="200" height="200" filter="url(%23noise)" opacity="0.03"/></svg>');
       zoom: 0.67;
@@ -91,7 +90,6 @@
       flex-direction: column;
       position: relative;
     }
-
 
     /* Floating decorations */
     .floating-decor {
@@ -302,12 +300,11 @@
     .content-inner {
       background: white;
       padding: 20px var(--padding-12);
-      min-height: 646px;
+      min-height: 400px;
       display: flex;
       flex-direction: column;
       gap: var(--gap-15);
       position: relative;
-      border: 3px solid var(--color-violet);
     }
 
     /* ==================== SECTION GROUP ==================== */
@@ -320,10 +317,12 @@
     .section-heading {
       margin: 0;
       padding: 0 var(--padding-15);
-      font-size: var(--fs-24);
-      font-weight: 700;
+      font-size: 12px;
+      font-weight: 400;
       color: var(--color-violet);
       font-family: var(--font-univers);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
     }
 
     /* ==================== EXPERIENCE ACCORDION ==================== */
@@ -386,138 +385,6 @@
       max-height: 400px;
       opacity: 1;
       margin-top: 15px;
-    }
-
-    /* ==================== EDUCATION SECTION ==================== */
-    .edu-institution {
-      padding: 0 var(--padding-14);
-      margin-bottom: 20px;
-    }
-
-    .edu-school {
-      margin: 0 0 5px 0;
-      font-size: var(--fs-24);
-      font-weight: 700;
-      color: var(--color-black);
-      font-family: var(--font-univers);
-    }
-
-    .edu-degree {
-      margin: 0 0 5px 0;
-      font-size: var(--fs-19);
-      font-weight: 400;
-      color: var(--color-black);
-      font-family: "Univers Condensed", sans-serif;
-    }
-
-    .edu-date {
-      font-size: var(--fs-16);
-      color: rgba(0, 0, 0, 0.7);
-      font-family: "Univers Condensed", sans-serif;
-    }
-
-    .education-item {
-      padding: var(--padding-6) var(--padding-14);
-      border-radius: var(--br-15);
-      overflow: hidden;
-      margin-bottom: 10px;
-    }
-
-    .edu-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--gap-20);
-      cursor: pointer;
-      transition: opacity 0.2s ease;
-    }
-
-    .edu-header:hover {
-      opacity: 0.7;
-    }
-
-    .edu-program {
-      margin: 0;
-      font-size: var(--fs-20);
-      font-weight: 700;
-      color: var(--color-black);
-      font-family: "Univers Condensed", sans-serif;
-    }
-
-    .edu-expand-icon {
-      font-size: 14px;
-      color: var(--color-violet);
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      user-select: none;
-    }
-
-    .education-item.expanded .edu-expand-icon {
-      transform: rotate(180deg);
-    }
-
-    .edu-content {
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                  opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                  margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      margin-top: 0;
-    }
-
-    .education-item.expanded .edu-content {
-      max-height: 600px;
-      opacity: 1;
-      margin-top: 15px;
-    }
-
-    .edu-details {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .edu-label {
-      font-weight: 700;
-      color: var(--color-violet);
-      font-size: var(--fs-16);
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .edu-courses {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .course-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .course-tag {
-      padding: 4px 12px;
-      border: 1px solid var(--color-olive);
-      border-radius: var(--br-7);
-      font-size: 14px;
-      font-family: var(--font-univers);
-      color: var(--color-black);
-      background-color: white;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      user-select: none;
-    }
-
-    .edu-project {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-description {
-      margin: 0;
-      font-size: var(--fs-16);
-      line-height: 1.5;
-      color: var(--color-black);
     }
 
     .exp-header {
@@ -653,11 +520,15 @@
 
     /* ==================== DETAIL PANEL ==================== */
     .section-footer {
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: flex-end;
       padding: 0 var(--padding-24);
       min-height: var(--height-100);
+    }
+
+    .section-footer.visible {
+      display: flex;
     }
 
     .detail-panel {
@@ -759,21 +630,23 @@
       z-index: 1;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
+      padding: 0 var(--padding-14);
     }
 
     .work-link {
-      font-family: var(--font-univers);
+      font-family: "Univers Condensed", sans-serif;
       font-size: var(--fs-20);
+      font-weight: 700;
       color: var(--color-black);
       text-decoration: none;
-      transition: color 0.2s ease;
+      transition: opacity 0.2s ease;
       display: inline-block;
       width: fit-content;
     }
 
     .work-link:hover {
-      color: var(--color-violet);
+      opacity: 0.7;
     }
 
     /* ==================== RESPONSIVE ==================== */
@@ -849,11 +722,11 @@
           </div>
           <div class="header-info">
             <div class="header-bio">
-              <p class="bio-what">developer, designer, digital forager and alchemist, etc.</p>
-              <p class="bio-where">currently based in Toronto, Canada</p>
+              <p class="bio-what">developer, designer, digital forager and alchemist</p>
+              <p class="bio-where">UofT CS minor · Google UX Certificate · French C1 · Toronto</p>
             </div>
             <div class="header-contact">
-              <a href="/cdn-cgi/l/email-protection#a5d6ccc9c4d1c4d6cecccbe5c2c8c4ccc98bc6cac8"><span class="__cf_email__" data-cfemail="0a7963666b7e6b796163644a6d676b636624696567">[email&#160;protected]</span></a>
+              <a href="mailto:silataskin@gmail.com">silataskin@gmail.com</a>
             </div>
           </div>
         </div>
@@ -867,7 +740,6 @@
           <li><button class="nav-link active" data-section="work">Work</button></li>
           <li><button class="nav-link" data-section="experience">Experience</button></li>
           <li><button class="nav-link" data-section="tools">Tools</button></li>
-          <li><button class="nav-link" data-section="education">Education</button></li>
         </ul>
       </div>
     </nav>
@@ -898,10 +770,10 @@
                     
                     <div class="work-list">
                       <a href="./work/carmen.html" class="work-link">Carmen</a>
-                      <a href="./work/creatures.html" class="work-link">Untitled (creatures)</a>
+                      <a href="./work/anne.html" class="work-link">Untitled (creatures)</a>
                       <a href="./work/ashes.html" class="work-link">Ashes</a>
                       <a href="./work/ber.html" class="work-link">Untitled</a>
-                      <a href="./work/mbomb/index.html" class="work-link">mbomb</a>
+                      <a href="./work/write-your-own-art/index.html" class="work-link">trust me</a>
                     </div>
                   </div>
                 </div>
@@ -912,9 +784,8 @@
             <section class="content-section" data-section="experience">
               <div class="content-inner">
                 
-                <!-- Professional Experience -->
                 <div class="section-group">
-                  <h2 class="section-heading">Professional Experience</h2>
+                  <h2 class="section-heading">Experience</h2>
                   
                   <article class="experience-item" data-role="cibc">
                     <div class="exp-header">
@@ -937,6 +808,33 @@
                           <span class="tag" data-skill="python" data-type="tool">Python</span>
                           <span class="tag" data-skill="selenium" data-type="tool">Selenium</span>
                           <span class="tag" data-skill="sql" data-type="tool">SQL</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="experience-item" data-role="freelance">
+                    <div class="exp-header">
+                      <div class="exp-header-left">
+                        <h3 class="exp-title">Frontend Developer</h3>
+                        <p class="exp-company">Real Estate Listings Platform (Client Project)</p>
+                      </div>
+                      <div class="exp-header-right">
+                        <time class="exp-date" datetime="2025-03/2025-06">Mar - Jun 2025</time>
+                        <span class="exp-expand-icon">▼</span>
+                      </div>
+                    </div>
+                    <div class="exp-content">
+                      <div class="exp-tags">
+                        <div class="tag-group">
+                          <span class="tag" data-skill="responsive-web" data-type="skill">Responsive Web Development</span>
+                          <span class="tag" data-skill="ui-design" data-type="skill">UI Design</span>
+                        </div>
+                        <div class="tag-group">
+                          <span class="tag" data-skill="react" data-type="tool">React</span>
+                          <span class="tag" data-skill="typescript" data-type="tool">TypeScript</span>
+                          <span class="tag" data-skill="css" data-type="tool">CSS</span>
+                          <span class="tag" data-skill="html" data-type="tool">HTML</span>
                         </div>
                       </div>
                     </div>
@@ -991,141 +889,12 @@
                     </div>
                   </article>
                 </div>
-
-                <!-- Freelance -->
-                <div class="section-group">
-                  <h2 class="section-heading">Freelance</h2>
-                  
-                  <article class="experience-item" data-role="freelance">
-                    <div class="exp-header">
-                      <div class="exp-header-left">
-                        <h3 class="exp-title">Frontend Developer</h3>
-                        <p class="exp-company">Real Estate Listings Platform (Client Project)</p>
-                      </div>
-                      <div class="exp-header-right">
-                        <time class="exp-date" datetime="2025-03/2025-06">Mar - Jun 2025</time>
-                        <span class="exp-expand-icon">▼</span>
-                      </div>
-                    </div>
-                    <div class="exp-content">
-                      <div class="exp-tags">
-                        <div class="tag-group">
-                          <span class="tag" data-skill="responsive-web" data-type="skill">Responsive Web Development</span>
-                          <span class="tag" data-skill="ui-design" data-type="skill">UI Design</span>
-                        </div>
-                        <div class="tag-group">
-                          <span class="tag" data-skill="react" data-type="tool">React</span>
-                          <span class="tag" data-skill="typescript" data-type="tool">TypeScript</span>
-                          <span class="tag" data-skill="css" data-type="tool">CSS</span>
-                          <span class="tag" data-skill="html" data-type="tool">HTML</span>
-                          <span class="tag" data-skill="npm" data-type="tool">npm</span>
-                          <span class="tag" data-skill="git" data-type="tool">Git</span>
-                          <span class="tag" data-skill="github" data-type="tool">GitHub</span>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </div>
               </div>
 
-              <!-- DETAIL PANEL -->
-              <footer class="section-footer">
+              <!-- DETAIL PANEL - hidden by default -->
+              <footer class="section-footer" id="experience-footer">
                 <div class="detail-panel empty">
-                  Click any skill tag to see details and examples ✨
-                </div>
-              </footer>
-            </section>
-
-            <!-- EDUCATION SECTION -->
-            <section class="content-section" data-section="education">
-              <div class="content-inner">
-                <div class="section-group">
-                  <h2 class="section-heading">Education</h2>
-
-                  <div class="edu-institution">
-                    <h3 class="edu-school">University of Toronto</h3>
-                    <p class="edu-degree">Honours Bachelor of Science</p>
-                    <time class="edu-date">2019 - 2024</time>
-                  </div>
-
-                  <article class="education-item" data-program="economics">
-                    <div class="edu-header">
-                      <h4 class="edu-program">Economics Major (Data Analytics Focus)</h4>
-                      <span class="edu-expand-icon">▼</span>
-                    </div>
-                    <div class="edu-content">
-                      <div class="edu-details">
-                        <div class="edu-courses">
-                          <span class="edu-label">Key Courses:</span>
-                          <div class="course-tags">
-                            <span class="course-tag">ECO100 - Intro to Economics</span>
-                            <span class="course-tag">ECO200 - Microeconomic Theory</span>
-                            <span class="course-tag">ECO204 - Macroeconomic Theory</span>
-                            <span class="course-tag">ECO375 - Applied Econometrics</span>
-                            <span class="course-tag">ECO461 - International Trade</span>
-                            <span class="course-tag">ECO475 - Forecasting Methods</span>
-                          </div>
-                        </div>
-                        <div class="edu-project">
-                          <span class="edu-label">Capstone Project:</span>
-                          <p class="project-description">Analyzing Housing Market Trends using Regression Models and Time Series Analysis</p>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="education-item" data-program="cs">
-                    <div class="edu-header">
-                      <h4 class="edu-program">Computer Science Minor</h4>
-                      <span class="edu-expand-icon">▼</span>
-                    </div>
-                    <div class="edu-content">
-                      <div class="edu-details">
-                        <div class="edu-courses">
-                          <span class="edu-label">Key Courses:</span>
-                          <div class="course-tags">
-                            <span class="course-tag">CSC108 - Introduction to Programming</span>
-                            <span class="course-tag">CSC148 - Data Structures</span>
-                            <span class="course-tag">CSC236 - Theory of Computation</span>
-                            <span class="course-tag">CSC263 - Data Structures & Analysis</span>
-                            <span class="course-tag">CSC343 - Databases</span>
-                            <span class="course-tag">CSC369 - Operating Systems</span>
-                          </div>
-                        </div>
-                        <div class="edu-project">
-                          <span class="edu-label">Notable Project:</span>
-                          <p class="project-description">Automated Data Pipeline for Web Scraping and ETL Processing</p>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="education-item" data-program="stats">
-                    <div class="edu-header">
-                      <h4 class="edu-program">Statistics Minor</h4>
-                      <span class="edu-expand-icon">▼</span>
-                    </div>
-                    <div class="edu-content">
-                      <div class="edu-details">
-                        <div class="edu-courses">
-                          <span class="edu-label">Key Courses:</span>
-                          <div class="course-tags">
-                            <span class="course-tag">STA130 - Statistical Reasoning</span>
-                            <span class="course-tag">STA237 - Probability Theory</span>
-                            <span class="course-tag">STA302 - Regression Analysis</span>
-                            <span class="course-tag">STA303 - Statistical Methods</span>
-                            <span class="course-tag">STA314 - Machine Learning</span>
-                            <span class="course-tag">STA410 - Statistical Computation</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-              </div>
-              <footer class="section-footer">
-                <div class="detail-panel empty">
-                  Expand any program to see courses and projects
+                  Click any skill tag to see details ✨
                 </div>
               </footer>
             </section>
@@ -1181,7 +950,7 @@
                     </div>
                   </article>
 
-                  <article class="capability-item expanded" data-category="exploring">
+                  <article class="capability-item" data-category="exploring">
                     <div class="capability-header">
                       <h3 class="capability-title">Currently Exploring</h3>
                       <span class="capability-expand-icon">▼</span>
@@ -1196,7 +965,7 @@
                   </article>
                 </div>
               </div>
-              <footer class="section-footer">
+              <footer class="section-footer" id="tools-footer">
                 <div class="detail-panel empty">
                   Click any tag to see more ✨
                 </div>
@@ -1218,33 +987,23 @@
     <footer class="page-footer">
       <div class="container">
         <div class="footer-content">
-          <a href="/cdn-cgi/l/email-protection#54273d38352035273f3d3a143339353d387a373b39"><span class="__cf_email__" data-cfemail="9ceff5f0fde8fdeff7f5f2dcfbf1fdf5f0b2fff3f1">[email&#160;protected]</span></a>
+          <a href="mailto:silataskin@gmail.com">silataskin@gmail.com</a>
         </div>
       </div>
     </footer>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     // Load skill details from JSON file
     let skillDetails = {};
 
     fetch('./skills-data.json')
       .then(response => {
-        console.log('Fetch response:', response);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         return response.json();
       })
-      .then(data => {
-        console.log('Skills data loaded successfully:', Object.keys(data).length, 'skills');
-        skillDetails = data;
-      })
-      .catch(error => {
-        console.error('Error loading skill details:', error);
-        console.log('Loading failed - this may happen when opening HTML directly in browser');
-        console.log('Try running a local server or the data will not be available');
-      });
+      .then(data => { skillDetails = data; })
+      .catch(error => console.error('Error loading skill details:', error));
 
     // Global flower trail effect
     const globalFlowers = [];
@@ -1257,24 +1016,13 @@
 
     let globalCanvas, globalCtx;
     let lastGlobalMousePos = { x: 0, y: 0 };
-    let globalAnimationId = null;
 
     function initGlobalFlowers() {
-      // Create canvas overlay
       globalCanvas = document.createElement('canvas');
-      globalCanvas.style.position = 'fixed';
-      globalCanvas.style.top = '0';
-      globalCanvas.style.left = '0';
-      globalCanvas.style.width = '100%';
-      globalCanvas.style.height = '100%';
-      globalCanvas.style.pointerEvents = 'none';
-      globalCanvas.style.zIndex = '9999';
+      globalCanvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999';
       document.body.appendChild(globalCanvas);
-
       globalCtx = globalCanvas.getContext('2d');
       resizeGlobalCanvas();
-
-      // Start animation loop
       globalFlowerLoop();
     }
 
@@ -1285,8 +1033,7 @@
 
     function addGlobalFlower(x, y) {
       globalFlowers.push({
-        x: x,
-        y: y,
+        x, y,
         size: 3 + Math.random() * 5,
         petals: 4 + Math.floor(Math.random() * 3),
         rotation: Math.random() * Math.PI * 2,
@@ -1296,73 +1043,50 @@
       });
     }
 
-    function updateGlobalFlowers() {
+    function globalFlowerLoop() {
+      globalCtx.clearRect(0, 0, globalCanvas.width, globalCanvas.height);
+      
       for (let i = globalFlowers.length - 1; i >= 0; i--) {
-        globalFlowers[i].life -= globalFlowers[i].decay;
-        if (globalFlowers[i].life <= 0) {
-          globalFlowers.splice(i, 1);
-        }
-      }
-    }
+        const flower = globalFlowers[i];
+        flower.life -= flower.decay;
+        if (flower.life <= 0) { globalFlowers.splice(i, 1); continue; }
 
-    function drawGlobalFlowers() {
-      globalFlowers.forEach(flower => {
         globalCtx.save();
         globalCtx.translate(flower.x, flower.y);
         globalCtx.rotate(flower.rotation);
         globalCtx.globalAlpha = flower.life * 0.6;
 
-        // Draw petals
         globalCtx.fillStyle = flowerColors[flower.color] + '0.7)';
-        for (let i = 0; i < flower.petals; i++) {
-          const angle = (i / flower.petals) * Math.PI * 2;
+        for (let j = 0; j < flower.petals; j++) {
+          const angle = (j / flower.petals) * Math.PI * 2;
           globalCtx.beginPath();
           globalCtx.ellipse(
             Math.cos(angle) * flower.size * 0.5,
             Math.sin(angle) * flower.size * 0.5,
-            flower.size * 0.6,
-            flower.size * 0.3,
-            angle,
-            0, Math.PI * 2
+            flower.size * 0.6, flower.size * 0.3,
+            angle, 0, Math.PI * 2
           );
           globalCtx.fill();
         }
 
-        // Center
         globalCtx.fillStyle = flowerColors.olive + '0.8)';
         globalCtx.beginPath();
         globalCtx.arc(0, 0, flower.size * 0.25, 0, Math.PI * 2);
         globalCtx.fill();
-
         globalCtx.restore();
-      });
+      }
+      requestAnimationFrame(globalFlowerLoop);
     }
 
-    function globalFlowerLoop() {
-      globalCtx.clearRect(0, 0, globalCanvas.width, globalCanvas.height);
-
-      updateGlobalFlowers();
-      drawGlobalFlowers();
-
-      globalAnimationId = requestAnimationFrame(globalFlowerLoop);
-    }
-
-    // Track mouse movement globally
     document.addEventListener('mousemove', (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
-
-      // Add flower every ~30px of movement
-      const dist = Math.hypot(x - lastGlobalMousePos.x, y - lastGlobalMousePos.y);
+      const dist = Math.hypot(e.clientX - lastGlobalMousePos.x, e.clientY - lastGlobalMousePos.y);
       if (dist > 30) {
-        addGlobalFlower(x, y);
-        lastGlobalMousePos = { x, y };
+        addGlobalFlower(e.clientX, e.clientY);
+        lastGlobalMousePos = { x: e.clientX, y: e.clientY };
       }
     });
 
     window.addEventListener('resize', resizeGlobalCanvas);
-
-    // Initialize when page loads
     window.addEventListener('load', initGlobalFlowers);
 
     // Navigation switching
@@ -1380,96 +1104,53 @@
           section.classList.toggle('active', section.dataset.section === targetSection);
         });
 
-        const detailPanel = document.querySelector('.content-section.active .detail-panel');
-        if (detailPanel) {
-          detailPanel.classList.add('empty');
-          detailPanel.innerHTML = 'Click any skill tag to see details and examples ✨';
-        }
-
-        document.querySelectorAll('.experience-item').forEach(item => {
-          item.classList.remove('expanded');
+        // Reset everything
+        document.querySelectorAll('.section-footer').forEach(f => f.classList.remove('visible'));
+        document.querySelectorAll('.experience-item, .capability-item').forEach(i => i.classList.remove('expanded'));
+        document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.detail-panel').forEach(p => {
+          p.classList.add('empty');
+          p.innerHTML = 'Click any tag to see more ✨';
         });
-
-        document.querySelectorAll('.capability-item').forEach(item => {
-          item.classList.remove('expanded');
-        });
-
-        document.querySelectorAll('.education-item').forEach(item => {
-          item.classList.remove('expanded');
-        });
-
-        document.querySelectorAll('.tag').forEach(tag => {
-          tag.classList.remove('active');
-        });
-
-        // Reset work folder
-        const workExpandedEl = document.getElementById('work-expanded');
-        if (workExpandedEl) {
-          workExpandedEl.classList.remove('active');
-          document.querySelectorAll('.work-thumb').forEach(t => t.classList.remove('hidden'));
-        }
       });
     });
 
     // Accordion functionality - Experience
-    const experienceItems = document.querySelectorAll('.experience-item');
-
-    experienceItems.forEach(item => {
-      const header = item.querySelector('.exp-header');
-
-      header.addEventListener('click', (e) => {
+    document.querySelectorAll('.experience-item').forEach(item => {
+      item.querySelector('.exp-header').addEventListener('click', (e) => {
         if (e.target.classList.contains('tag')) return;
-
-        const isExpanded = item.classList.contains('expanded');
-
-        experienceItems.forEach(i => i.classList.remove('expanded'));
-
-        if (!isExpanded) {
+        const wasExpanded = item.classList.contains('expanded');
+        
+        document.querySelectorAll('.experience-item').forEach(i => i.classList.remove('expanded'));
+        
+        if (!wasExpanded) {
           item.classList.add('expanded');
+          document.getElementById('experience-footer').classList.add('visible');
+        } else {
+          document.getElementById('experience-footer').classList.remove('visible');
         }
       });
     });
 
-    // Accordion functionality - Capabilities
-    const capabilityItems = document.querySelectorAll('.capability-item');
-
-    capabilityItems.forEach(item => {
-      const header = item.querySelector('.capability-header');
-
-      header.addEventListener('click', (e) => {
+    // Accordion functionality - Tools
+    document.querySelectorAll('.capability-item').forEach(item => {
+      item.querySelector('.capability-header').addEventListener('click', (e) => {
         if (e.target.classList.contains('tag')) return;
-
-        const isExpanded = item.classList.contains('expanded');
-
-        capabilityItems.forEach(i => i.classList.remove('expanded'));
-
-        if (!isExpanded) {
+        const wasExpanded = item.classList.contains('expanded');
+        
+        document.querySelectorAll('.capability-item').forEach(i => i.classList.remove('expanded'));
+        
+        if (!wasExpanded) {
           item.classList.add('expanded');
-        }
-      });
-    });
-
-    // Accordion functionality - Education
-    const educationItems = document.querySelectorAll('.education-item');
-
-    educationItems.forEach(item => {
-      const header = item.querySelector('.edu-header');
-
-      header.addEventListener('click', () => {
-        const isExpanded = item.classList.contains('expanded');
-
-        educationItems.forEach(i => i.classList.remove('expanded'));
-
-        if (!isExpanded) {
-          item.classList.add('expanded');
+          document.getElementById('tools-footer').classList.add('visible');
+        } else {
+          document.getElementById('tools-footer').classList.remove('visible');
         }
       });
     });
 
     // Tag click functionality
-    const tags = document.querySelectorAll('.tag');
-    
-    tags.forEach(tag => {
+    document.querySelectorAll('.tag').forEach(tag => {
       tag.addEventListener('click', (e) => {
         e.stopPropagation();
         
@@ -1483,49 +1164,30 @@
         document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
         tag.classList.add('active');
         
-        // Update panel styling based on tag type
-        if (tagType === 'tool') {
-          detailPanel.classList.add('tool-detail');
-        } else {
-          detailPanel.classList.remove('tool-detail');
-        }
+        detailPanel.classList.toggle('tool-detail', tagType === 'tool');
         
         if (skillData) {
           detailPanel.classList.remove('empty');
           detailPanel.innerHTML = `
             <h3>${skillData.title}</h3>
             <p>${skillData.description}</p>
-            <ul>
-              ${skillData.examples.map(ex => `<li>${ex}</li>`).join('')}
-            </ul>
+            <ul>${skillData.examples.map(ex => `<li>${ex}</li>`).join('')}</ul>
           `;
         } else {
           detailPanel.classList.remove('empty');
-          detailPanel.innerHTML = `
-            <h3>${tag.textContent}</h3>
-            <p>Details about ${tag.textContent} coming soon...</p>
-          `;
+          detailPanel.innerHTML = `<h3>${tag.textContent}</h3><p>Details coming soon...</p>`;
         }
       });
     });
 
-    // ==================== GENERATIVE GARDEN ====================
+    // Garden canvas for Work section
     const gardenCanvas = document.getElementById('garden-canvas');
     const workContainer = document.getElementById('work-container');
     
     if (gardenCanvas && workContainer) {
       const gardenCtx = gardenCanvas.getContext('2d');
-      
-      const colors = {
-        violet: 'rgba(255, 109, 226, ',
-        olive: 'rgba(155, 186, 111, ',
-        pink: 'rgba(255, 182, 235, ',
-        sage: 'rgba(180, 200, 150, '
-      };
-
       let cursorFlowers = [];
       let lastMousePos = { x: 0, y: 0 };
-      let animationId = null;
 
       function resizeGardenCanvas() {
         const rect = workContainer.getBoundingClientRect();
@@ -1533,60 +1195,39 @@
         gardenCanvas.height = rect.height;
       }
 
-      function addCursorFlower(x, y) {
-        cursorFlowers.push({
-          x, y,
-          size: 3 + Math.random() * 5,
-          petals: 4 + Math.floor(Math.random() * 3),
-          rotation: Math.random() * Math.PI * 2,
-          color: Math.random() > 0.5 ? 'violet' : 'pink',
-          life: 1,
-          decay: 0.008 + Math.random() * 0.005
-        });
-      }
+      function gardenLoop() {
+        gardenCtx.clearRect(0, 0, gardenCanvas.width, gardenCanvas.height);
+        
+        for (let i = cursorFlowers.length - 1; i >= 0; i--) {
+          const flower = cursorFlowers[i];
+          flower.life -= flower.decay;
+          if (flower.life <= 0) { cursorFlowers.splice(i, 1); continue; }
 
-      function updateCursorFlowers() {
-        cursorFlowers = cursorFlowers.filter(f => {
-          f.life -= f.decay;
-          return f.life > 0;
-        });
-      }
-
-      function drawCursorFlowers() {
-        cursorFlowers.forEach(flower => {
           gardenCtx.save();
           gardenCtx.translate(flower.x, flower.y);
           gardenCtx.rotate(flower.rotation);
           gardenCtx.globalAlpha = flower.life * 0.6;
-          
-          gardenCtx.fillStyle = colors[flower.color] + '0.7)';
-          for (let i = 0; i < flower.petals; i++) {
-            const angle = (i / flower.petals) * Math.PI * 2;
+
+          gardenCtx.fillStyle = flowerColors[flower.color] + '0.7)';
+          for (let j = 0; j < flower.petals; j++) {
+            const angle = (j / flower.petals) * Math.PI * 2;
             gardenCtx.beginPath();
             gardenCtx.ellipse(
               Math.cos(angle) * flower.size * 0.5,
               Math.sin(angle) * flower.size * 0.5,
-              flower.size * 0.6,
-              flower.size * 0.3,
+              flower.size * 0.6, flower.size * 0.3,
               angle, 0, Math.PI * 2
             );
             gardenCtx.fill();
           }
-          
-          gardenCtx.fillStyle = colors.olive + '0.8)';
+
+          gardenCtx.fillStyle = flowerColors.olive + '0.8)';
           gardenCtx.beginPath();
           gardenCtx.arc(0, 0, flower.size * 0.25, 0, Math.PI * 2);
           gardenCtx.fill();
-          
           gardenCtx.restore();
-        });
-      }
-
-      function gardenLoop() {
-        gardenCtx.clearRect(0, 0, gardenCanvas.width, gardenCanvas.height);
-        updateCursorFlowers();
-        drawCursorFlowers();
-        animationId = requestAnimationFrame(gardenLoop);
+        }
+        requestAnimationFrame(gardenLoop);
       }
 
       workContainer.addEventListener('mousemove', (e) => {
@@ -1594,37 +1235,25 @@
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         
-        const dist = Math.hypot(x - lastMousePos.x, y - lastMousePos.y);
-        if (dist > 30) {
-          addCursorFlower(x, y);
+        if (Math.hypot(x - lastMousePos.x, y - lastMousePos.y) > 30) {
+          cursorFlowers.push({
+            x, y,
+            size: 3 + Math.random() * 5,
+            petals: 4 + Math.floor(Math.random() * 3),
+            rotation: Math.random() * Math.PI * 2,
+            color: Math.random() > 0.5 ? 'violet' : 'pink',
+            life: 1,
+            decay: 0.008 + Math.random() * 0.005
+          });
           lastMousePos = { x, y };
         }
       });
 
-      function initGarden() {
-        resizeGardenCanvas();
-        gardenLoop();
-      }
-
-      const workSection = document.querySelector('[data-section="work"]');
-      if (workSection && workSection.classList.contains('active')) {
-        initGarden();
-      }
-
-      navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          if (link.dataset.section === 'work') {
-            setTimeout(() => {
-              resizeGardenCanvas();
-              if (!animationId) gardenLoop();
-            }, 100);
-          }
-        });
-      });
-
+      resizeGardenCanvas();
+      gardenLoop();
       window.addEventListener('resize', resizeGardenCanvas);
     }
   </script>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
 </body>
 </html>
