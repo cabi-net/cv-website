@@ -1,0 +1,289 @@
+{
+  "test-automation": {
+    "title": "Automation",
+    "description": "Building systems that do repetitive work automatically — testing, data processing, workflow orchestration.",
+    "examples": [
+      "Built UI automation framework from scratch using Python + Selenium",
+      "Created scheduled workflows processing millions of records",
+      "Integrated automated pipelines with CI/CD"
+    ]
+  },
+  "automation": {
+    "title": "Process Automation",
+    "description": "Scripting solutions to eliminate tedious manual work.",
+    "examples": [
+      "Automated repetitive tasks using Python and AI-assisted tooling",
+      "Built end-to-end workflows from raw input to final output",
+      "Created reusable automation components for team use"
+    ]
+  },
+  "web-scraping": {
+    "title": "Data Collection & Web Scraping",
+    "description": "Extracting large-scale data from the web for research and creative projects.",
+    "examples": [
+      "Collected 630,000+ paintings with metadata for published ML research at UofT",
+      "Built pipelines handling dynamic content, infinite scroll, rate limiting",
+      "Processed millions of records from Google Arts & Culture"
+    ]
+  },
+  "data-mining": {
+    "title": "Data Mining",
+    "description": "Extracting patterns and insights from large datasets.",
+    "examples": [
+      "Contributed to ML research analyzing historical art for economic patterns",
+      "Processed metadata for 630K+ artworks — dates, locations, artist info",
+      "Work published through NBER (National Bureau of Economic Research)"
+    ]
+  },
+  "browser-automation": {
+    "title": "Browser Automation",
+    "description": "Programmatically controlling browsers for testing and data collection.",
+    "examples": [
+      "Automated data collection from protected platforms",
+      "Handled dynamic JavaScript content and lazy-loaded elements",
+      "Built systems to navigate complex multi-step web flows"
+    ]
+  },
+  "data-monitoring": {
+    "title": "Security Monitoring",
+    "description": "Analyzing behavioral patterns and system data to identify threats.",
+    "examples": [
+      "Monitored user behavior at enterprise banking scale (BMO)",
+      "Identified security anomalies through behavioral analysis"
+    ]
+  },
+  "incident-response": {
+    "title": "Incident Response",
+    "description": "Investigating issues and coordinating responses.",
+    "examples": [
+      "Assessed and classified security incidents by severity",
+      "Coordinated stakeholder communications and response actions"
+    ]
+  },
+  "responsive-web": {
+    "title": "Responsive Web Development",
+    "description": "Building interfaces that work beautifully across all screen sizes.",
+    "examples": [
+      "Developed React components with mobile-first responsive layouts",
+      "Created modular, reusable UI components",
+      "Implemented smooth interactions and state management"
+    ]
+  },
+  "ui-design": {
+    "title": "UI Design",
+    "description": "Crafting interfaces with attention to visual hierarchy and interaction.",
+    "examples": [
+      "Designed layouts with intentional spacing and visual rhythm",
+      "Created hover states, transitions, and micro-interactions",
+      "Developed consistent styling systems"
+    ]
+  },
+  "python": {
+    "title": "Python",
+    "description": "Go-to language for automation, data processing, and creative tooling.",
+    "examples": [
+      "Built automation frameworks and data pipelines",
+      "Developed web scraping systems for ML research",
+      "Created custom tools for various workflows"
+    ]
+  },
+  "selenium": {
+    "title": "Selenium",
+    "description": "Browser automation for testing and data extraction.",
+    "examples": [
+      "Built complete test suites for web applications",
+      "Automated data collection from dynamic sites",
+      "Created reusable patterns for maintainable code"
+    ]
+  },
+  "robot-framework": {
+    "title": "Robot Framework",
+    "description": "Keyword-driven automation for readable test suites.",
+    "examples": [
+      "Built UI automation framework from scratch",
+      "Created custom keywords for reusable components",
+      "Designed human-readable tests for team collaboration"
+    ]
+  },
+  "databricks": {
+    "title": "Databricks",
+    "description": "Cloud platform for large-scale data processing.",
+    "examples": [
+      "Built data validation workflows in notebooks",
+      "Created automated pipelines for scheduled checks",
+      "Processed large datasets using distributed computing"
+    ]
+  },
+  "pyspark": {
+    "title": "PySpark",
+    "description": "Distributed data processing for large-scale datasets.",
+    "examples": [
+      "Wrote transformation scripts for enterprise pipelines",
+      "Performed validations on millions of records"
+    ]
+  },
+  "sql": {
+    "title": "SQL",
+    "description": "Database querying for data analysis and validation.",
+    "examples": [
+      "Wrote complex queries for data comparison",
+      "Built validation scripts for large-scale pipelines"
+    ]
+  },
+  "toad": {
+    "title": "TOAD for Oracle",
+    "description": "Database management for Oracle environments.",
+    "examples": [
+      "Performed data comparisons across environments",
+      "Validated integrity on enterprise-scale systems"
+    ]
+  },
+  "azure-devops": {
+    "title": "Azure DevOps",
+    "description": "CI/CD platform for automated builds and deployments.",
+    "examples": [
+      "Configured pipelines for automated test execution",
+      "Set up continuous integration workflows"
+    ]
+  },
+  "jira": {
+    "title": "JIRA",
+    "description": "Project management and issue tracking.",
+    "examples": [
+      "Managed tasks, bugs, and feature tracking",
+      "Coordinated work across teams"
+    ]
+  },
+  "github": {
+    "title": "GitHub",
+    "description": "Version control and collaboration.",
+    "examples": [
+      "Managed repositories and pull request workflows",
+      "Coordinated code reviews and releases"
+    ]
+  },
+  "pandas": {
+    "title": "Pandas",
+    "description": "Python library for data manipulation and analysis.",
+    "examples": [
+      "Processed 630,000+ records for ML research",
+      "Cleaned and structured datasets for analysis"
+    ]
+  },
+  "beautifulsoup": {
+    "title": "BeautifulSoup",
+    "description": "HTML/XML parsing for web scraping.",
+    "examples": [
+      "Extracted structured data from complex pages",
+      "Parsed millions of pages for research"
+    ]
+  },
+  "react": {
+    "title": "React",
+    "description": "Component-based UI development for interactive web apps.",
+    "examples": [
+      "Built modular, reusable components for client projects",
+      "Implemented interactive features with state management",
+      "Designed architecture for maintainability"
+    ]
+  },
+  "typescript": {
+    "title": "TypeScript",
+    "description": "Type-safe JavaScript for reliable code.",
+    "examples": [
+      "Developed React components with full type safety",
+      "Created clear interfaces for team collaboration"
+    ]
+  },
+  "css": {
+    "title": "CSS",
+    "description": "Styling for polished, responsive interfaces.",
+    "examples": [
+      "Created layouts with intentional spacing and hierarchy",
+      "Built smooth transitions and hover animations",
+      "Implemented responsive designs for all screens"
+    ]
+  },
+  "html": {
+    "title": "HTML",
+    "description": "Semantic markup for accessible, structured content.",
+    "examples": [
+      "Built accessible component structures",
+      "Created semantic layouts for SEO and screen readers"
+    ]
+  },
+  "git": {
+    "title": "Git",
+    "description": "Version control for code management.",
+    "examples": [
+      "Managed feature branches and pull requests",
+      "Coordinated code integration across teams"
+    ]
+  },
+  "figma": {
+    "title": "Figma",
+    "description": "Design tool for UI mockups and prototypes.",
+    "examples": [
+      "Created wireframes and high-fidelity mockups",
+      "Designed component libraries for consistency",
+      "Collaborated on design iterations"
+    ]
+  },
+  "krita": {
+    "title": "Krita",
+    "description": "Digital painting and illustration.",
+    "examples": [
+      "Created digital collages with found imagery and hand-drawn elements",
+      "Layered compositions exploring botanical and organic forms",
+      "Produced visuals for personal creative projects"
+    ]
+  },
+  "aseprite": {
+    "title": "Aseprite",
+    "description": "Pixel art for sprites, UI elements, and retro graphics.",
+    "examples": [
+      "Designed pixel art interfaces and decorative frames",
+      "Created custom lettering and iconography"
+    ]
+  },
+  "unity": {
+    "title": "Unity",
+    "description": "Game engine for interactive 2D/3D experiences.",
+    "examples": [
+      "Developed 2D game with custom art and mechanics",
+      "Implemented game logic with C# scripting"
+    ]
+  },
+  "p5js": {
+    "title": "p5.js",
+    "description": "Creative coding for generative art and interactive visuals.",
+    "examples": [
+      "Built the interactive flower trail on this portfolio",
+      "Experimenting with algorithmic and generative systems"
+    ]
+  },
+  "touchdesigner": {
+    "title": "TouchDesigner",
+    "description": "Visual programming for real-time interactive multimedia.",
+    "examples": [
+      "Exploring generative visuals and interactive installations"
+    ]
+  },
+  "creative-coding": {
+    "title": "Creative Coding",
+    "description": "Using code as a medium for artistic expression.",
+    "examples": [
+      "Building generative art, algorithmic designs, and interactive experiences",
+      "This portfolio — cursor flowers, animations, net art aesthetics"
+    ]
+  },
+  "javascript": {
+    "title": "JavaScript",
+    "description": "Core language for web interactivity and creative coding.",
+    "examples": [
+      "Built this portfolio's interactive features (flower trails, accordions, garden)",
+      "Implemented dynamic content and state management",
+      "Exploring p5.js for generative art"
+    ]
+  }
+}

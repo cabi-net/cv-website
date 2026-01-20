@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>mbomb</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      background: #1a1a1a;
+      overflow: hidden;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    canvas {
+      display: block;
+    }
+    .back {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      color: #ff6de2;
+      text-decoration: none;
+      font-size: 14px;
+      font-family: sans-serif;
+      opacity: 0.5;
+      transition: opacity 0.2s;
+      z-index: 100;
+    }
+    .back:hover { opacity: 1; }
+    .hint {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      color: #666;
+      font-size: 13px;
+      font-family: sans-serif;
+      font-style: italic;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  <a href="../../index.html" class="back">← back</a>
+  <p class="hint">type to create · delete to fade</p>
+
+  <script>
+    const cherryBlossomBloom = ["#590d22","#800f2f","#a4133c","#c9184a","#ff4d6d","#ff758f","#ff8fa3","#ffb3c1","#ffccd5","#fff0f3"];
+    const palette2 = ["#eae4e9","#fff1e6","#fde2e4","#fad2e1","#e2ece9","#bee1e6","#f0efeb","#dfe7fd","#cddafd"];
+
+    const vowels1 = ['a','o','A','O'];
+    const vowels2 = ['e','i','E','I'];
+    const vowels3 = ['u','y','U','Y'];
+    const consonants1 = ['b','c','d','f','g','B','C','D','F','G'];
+    const consonants2 = ['h','j','k','l','m','H','J','K','L','M'];
+    const consonants3 = ['n','p','q','r','s','N','P','Q','R','S'];
+    const consonants4 = ['t','v','w','x','z','T','V','W','X','Z'];
+    const numbers1 = ['1','2','3','4','5'];
+    const numbers2 = ['6','7','8','9','0'];
+    const symbols1 = [':', ',' ,';'];
+    const symbols2 = ['.', '!'];
+    const symbols3 = ["'",'"','@','(',')'];
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight);
+      background(220);
+      noStroke();
+      frameRate(30);
+    }
+
+    function draw() {}
+
+    function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+    }
+
+    function keyTyped() {
+      if (vowels1.includes(key)) {
+        let spacing = width / 8;
+        for (let j = 0; j < 6; j++) {
+          fill(random(cherryBlossomBloom));
+          rect(spacing + spacing * j, 30, 15, height * 0.25);
+        }
+      }
+      if (vowels2.includes(key)) {
+        let spacing = width / 8;
+        for (let j = 0; j < 6; j++) {
+          fill(random(cherryBlossomBloom));
+          rect(spacing * 0.5 + spacing * j, height * 0.75, 50, 25);
+        }
+      }
+      if (vowels3.includes(key)) {
+        let spacing = width / 8;
+        for (let j = 0; j < 6; j++) {
+          for (let k = 0; k < 8; k++) {
+            fill(random(palette2));
+            rect(spacing + spacing * j, 100 + 30 * k, 4, 5);
+          }
+        }
+      }
+      if (consonants1.includes(key)) {
+        let x = width * 0.5;
+        for (let j = 0; j < 5; j++) {
+          fill(random(cherryBlossomBloom));
+          ellipse(x - (j * 20), 40 + j * (height / 6), 50, 35);
+        }
+      }
+      if (consonants2.includes(key)) {
+        for (let j = 0; j < 5; j++) {
+          fill(random(palette2));
+          ellipse(random(width), random(height), 40, 40);
+        }
+      }
+      if (consonants3.includes(key)) {
+        for (let j = 0; j < 7; j++) {
+          fill(random(cherryBlossomBloom));
+          circle(random(width * 0.9), random(height * 0.9), random(100));
+        }
+      }
+      if (consonants4.includes(key)) {
+        let topHalf = get(0, 0, width, height / 2);
+        topHalf.filter(THRESHOLD);
+        image(topHalf, 0, height / 2);
+      }
+      if (numbers1.includes(key)) {
+        let d = pixelDensity();
+        let totalPixels = 4 * (d * width) * (d * height);
+        let chunkSize = floor(random(totalPixels / 4));
+        let offset = floor(random(totalPixels - chunkSize));
+        loadPixels();
+        for (let i = 0; i < chunkSize; i++) {
+          pixels[offset + i] = pixels[i];
+        }
+        updatePixels();
+      }
+      if (numbers2.includes(key)) {
+        fill(random(cherryBlossomBloom) + '88');
+        ellipse(random(width), random(height), random(150), random(80));
+      }
+      if (symbols1.includes(key)) {
+        let stripWidth = random(20, 80);
+        let sourceX = random(width - stripWidth);
+        let destX = random(width - stripWidth);
+        let strip = get(sourceX, 0, stripWidth, height);
+        strip.filter(DILATE);
+        image(strip, destX, 0);
+      }
+      if (symbols2.includes(key)) {
+        textSize(random(60, 180));
+        fill(255);
+        stroke(0);
+        strokeWeight(3);
+        text('trust me', random(width * 0.7), random(height * 0.8));
+        noStroke();
+      }
+      if (symbols3.includes(key)) {
+        stroke(255);
+        strokeWeight(2);
+        let x = random(width * 0.2, width * 0.8);
+        let y = random(height * 0.2, height * 0.8);
+        for (let i = 0; i < 50; i++) {
+          point(x + random(-80, 200), y + random(-30, 30));
+        }
+        noStroke();
+      }
+      return false;
+    }
+
+    function keyPressed() {
+      if (keyCode === DELETE || keyCode === BACKSPACE) {
+        fill(220, 220, 220, 30);
+        noStroke();
+        rect(0, 0, width, height);
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>
