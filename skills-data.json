@@ -229,6 +229,24 @@
       "Collaborated on design iterations"
     ]
   },
+  "photoshop": {
+    "title": "Photoshop",
+    "description": "Image editing and digital composition.",
+    "examples": [
+      "Photo manipulation and retouching",
+      "Digital collages and mixed media compositions",
+      "Layer-based editing for complex visuals"
+    ]
+  },
+  "gimp": {
+    "title": "GIMP",
+    "description": "Open-source image editing and digital art.",
+    "examples": [
+      "Photo editing and color correction",
+      "Digital painting and illustration",
+      "Texture creation and manipulation"
+    ]
+  },
   "krita": {
     "title": "Krita",
     "description": "Digital painting and illustration.",
