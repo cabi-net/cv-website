@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Univers";
+  src: url("./fonts/univers/UniversLight.ttf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Univers";
+  src: url("./fonts/univers/UniversRegular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Univers";
+  src: url("./fonts/univers/UniversBold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Univers Condensed";
+  src: url("./fonts/univers/UniversCnRg.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Univers Condensed";
+  src: url("./fonts/univers/UniversCnBold.ttf");
+  font-weight: 700;
+}

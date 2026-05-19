@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.\\(js|jsx|ts|tsx\\)$\")",
+      "Bash(wc -l /c/Users/meric/Documents/Develop/cv-website/*.html /c/Users/meric/Documents/Develop/cv-website/*.css)",
+      "Bash(find /c/Users/meric/Documents/Develop/cv-website -type f \\\\\\( -name \"*.html\" -o -name \"*.css\" \\\\\\) -exec du -h {} \\\\;)"
+    ]
+  }
+}

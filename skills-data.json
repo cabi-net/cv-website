@@ -1,7 +1,7 @@
 {
   "test-automation": {
-    "title": "Automation",
-    "description": "Building systems that do repetitive work automatically — testing, data processing, workflow orchestration.",
+    "title": "Test Automation",
+    "description": "Building systems that do repetitive work automatically \u2014 testing, data processing, workflow orchestration.",
     "examples": [
       "Built UI automation framework from scratch using Python + Selenium",
       "Created scheduled workflows processing millions of records",
@@ -24,15 +24,6 @@
       "Collected 630,000+ paintings with metadata for published ML research at UofT",
       "Built pipelines handling dynamic content, infinite scroll, rate limiting",
       "Processed millions of records from Google Arts & Culture"
-    ]
-  },
-  "data-mining": {
-    "title": "Data Mining",
-    "description": "Extracting patterns and insights from large datasets.",
-    "examples": [
-      "Contributed to ML research analyzing historical art for economic patterns",
-      "Processed metadata for 630K+ artworks — dates, locations, artist info",
-      "Work published through NBER (National Bureau of Economic Research)"
     ]
   },
   "browser-automation": {
@@ -91,9 +82,9 @@
     "title": "Selenium",
     "description": "Browser automation for testing and data extraction.",
     "examples": [
-      "Built complete test suites for web applications",
-      "Automated data collection from dynamic sites",
-      "Created reusable patterns for maintainable code"
+      "Handled dropdowns, dynamic inputs, alerts, and option selections",
+      "Managed timeouts, waits, and JavaScript-heavy page interactions",
+      "Wrote assertions for UI state validation across complex flows"
     ]
   },
   "robot-framework": {
@@ -118,7 +109,7 @@
     "title": "PySpark",
     "description": "Distributed data processing for large-scale datasets.",
     "examples": [
-      "Wrote transformation scripts for enterprise pipelines",
+      "Wrote transformation and comparison scripts based on requirements specifications",
       "Performed validations on millions of records"
     ]
   },
@@ -154,20 +145,12 @@
       "Coordinated work across teams"
     ]
   },
-  "github": {
-    "title": "GitHub",
-    "description": "Version control and collaboration.",
-    "examples": [
-      "Managed repositories and pull request workflows",
-      "Coordinated code reviews and releases"
-    ]
-  },
   "pandas": {
     "title": "Pandas",
     "description": "Python library for data manipulation and analysis.",
     "examples": [
       "Processed 630,000+ records for ML research",
-      "Cleaned and structured datasets for analysis"
+      "Cleaned and structured collected datasets for handoff to research pipeline"
     ]
   },
   "beautifulsoup": {
@@ -210,14 +193,6 @@
     "examples": [
       "Built accessible component structures",
       "Created semantic layouts for SEO and screen readers"
-    ]
-  },
-  "git": {
-    "title": "Git",
-    "description": "Version control for code management.",
-    "examples": [
-      "Managed feature branches and pull requests",
-      "Coordinated code integration across teams"
     ]
   },
   "figma": {
@@ -301,6 +276,24 @@
       "Built this portfolio's interactive features (flower trails, accordions, garden)",
       "Implemented dynamic content and state management",
       "Exploring p5.js for generative art"
+    ]
+  },
+  "data-validation": {
+    "title": "Data Validation",
+    "description": "Verifying data integrity across enterprise pipelines at scale.",
+    "examples": [
+      "Validated large-scale data migrations at CIBC using PySpark and SQL",
+      "Built automated comparison scripts across environments",
+      "Processed millions of records through Databricks pipelines"
+    ]
+  },
+  "github-actions": {
+    "title": "GitHub Actions",
+    "description": "CI/CD automation via GitHub workflows.",
+    "examples": [
+      "Configured automated test pipelines triggered on pull requests",
+      "Built scheduled workflows for recurring data validation",
+      "Integrated test results reporting into CI pipeline"
     ]
   }
 }
