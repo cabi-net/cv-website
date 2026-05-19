@@ -24,30 +24,27 @@
             </div>
             <div class="header-contact">
               <a href="mailto:silataskin@gmail.com">silataskin@gmail.com</a>
+              <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">dark</button>
             </div>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- NAVIGATION -->
-    <nav class="main-nav">
-      <div class="nav-container">
-        <ul class="nav-list">
-          <li><button class="nav-link active" data-section="experience">Credentials</button></li>
-          <li><button class="nav-link" data-section="tools">Capabilities</button></li>
-          <li><button class="nav-link" data-section="work">Work</button></li>
-        </ul>
-      </div>
-    </nav>
-
     <!-- MAIN CONTENT -->
     <main class="main">
       <div class="container">
         <div class="main-layout">
 
-          <!-- LEFT SIDEBAR -->
+          <!-- LEFT SIDEBAR (tulip + nav hanging left) -->
           <aside class="sidebar-left">
+            <nav class="main-nav">
+              <ul class="nav-list">
+                <li><button class="nav-link active" data-section="experience">Credentials</button></li>
+                <li><button class="nav-link" data-section="tools">Capabilities</button></li>
+                <li><button class="nav-link" data-section="work">Work</button></li>
+              </ul>
+            </nav>
             <div class="sidebar-decor">
               <img class="lale-icon" src="./gfx/lale.png" alt="Decorative tulip illustration" />
             </div>
@@ -66,15 +63,11 @@
                     <canvas class="work-canvas" id="garden-canvas"></canvas>
 
                     <div class="work-list">
-                      <!-- <a href="./work/carmen.html" class="work-link">Carmen</a>
-                      <a href="./work/anne.html" class="work-link">Untitled (creatures)</a>
-                      <a href="./work/ashes.html" class="work-link">Ashes</a>
-                      <a href="./work/ber.html" class="work-link">Untitled</a>
-                      <a href="./work/write-your-own-art/index.html" class="work-link">trust me</a> -->
                       <a href="https://silataskin.itch.io/malware-buster" class="work-link">Malware Buster (2D Shooter made with Unity)</a>
                       <a href="https://editor.p5js.org/cabi-net/sketches/WJUzrOfm8" class="work-link">loads me, loads me not (p5.js throbber)</a>
                       <a href="#" class="work-link">halloween party invitation (static webpage)</a>
                       <a href="#" class="work-link">text-to-art postcard generator (p5.js)</a>
+                      <a href="http://127.0.0.1:5500/index.html" class="work-link work-link-more">explore more on cabi-net &rarr;</a>
                     </div>
                   </div>
                 </div>
@@ -226,11 +219,6 @@
                 </div>
               </div>
 
-              <footer class="section-footer" id="experience-footer">
-                <div class="detail-panel empty">
-                  click on a tag for details
-                </div>
-              </footer>
             </section>
 
             <!-- TOOLS SECTION -->
@@ -320,18 +308,13 @@
                   </article>
                 </div>
               </div>
-              <footer class="section-footer" id="tools-footer">
-                <div class="detail-panel empty">
-                  click on a tag for details
-                </div>
-              </footer>
             </section>
           </div>
 
-          <!-- RIGHT SIDEBAR -->
-          <aside class="sidebar-right">
-            <div class="sidebar-decor">
-              <img class="lale-icon" src="./gfx/lale.png" alt="Decorative tulip illustration" />
+          <!-- DETAIL PANEL (right column) -->
+          <aside class="sidebar-detail">
+            <div class="detail-panel empty" id="detail-panel">
+              click on a tag for details
             </div>
           </aside>
         </div>

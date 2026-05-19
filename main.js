@@ -1,3 +1,16 @@
+// Dark mode toggle
+const themeToggle = document.getElementById('theme-toggle');
+const savedTheme = localStorage.getItem('cv-theme');
+if (savedTheme === 'dark') {
+  document.body.classList.add('dark-mode');
+  themeToggle.textContent = 'light';
+}
+themeToggle.addEventListener('click', () => {
+  const isDark = document.body.classList.toggle('dark-mode');
+  themeToggle.textContent = isDark ? 'light' : 'dark';
+  localStorage.setItem('cv-theme', isDark ? 'dark' : 'light');
+});
+
 // Load skill details from JSON file
 let skillDetails = {};
 
@@ -83,6 +96,7 @@ function globalFlowerLoop() {
 }
 
 document.addEventListener('mousemove', (e) => {
+  if (document.body.classList.contains('dark-mode')) return;
   const dist = Math.hypot(e.clientX - lastGlobalMousePos.x, e.clientY - lastGlobalMousePos.y);
   if (dist > 30) {
     addGlobalFlower(e.clientX, e.clientY);
@@ -109,30 +123,29 @@ navLinks.forEach(link => {
     });
 
     // Reset everything
-    document.querySelectorAll('.section-footer').forEach(f => f.classList.remove('visible'));
     document.querySelectorAll('.experience-item, .capability-item').forEach(i => i.classList.remove('expanded'));
     document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.detail-panel').forEach(p => {
-      p.classList.add('empty');
-      p.innerHTML = 'click on a tag for details';
-    });
+    const panel = document.getElementById('detail-panel');
+    panel.classList.remove('tool-detail', 'visible', 'empty');
+    panel.innerHTML = '';
   });
 });
+
+function hideDetailPanel() {
+  const panel = document.getElementById('detail-panel');
+  panel.classList.remove('visible', 'tool-detail', 'empty');
+  panel.innerHTML = '';
+  document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+}
 
 // Accordion functionality - Experience
 document.querySelectorAll('.experience-item').forEach(item => {
   item.querySelector('.exp-header').addEventListener('click', (e) => {
     if (e.target.classList.contains('tag')) return;
     const wasExpanded = item.classList.contains('expanded');
-
     document.querySelectorAll('.experience-item').forEach(i => i.classList.remove('expanded'));
-
-    if (!wasExpanded) {
-      item.classList.add('expanded');
-      document.getElementById('experience-footer').classList.add('visible');
-    } else {
-      document.getElementById('experience-footer').classList.remove('visible');
-    }
+    if (!wasExpanded) item.classList.add('expanded');
+    else hideDetailPanel();
   });
 });
 
@@ -141,15 +154,9 @@ document.querySelectorAll('.capability-item').forEach(item => {
   item.querySelector('.capability-header').addEventListener('click', (e) => {
     if (e.target.classList.contains('tag')) return;
     const wasExpanded = item.classList.contains('expanded');
-
     document.querySelectorAll('.capability-item').forEach(i => i.classList.remove('expanded'));
-
-    if (!wasExpanded) {
-      item.classList.add('expanded');
-      document.getElementById('tools-footer').classList.add('visible');
-    } else {
-      document.getElementById('tools-footer').classList.remove('visible');
-    }
+    if (!wasExpanded) item.classList.add('expanded');
+    else hideDetailPanel();
   });
 });
 
@@ -161,24 +168,22 @@ document.querySelectorAll('.tag').forEach(tag => {
     const skillId = tag.dataset.skill;
     const tagType = tag.dataset.type;
     const skillData = skillDetails[skillId];
-    const detailPanel = document.querySelector('.content-section.active .detail-panel');
-
-    if (!detailPanel) return;
+    const detailPanel = document.getElementById('detail-panel');
 
     document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
     tag.classList.add('active');
 
     detailPanel.classList.toggle('tool-detail', tagType === 'tool');
+    detailPanel.classList.add('visible');
+    detailPanel.classList.remove('empty');
 
     if (skillData) {
-      detailPanel.classList.remove('empty');
       detailPanel.innerHTML = `
         <h3>${skillData.title}</h3>
         <p>${skillData.description}</p>
         <ul>${skillData.examples.map(ex => `<li>${ex}</li>`).join('')}</ul>
       `;
     } else {
-      detailPanel.classList.remove('empty');
       detailPanel.innerHTML = `<h3>${tag.textContent}</h3><p>Details coming soon...</p>`;
     }
   });
@@ -235,6 +240,7 @@ if (gardenCanvas && workContainer) {
   }
 
   workContainer.addEventListener('mousemove', (e) => {
+    if (document.body.classList.contains('dark-mode')) return;
     const rect = workContainer.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
