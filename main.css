@@ -61,16 +61,17 @@ body {
 
 body.dark-mode {
   --color-text: #f0ebe0;
-  --color-bg: #1a0a0a;
-  --color-accent: #f5c6ea;
+  --color-bg: #7a1040;
+  --color-accent: #ffb3f0;
   --color-accent2: #f0ebe0;
-  --color-surface: rgba(10, 0, 0, 0.55);
+  --color-surface: rgba(15, 0, 8, 0.55);
   --color-text-muted: rgba(240, 235, 224, 0.45);
   --color-text-mid: rgba(240, 235, 224, 0.55);
   background-image: url('./gfx/ber.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  background-blend-mode: overlay;
 }
 
 .page-wrapper {
@@ -657,6 +658,10 @@ a.nav-link {
 
 /* ==================== DARK MODE TOGGLE ==================== */
 .theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10000;
   background: none;
   border: 1px solid var(--color-accent);
   border-radius: var(--br-5);
@@ -668,7 +673,6 @@ a.nav-link {
   transition: all 0.2s;
   letter-spacing: 0.06rem;
   text-transform: uppercase;
-  flex-shrink: 0;
 }
 
 .theme-toggle:hover {
@@ -677,7 +681,7 @@ a.nav-link {
 }
 
 body.dark-mode .sidebar-decor {
-  display: none;
+  visibility: hidden;
 }
 
 /* ==================== RESPONSIVE ==================== */

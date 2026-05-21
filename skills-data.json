@@ -4,7 +4,7 @@
     "description": "Building systems that do repetitive work automatically \u2014 testing, data processing, workflow orchestration.",
     "examples": [
       "Built UI automation framework from scratch using Python + Selenium",
-      "Created scheduled workflows processing millions of records",
+      "Created automated workflows processing millions of records",
       "Integrated automated pipelines with CI/CD"
     ]
   },
@@ -30,7 +30,7 @@
     "title": "Browser Automation",
     "description": "Programmatically controlling browsers for testing and data collection.",
     "examples": [
-      "Automated data collection from protected platforms",
+      "Automated data collection from protected platforms", // protected platforms, is this a red flag
       "Handled dynamic JavaScript content and lazy-loaded elements",
       "Built systems to navigate complex multi-step web flows"
     ]
@@ -74,8 +74,7 @@
     "description": "Go-to language for automation, data processing, and creative tooling.",
     "examples": [
       "Built automation frameworks and data pipelines",
-      "Developed web scraping systems for ML research",
-      "Created custom tools for various workflows"
+      "Created custom tools for various workflows" // like what
     ]
   },
   "selenium": {
@@ -92,7 +91,7 @@
     "description": "Keyword-driven automation for readable test suites.",
     "examples": [
       "Built UI automation framework from scratch",
-      "Created custom keywords for reusable components",
+      "Created custom keywords for reusable components", // is this too much detail?
       "Designed human-readable tests for team collaboration"
     ]
   },
@@ -101,7 +100,7 @@
     "description": "Cloud platform for large-scale data processing.",
     "examples": [
       "Built data validation workflows in notebooks",
-      "Created automated pipelines for scheduled checks",
+      "Created automated pipelines for scheduled checks", // they werent rly scheduled, more like on demand
       "Processed large datasets using distributed computing"
     ]
   },
@@ -141,8 +140,7 @@
     "title": "JIRA",
     "description": "Project management and issue tracking.",
     "examples": [
-      "Managed tasks, bugs, and feature tracking",
-      "Coordinated work across teams"
+      "Managed tasks, bugs, and feature tracking" // is this too generic/unnecessary
     ]
   },
   "pandas": {
@@ -228,14 +226,14 @@
     "examples": [
       "Created digital collages with found imagery and hand-drawn elements",
       "Layered compositions exploring botanical and organic forms",
-      "Produced visuals for personal creative projects"
+      "Produced visuals for personal creative projects" // idk if i need to include these examples for such tools
     ]
   },
   "aseprite": {
     "title": "Aseprite",
     "description": "Pixel art for sprites, UI elements, and retro graphics.",
     "examples": [
-      "Designed pixel art interfaces and decorative frames",
+      "Designed pixel art interfaces and decorative frames", // too much detail?
       "Created custom lettering and iconography"
     ]
   },
@@ -273,7 +271,7 @@
     "title": "JavaScript",
     "description": "Core language for web interactivity and creative coding.",
     "examples": [
-      "Built this portfolio's interactive features (flower trails, accordions, garden)",
+      "Built this portfolio's interactive features (flower trails, accordions)",// meh is this too much detail?
       "Implemented dynamic content and state management",
       "Exploring p5.js for generative art"
     ]

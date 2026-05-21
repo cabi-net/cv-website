@@ -25,11 +25,21 @@ fetch('./skills-data.json')
 // Global flower trail effect
 const globalFlowers = [];
 const flowerColors = {
-  violet: 'rgba(255, 109, 226, ',
-  olive: 'rgba(155, 186, 111, ',
-  pink: 'rgba(255, 182, 235, ',
-  sage: 'rgba(180, 200, 150, '
+  light: {
+    primary: 'rgba(255, 109, 226, ',
+    secondary: 'rgba(155, 186, 111, ',
+    petal: 'rgba(255, 182, 235, ',
+  },
+  dark: {
+    primary: 'rgba(255, 179, 240, ',
+    secondary: 'rgba(255, 60, 100, ',
+    petal: 'rgba(255, 220, 245, ',
+  }
 };
+
+function getColors() {
+  return document.body.classList.contains('dark-mode') ? flowerColors.dark : flowerColors.light;
+}
 
 let globalCanvas, globalCtx;
 let lastGlobalMousePos = { x: 0, y: 0 };
@@ -54,7 +64,7 @@ function addGlobalFlower(x, y) {
     size: 3 + Math.random() * 5,
     petals: 4 + Math.floor(Math.random() * 3),
     rotation: Math.random() * Math.PI * 2,
-    color: Math.random() > 0.5 ? 'violet' : 'pink',
+    usePrimary: Math.random() > 0.5,
     life: 1,
     decay: 0.008 + Math.random() * 0.005
   });
@@ -62,6 +72,7 @@ function addGlobalFlower(x, y) {
 
 function globalFlowerLoop() {
   globalCtx.clearRect(0, 0, globalCanvas.width, globalCanvas.height);
+  const colors = getColors();
 
   for (let i = globalFlowers.length - 1; i >= 0; i--) {
     const flower = globalFlowers[i];
@@ -71,9 +82,10 @@ function globalFlowerLoop() {
     globalCtx.save();
     globalCtx.translate(flower.x, flower.y);
     globalCtx.rotate(flower.rotation);
-    globalCtx.globalAlpha = flower.life * 0.6;
+    const isDark = document.body.classList.contains('dark-mode');
+    globalCtx.globalAlpha = flower.life * (isDark ? 0.9 : 0.6);
 
-    globalCtx.fillStyle = flowerColors[flower.color] + '0.7)';
+    globalCtx.fillStyle = (flower.usePrimary ? colors.primary : colors.petal) + (isDark ? '1)' : '0.7)');
     for (let j = 0; j < flower.petals; j++) {
       const angle = (j / flower.petals) * Math.PI * 2;
       globalCtx.beginPath();
@@ -86,7 +98,7 @@ function globalFlowerLoop() {
       globalCtx.fill();
     }
 
-    globalCtx.fillStyle = flowerColors.olive + '0.8)';
+    globalCtx.fillStyle = colors.secondary + (isDark ? '1)' : '0.8)');
     globalCtx.beginPath();
     globalCtx.arc(0, 0, flower.size * 0.25, 0, Math.PI * 2);
     globalCtx.fill();
