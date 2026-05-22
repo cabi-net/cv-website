@@ -5,28 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Meric Sila Taskin &ndash; Portfolio</title>
   <link rel="stylesheet" href="./fonts.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./main.css" />
 </head>
-<body>
+<body class="dark-mode">
   <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">dark</button>
   <div class="page-wrapper">
 
     <!-- HEADER -->
     <header class="header">
-      <div class="container">
+      <div class="container container--wide">
         <div class="header-content">
           <div class="header-name">
-            <h1>Meric Sila Taskin</h1>
-          </div>
-          <div class="header-info">
-            <div class="header-bio">
-              <p class="bio-what">automation engineer, creative technologist</p>
-              <p class="bio-where">UofT BSc · French C1 · Toronto</p>
-            </div>
-            <div class="header-contact">
-              <a href="mailto:silataskin@gmail.com">silataskin@gmail.com</a>
-              <a class="cabinet-link" href="https://cabi-net.neocities.org/" target="_blank" rel="noopener">Work ↗</a>
-            </div>
+            <h1 class="visually-hidden">Meric Sila Taskin</h1>
+            <canvas class="wordmark" id="wordmark-canvas" aria-hidden="true"></canvas>
           </div>
         </div>
       </div>
@@ -37,13 +31,6 @@
       <div class="container">
         <div class="main-layout">
 
-          <!-- LEFT SIDEBAR (tulip decoration) -->
-          <aside class="sidebar-left">
-            <div class="sidebar-decor">
-              <img class="lale-icon" src="./gfx/lale.png" alt="Decorative tulip illustration" />
-            </div>
-          </aside>
-
           <!-- CONTENT AREA -->
           <div class="content-wrapper">
 
@@ -52,7 +39,7 @@
               <div class="content-inner">
 
                 <div class="section-group">
-                  <h2 class="section-heading">Experience</h2>
+                  <h2 class="section-heading primary">Experience</h2>
 
                   <article class="experience-item" data-role="cibc">
                     <div class="exp-header">
@@ -163,8 +150,22 @@
                 </div>
 
                 <div class="section-group">
-                  <h2 class="section-heading">Education</h2>
+                  <h2 class="section-heading primary">Independent Practice</h2>
+                  <p class="section-intro">Tools developed outside of roles &mdash; through personal projects, learning, and curiosity.</p>
+                  <div class="also-tags">
+                    <span class="tag" data-skill="figma" data-type="tool">Figma</span>
+                    <span class="tag" data-skill="photoshop" data-type="tool">Photoshop</span>
+                    <span class="tag" data-skill="krita" data-type="tool">Krita</span>
+                    <span class="tag" data-skill="aseprite" data-type="tool">Aseprite</span>
+                    <span class="tag" data-skill="unity" data-type="tool">Unity</span>
+                    <span class="tag" data-skill="p5js" data-type="tool">p5.js</span>
+                    <span class="tag" data-skill="touchdesigner" data-type="tool">TouchDesigner</span>
+                    <span class="tag" data-skill="javascript" data-type="tool">JavaScript</span>
+                  </div>
+                  <a class="cabinet-link" href="https://cabi-net.neocities.org/" target="_blank" rel="noopener">Explore my work ↗</a>
+                </div>
 
+                <div class="section-group">
                   <article class="experience-item" data-role="uoft-bsc">
                     <div class="exp-header">
                       <div class="exp-header-left">
@@ -186,7 +187,6 @@
                 </div>
 
                 <div class="section-group">
-                  <h2 class="section-heading">Languages</h2>
                   <div class="lang-list">
                     <div class="lang-item">
                       <span class="lang-name">English, Turkish</span>
@@ -198,29 +198,22 @@
                     </div>
                   </div>
                 </div>
-
-                <div class="section-group">
-                  <h2 class="section-heading">Also</h2>
-                  <div class="also-tags">
-                    <span class="tag" data-skill="figma" data-type="tool">Figma</span>
-                    <span class="tag" data-skill="photoshop" data-type="tool">Photoshop</span>
-                    <span class="tag" data-skill="krita" data-type="tool">Krita</span>
-                    <span class="tag" data-skill="aseprite" data-type="tool">Aseprite</span>
-                    <span class="tag" data-skill="unity" data-type="tool">Unity</span>
-                    <span class="tag" data-skill="p5js" data-type="tool">p5.js</span>
-                    <span class="tag" data-skill="touchdesigner" data-type="tool">TouchDesigner</span>
-                    <span class="tag" data-skill="javascript" data-type="tool">JavaScript</span>
-                  </div>
-                </div>
               </div>
             </section>
           </div>
 
-          <!-- DETAIL PANEL (right column) -->
+          <!-- RIGHT COLUMN (meta + detail panel) -->
           <aside class="sidebar-detail">
-            <div class="detail-panel empty" id="detail-panel">
-              click on a tag for details
+            <div class="meta-block">
+              <div class="header-bio">
+                <p class="bio-what">automation engineer, creative technologist</p>
+                <p class="bio-where">UofT BSc · French C1 · Toronto</p>
+              </div>
+              <div class="header-contact">
+                <a href="mailto:silataskin@gmail.com">silataskin@gmail.com</a>
+              </div>
             </div>
+            <div class="detail-panel" id="detail-panel"></div>
           </aside>
         </div>
       </div>

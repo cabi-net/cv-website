@@ -1,14 +1,183 @@
-// Dark mode toggle
+// Wordmark — dotted halftone render of the name in The Blanger
+const WORDMARK_DEFAULTS = {
+  fontFactor: 0.82,   // fraction of canvas height used as initial font size
+  gridDivisor: 34,    // grid spacing = fontSize / gridDivisor (smaller = denser)
+  dotRatio: 1.05,     // dot diameter = grid spacing * dotRatio
+};
+
+function getWordmarkSettings() {
+  const saved = localStorage.getItem('wordmark-settings');
+  if (saved) {
+    try { return { ...WORDMARK_DEFAULTS, ...JSON.parse(saved) }; }
+    catch (e) {}
+  }
+  return { ...WORDMARK_DEFAULTS };
+}
+
+function renderWordmark() {
+  const canvas = document.getElementById('wordmark-canvas');
+  if (!canvas) return;
+
+  const text = 'Meric Sila Taskin';
+  const font = 'the_blanger';
+  const settings = getWordmarkSettings();
+  const dotColor = getComputedStyle(document.body).getPropertyValue('--color-accent').trim() || '#a8456f';
+
+  const DPR = 2;
+  const cssW = canvas.clientWidth;
+  const cssH = canvas.clientHeight;
+  canvas.width = cssW * DPR;
+  canvas.height = cssH * DPR;
+
+  const cw = canvas.width;
+  const ch = canvas.height;
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, cw, ch);
+
+  // Offscreen text render — shrink font until BOTH width and height fit
+  const off = document.createElement('canvas');
+  off.width = cw;
+  off.height = ch;
+  const octx = off.getContext('2d');
+  octx.fillStyle = '#000000';
+  octx.fillRect(0, 0, cw, ch);
+  octx.fillStyle = '#ffffff';
+
+  let fszScaled = Math.floor(ch * settings.fontFactor);
+  const fits = () => {
+    octx.font = `${fszScaled}px "${font}"`;
+    const m = octx.measureText(text);
+    const widthOK = m.width <= cw * 0.94;
+    const ascent = m.actualBoundingBoxAscent || fszScaled * 0.8;
+    const descent = m.actualBoundingBoxDescent || fszScaled * 0.2;
+    const totalH = ascent + descent;
+    const heightOK = totalH <= ch * 0.92;
+    return widthOK && heightOK;
+  };
+  while (!fits() && fszScaled > 20) fszScaled -= 4;
+  octx.font = `${fszScaled}px "${font}"`;
+
+  const gridScaled = Math.max(3, Math.floor(fszScaled / settings.gridDivisor));
+  const dotScaled = gridScaled * settings.dotRatio;
+
+  // Center using actual bounding box for accurate vertical placement
+  const metrics = octx.measureText(text);
+  const ascent = metrics.actualBoundingBoxAscent || fszScaled * 0.8;
+  const descent = metrics.actualBoundingBoxDescent || fszScaled * 0.2;
+  const centerY = ch / 2 + (ascent - descent) / 2;
+
+  octx.textAlign = 'left';
+  octx.textBaseline = 'alphabetic';
+  const xPad = Math.max(8, fszScaled * 0.05);
+  octx.fillText(text, xPad, centerY);
+
+  const imgData = octx.getImageData(0, 0, cw, ch).data;
+
+  // Sample grid → draw dots
+  ctx.fillStyle = dotColor;
+  for (let y = 0; y < ch; y += gridScaled) {
+    for (let x = 0; x < cw; x += gridScaled) {
+      const xi = Math.floor(x);
+      const yi = Math.floor(y);
+      const idx = (yi * cw + xi) * 4;
+      if (imgData[idx] > 128) {
+        ctx.beginPath();
+        ctx.arc(x, y, dotScaled / 2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+  }
+}
+
+// Dev panel for fine-tuning wordmark — toggle with ` (backtick)
+function initWordmarkDevPanel() {
+  const panel = document.createElement('div');
+  panel.id = 'wordmark-dev-panel';
+  panel.innerHTML = `
+    <div class="wdp-header">
+      <span>Wordmark tuner</span>
+      <button class="wdp-close" type="button">×</button>
+    </div>
+    <label>Font factor <span data-val="fontFactor"></span>
+      <input type="range" data-setting="fontFactor" min="0.4" max="1.2" step="0.02">
+    </label>
+    <label>Grid divisor <span data-val="gridDivisor"></span>
+      <input type="range" data-setting="gridDivisor" min="8" max="60" step="1">
+    </label>
+    <label>Dot ratio <span data-val="dotRatio"></span>
+      <input type="range" data-setting="dotRatio" min="0.2" max="1.4" step="0.05">
+    </label>
+    <div class="wdp-actions">
+      <button class="wdp-reset" type="button">Reset</button>
+      <button class="wdp-log" type="button">Log values</button>
+    </div>
+  `;
+  document.body.appendChild(panel);
+
+  const settings = getWordmarkSettings();
+  panel.querySelectorAll('input[data-setting]').forEach(input => {
+    const key = input.dataset.setting;
+    input.value = settings[key];
+    panel.querySelector(`[data-val="${key}"]`).textContent = settings[key];
+    input.addEventListener('input', () => {
+      const current = getWordmarkSettings();
+      current[key] = parseFloat(input.value);
+      localStorage.setItem('wordmark-settings', JSON.stringify(current));
+      panel.querySelector(`[data-val="${key}"]`).textContent = input.value;
+      renderWordmark();
+    });
+  });
+
+  panel.querySelector('.wdp-reset').addEventListener('click', () => {
+    localStorage.removeItem('wordmark-settings');
+    panel.querySelectorAll('input[data-setting]').forEach(input => {
+      const key = input.dataset.setting;
+      input.value = WORDMARK_DEFAULTS[key];
+      panel.querySelector(`[data-val="${key}"]`).textContent = WORDMARK_DEFAULTS[key];
+    });
+    renderWordmark();
+  });
+
+  panel.querySelector('.wdp-log').addEventListener('click', () => {
+    console.log('Current wordmark settings:', getWordmarkSettings());
+  });
+
+  panel.querySelector('.wdp-close').addEventListener('click', () => {
+    panel.classList.remove('open');
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '`' && !e.target.matches('input, textarea')) {
+      panel.classList.toggle('open');
+    }
+  });
+}
+
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(() => {
+    renderWordmark();
+    initWordmarkDevPanel();
+  });
+} else {
+  window.addEventListener('load', () => {
+    renderWordmark();
+    initWordmarkDevPanel();
+  });
+}
+window.addEventListener('resize', renderWordmark);
+
+// Dark mode toggle — dark is default; light requires explicit opt-in
 const themeToggle = document.getElementById('theme-toggle');
 const savedTheme = localStorage.getItem('cv-theme');
-if (savedTheme === 'dark') {
-  document.body.classList.add('dark-mode');
-  themeToggle.textContent = 'light';
+if (savedTheme === 'light') {
+  document.body.classList.remove('dark-mode');
 }
+themeToggle.textContent = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
 themeToggle.addEventListener('click', () => {
   const isDark = document.body.classList.toggle('dark-mode');
   themeToggle.textContent = isDark ? 'light' : 'dark';
   localStorage.setItem('cv-theme', isDark ? 'dark' : 'light');
+  renderWordmark();
 });
 
 // Load skill details from JSON file
@@ -124,6 +293,7 @@ function hideDetailPanel() {
   const panel = document.getElementById('detail-panel');
   panel.classList.remove('visible', 'tool-detail', 'empty');
   panel.innerHTML = '';
+  panel.style.marginTop = '';
   document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
 }
 
@@ -165,6 +335,13 @@ document.querySelectorAll('.tag').forEach(tag => {
     } else {
       detailPanel.innerHTML = `<h3>${tag.textContent}</h3><p>Details coming soon...</p>`;
     }
+
+    // Anchor panel vertically to the clicked tag
+    const sidebarDetail = document.querySelector('.sidebar-detail');
+    const tagRect = tag.getBoundingClientRect();
+    const sidebarRect = sidebarDetail.getBoundingClientRect();
+    const offsetWithinSidebar = tagRect.top - sidebarRect.top;
+    detailPanel.style.marginTop = Math.max(0, offsetWithinSidebar - 8) + 'px';
   });
 });
 

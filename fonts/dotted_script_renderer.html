@@ -1,0 +1,261 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans, sans-serif); }
+.wrap { display: grid; grid-template-columns: 1fr 320px; gap: 0; min-height: 520px; }
+canvas { display: block; width: 100%; height: 100%; background: #1a0a1e; }
+.canvas-wrap { background: #1a0a1e; border-radius: var(--border-radius-lg) 0 0 var(--border-radius-lg); overflow: hidden; position: relative; min-height: 400px; }
+.panel { background: var(--color-background-secondary); border-left: 0.5px solid var(--color-border-tertiary); border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0; padding: 16px; display: flex; flex-direction: column; gap: 14px; overflow-y: auto; }
+.panel h3 { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; }
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field label { font-size: 13px; color: var(--color-text-secondary); }
+.field input[type=text], .field textarea, .field select { font-size: 14px; padding: 7px 10px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); background: var(--color-background-primary); color: var(--color-text-primary); width: 100%; font-family: inherit; }
+.field textarea { resize: vertical; min-height: 58px; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.slider-row { display: flex; align-items: center; gap: 8px; }
+.slider-row input[type=range] { flex: 1; }
+.slider-val { font-size: 13px; color: var(--color-text-secondary); min-width: 30px; text-align: right; }
+.swatch-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.swatch { width: 28px; height: 28px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: border-color 0.15s; flex-shrink: 0; }
+.swatch.active { border-color: var(--color-text-primary); }
+.color-custom { display: flex; align-items: center; gap: 6px; }
+.color-custom input[type=color] { width: 28px; height: 28px; border-radius: 50%; border: 0.5px solid var(--color-border-tertiary); padding: 1px; cursor: pointer; background: none; }
+.color-custom span { font-size: 12px; color: var(--color-text-secondary); }
+.bg-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.bg-btn { font-size: 12px; padding: 4px 10px; border-radius: 20px; border: 0.5px solid var(--color-border-tertiary); cursor: pointer; background: var(--color-background-primary); color: var(--color-text-secondary); transition: all 0.15s; }
+.bg-btn.active { background: var(--color-text-primary); color: var(--color-background-primary); border-color: var(--color-text-primary); }
+.actions { display: flex; flex-direction: column; gap: 8px; margin-top: auto; padding-top: 8px; border-top: 0.5px solid var(--color-border-tertiary); }
+button.primary { padding: 9px; border-radius: var(--border-radius-md); border: none; background: #7F77DD; color: #fff; font-size: 14px; font-weight: 500; cursor: pointer; width: 100%; }
+button.primary:hover { background: #6a62c4; }
+button.secondary { padding: 8px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); background: transparent; color: var(--color-text-secondary); font-size: 13px; cursor: pointer; width: 100%; }
+button.secondary:hover { background: var(--color-background-secondary); }
+.font-preview { font-size: 18px; margin-top: 2px; color: var(--color-text-primary); height: 28px; overflow: hidden; }
+.hint { font-size: 11px; color: var(--color-text-secondary); opacity: 0.7; line-height: 1.4; }
+.loading-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background: rgba(26,10,30,0.85); color: #e8d9a0; padding: 8px 16px; border-radius: 20px; font-size: 13px; pointer-events: none; transition: opacity 0.3s; }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Sacramento&family=Dancing+Script:wght@700&family=Alex+Brush&family=Great+Vibes&family=Pinyon+Script&family=Lobster&family=Cookie&display=swap" rel="stylesheet">
+
+<h2 class="sr-only">Dotted script font renderer — type text and generate a halftone dot version in a script font</h2>
+
+<div class="wrap">
+  <div class="canvas-wrap">
+    <canvas id="c"></canvas>
+    <div class="loading-badge" id="loadingBadge">Loading fonts…</div>
+  </div>
+  <div class="panel">
+    <h3>Text</h3>
+    <div class="field">
+      <label>Content</label>
+      <textarea id="txt" rows="2">Winks & Shoes</textarea>
+    </div>
+
+    <h3>Font</h3>
+    <div class="field">
+      <select id="fontSel">
+        <option value="Pacifico">Pacifico</option>
+        <option value="Sacramento">Sacramento</option>
+        <option value="Dancing Script" selected>Dancing Script</option>
+        <option value="Alex Brush">Alex Brush</option>
+        <option value="Great Vibes">Great Vibes</option>
+        <option value="Pinyon Script">Pinyon Script</option>
+        <option value="Lobster">Lobster</option>
+        <option value="Cookie">Cookie</option>
+      </select>
+      <div class="font-preview" id="fontPreview">Preview</div>
+    </div>
+
+    <h3>Dots</h3>
+    <div class="field">
+      <label>Dot size <span class="slider-val" id="dotSzVal">5</span>px</label>
+      <div class="slider-row">
+        <input type="range" id="dotSz" min="2" max="14" step="0.5" value="5">
+      </div>
+    </div>
+    <div class="field">
+      <label>Grid spacing <span class="slider-val" id="gridVal">10</span>px</label>
+      <div class="slider-row">
+        <input type="range" id="grid" min="4" max="24" step="1" value="10">
+      </div>
+    </div>
+    <div class="field">
+      <label>Font size <span class="slider-val" id="fszVal">260</span>px</label>
+      <div class="slider-row">
+        <input type="range" id="fsz" min="80" max="500" step="10" value="260">
+      </div>
+    </div>
+
+    <h3>Dot color</h3>
+    <div class="swatch-row" id="swatches">
+      <div class="swatch active" style="background:#e8d9a0" data-color="#e8d9a0"></div>
+      <div class="swatch" style="background:#ffffff" data-color="#ffffff"></div>
+      <div class="swatch" style="background:#f4a0c0" data-color="#f4a0c0"></div>
+      <div class="swatch" style="background:#a0d4f4" data-color="#a0d4f4"></div>
+      <div class="swatch" style="background:#b4f0a0" data-color="#b4f0a0"></div>
+      <div class="swatch" style="background:#f4c08a" data-color="#f4c08a"></div>
+    </div>
+    <div class="color-custom">
+      <input type="color" id="customColor" value="#e8d9a0">
+      <span>Custom</span>
+    </div>
+
+    <h3>Background</h3>
+    <div class="bg-row" id="bgBtns">
+      <div class="bg-btn active" data-bg="#1a0a1e">Dark plum</div>
+      <div class="bg-btn" data-bg="#0d0d0d">Black</div>
+      <div class="bg-btn" data-bg="#1a1a2e">Navy</div>
+      <div class="bg-btn" data-bg="#f5f0e8">Cream</div>
+      <div class="bg-btn" data-bg="#ffffff">White</div>
+    </div>
+
+    <div class="actions">
+      <button class="primary" id="dlBtn">Download PNG</button>
+      <button class="secondary" id="rerender">Re-render</button>
+      <p class="hint">Canvas renders at 2× for sharp export. Tweak dot size &amp; spacing for different densities.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const badge = document.getElementById('loadingBadge');
+
+let dotColor = '#e8d9a0';
+let bgColor = '#1a0a1e';
+let fontsReady = false;
+
+function getParams() {
+  return {
+    text: document.getElementById('txt').value || 'Hello',
+    font: document.getElementById('fontSel').value,
+    dotSz: parseFloat(document.getElementById('dotSz').value),
+    grid: parseFloat(document.getElementById('grid').value),
+    fsz: parseFloat(document.getElementById('fsz').value),
+  };
+}
+
+function render() {
+  if (!fontsReady) return;
+  const p = getParams();
+  const DPR = 2;
+  const W = canvas.parentElement.clientWidth;
+  const H = canvas.parentElement.clientHeight || 420;
+  canvas.width = W * DPR;
+  canvas.height = H * DPR;
+  canvas.style.width = W + 'px';
+  canvas.style.height = H + 'px';
+
+  const cw = canvas.width;
+  const ch = canvas.height;
+  const fszScaled = p.fsz * DPR;
+  const gridScaled = p.grid * DPR;
+  const dotScaled = p.dotSz * DPR;
+
+  ctx.fillStyle = bgColor;
+  ctx.fillRect(0, 0, cw, ch);
+
+  // Offscreen: render text
+  const off = document.createElement('canvas');
+  off.width = cw;
+  off.height = ch;
+  const octx = off.getContext('2d');
+  octx.fillStyle = '#000000';
+  octx.fillRect(0, 0, cw, ch);
+  octx.fillStyle = '#ffffff';
+  octx.font = `${fszScaled}px "${p.font}"`;
+  octx.textAlign = 'center';
+  octx.textBaseline = 'middle';
+
+  // Handle multiline
+  const lines = p.text.split('\n');
+  const lineH = fszScaled * 1.15;
+  const totalH = lines.length * lineH;
+  lines.forEach((line, i) => {
+    const y = ch / 2 - totalH / 2 + i * lineH + lineH / 2;
+    octx.fillText(line, cw / 2, y);
+  });
+
+  const imgData = octx.getImageData(0, 0, cw, ch).data;
+
+  // Sample grid and draw dots
+  ctx.fillStyle = dotColor;
+  for (let y = 0; y < ch; y += gridScaled) {
+    for (let x = 0; x < cw; x += gridScaled) {
+      const xi = Math.floor(x);
+      const yi = Math.floor(y);
+      if (xi >= cw || yi >= ch) continue;
+      const idx = (yi * cw + xi) * 4;
+      const brightness = imgData[idx]; // R channel of white text
+      if (brightness > 128) {
+        ctx.beginPath();
+        ctx.arc(x, y, dotScaled / 2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+  }
+}
+
+function updateFontPreview() {
+  const f = document.getElementById('fontSel').value;
+  const el = document.getElementById('fontPreview');
+  el.style.fontFamily = `"${f}"`;
+  el.textContent = document.getElementById('txt').value.split('\n')[0].slice(0, 20) || 'Preview';
+}
+
+document.fonts.ready.then(() => {
+  setTimeout(() => {
+    fontsReady = true;
+    badge.style.opacity = '0';
+    render();
+  }, 400);
+});
+
+['txt', 'fontSel', 'dotSz', 'grid', 'fsz'].forEach(id => {
+  document.getElementById(id).addEventListener('input', () => {
+    updateFontPreview();
+    render();
+  });
+});
+
+document.getElementById('rerender').addEventListener('click', render);
+
+document.querySelectorAll('.swatch').forEach(sw => {
+  sw.addEventListener('click', () => {
+    document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+    sw.classList.add('active');
+    dotColor = sw.dataset.color;
+    document.getElementById('customColor').value = dotColor;
+    render();
+  });
+});
+
+document.getElementById('customColor').addEventListener('input', e => {
+  dotColor = e.target.value;
+  document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+  render();
+});
+
+document.querySelectorAll('.bg-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.bg-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    bgColor = btn.dataset.bg;
+    document.getElementById('c').parentElement.style.background = bgColor;
+    render();
+  });
+});
+
+document.getElementById('dlBtn').addEventListener('click', () => {
+  render();
+  const link = document.createElement('a');
+  link.download = 'dotted-script.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+});
+
+window.addEventListener('resize', () => { render(); });
+updateFontPreview();
+</script>

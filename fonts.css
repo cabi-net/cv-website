@@ -23,3 +23,25 @@
   src: url("./fonts/univers/UniversCnBold.ttf");
   font-weight: 700;
 }
+@font-face {
+  font-family: "the_blanger";
+  src: url("./fonts/The Blanger/Web Fonts/theblanger_regular_macroman/the_blanger-webfont.woff2") format("woff2"),
+       url("./fonts/The Blanger/Web Fonts/theblanger_regular_macroman/the_blanger-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Isenheim";
+  src: url("./fonts/isenheim-main/isenheim-main/fonts/OpenType-PS/Isenheim_Regulier.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Isenheim";
+  src: url("./fonts/isenheim-main/isenheim-main/fonts/OpenType-PS/Isenheim_Fin.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
