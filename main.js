@@ -119,29 +119,6 @@ document.addEventListener('mousemove', (e) => {
 window.addEventListener('resize', resizeGlobalCanvas);
 window.addEventListener('load', initGlobalFlowers);
 
-// Navigation switching
-const navLinks = document.querySelectorAll('.nav-link');
-const contentSections = document.querySelectorAll('.content-section');
-
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    const targetSection = link.dataset.section;
-
-    navLinks.forEach(l => l.classList.remove('active'));
-    link.classList.add('active');
-
-    contentSections.forEach(section => {
-      section.classList.toggle('active', section.dataset.section === targetSection);
-    });
-
-    // Reset everything
-    document.querySelectorAll('.experience-item, .capability-item').forEach(i => i.classList.remove('expanded'));
-    document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
-    const panel = document.getElementById('detail-panel');
-    panel.classList.remove('tool-detail', 'visible', 'empty');
-    panel.innerHTML = '';
-  });
-});
 
 function hideDetailPanel() {
   const panel = document.getElementById('detail-panel');
@@ -161,16 +138,6 @@ document.querySelectorAll('.experience-item').forEach(item => {
   });
 });
 
-// Accordion functionality - Tools
-document.querySelectorAll('.capability-item').forEach(item => {
-  item.querySelector('.capability-header').addEventListener('click', (e) => {
-    if (e.target.classList.contains('tag')) return;
-    const wasExpanded = item.classList.contains('expanded');
-    document.querySelectorAll('.capability-item').forEach(i => i.classList.remove('expanded'));
-    if (!wasExpanded) item.classList.add('expanded');
-    else hideDetailPanel();
-  });
-});
 
 // Tag click functionality
 document.querySelectorAll('.tag').forEach(tag => {
@@ -193,7 +160,7 @@ document.querySelectorAll('.tag').forEach(tag => {
       detailPanel.innerHTML = `
         <h3>${skillData.title}</h3>
         <p>${skillData.description}</p>
-        <ul>${skillData.examples.map(ex => `<li>${ex}</li>`).join('')}</ul>
+        ${skillData.examples ? `<ul>${skillData.examples.map(ex => `<li>${ex}</li>`).join('')}</ul>` : ''}
       `;
     } else {
       detailPanel.innerHTML = `<h3>${tag.textContent}</h3><p>Details coming soon...</p>`;

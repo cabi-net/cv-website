@@ -152,56 +152,15 @@ body.dark-mode {
   text-decoration: underline;
 }
 
-/* ==================== NAVIGATION ==================== */
-.main-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-start;
-  padding-top: 3.125rem;
-  flex-shrink: 0;
+.cabinet-link {
+  font-size: var(--fs-20) !important;
+  font-weight: 700 !important;
+  color: var(--color-accent) !important;
+  letter-spacing: 0.01em;
 }
 
-.nav-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0;
-}
-
-a.nav-link {
-  text-decoration: none;
-  display: block;
-}
-
-.nav-link {
-  padding: 0.6rem 0.75rem;
-  background: none;
-  border: none;
-  font-family: var(--font-univers);
-  font-size: var(--fs-20);
-  font-weight: 300;
-  color: var(--color-accent);
-  cursor: pointer;
-  transition: all 0.2s;
-  border-right: 0.1875rem solid transparent;
-  text-align: right;
-  white-space: nowrap;
-  opacity: 0.5;
-}
-
-.nav-link:hover {
-  font-weight: 700;
-  opacity: 1;
-}
-
-.nav-link.active {
-  font-weight: 700;
-  border-right-color: var(--color-accent);
-  opacity: 1;
+.cabinet-link:hover {
+  text-decoration: underline !important;
 }
 
 /* ==================== MAIN LAYOUT ==================== */
@@ -210,7 +169,6 @@ a.nav-link {
   align-items: stretch;
   justify-content: center;
   padding: 0;
-  height: 48.9375rem;
   background-color: transparent;
   position: relative;
   z-index: 10;
@@ -237,15 +195,6 @@ a.nav-link {
   max-width: 11.25rem;
 }
 
-.main-nav {
-  position: absolute;
-  right: 100%;
-  top: 3.125rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
 .sidebar-decor {
   display: flex;
   align-items: center;
@@ -270,8 +219,8 @@ a.nav-link {
 }
 
 .sidebar-detail .detail-panel {
-  position: absolute;
-  top: 3.125rem;
+  position: sticky;
+  top: 1.5rem;
   left: 0;
   right: 0;
   display: none;
@@ -279,6 +228,14 @@ a.nav-link {
 
 .sidebar-detail .detail-panel.visible {
   display: block;
+}
+
+/* ==================== ALSO SECTION ==================== */
+.also-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: var(--padding-6) var(--padding-14);
 }
 
 /* ==================== CONTENT WRAPPER ==================== */
@@ -300,15 +257,12 @@ a.nav-link {
 
 .content-section.active {
   display: flex;
-  flex: 1;
 }
 
 /* Border frame */
 .content-inner {
   background: var(--color-surface);
   padding: 1.25rem var(--padding-12);
-  flex: 1;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: var(--gap-15);
@@ -717,16 +671,5 @@ body.dark-mode .sidebar-decor {
   .content-wrapper {
     min-width: 100%;
     flex: 1;
-  }
-
-  .nav-list {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-
-@media screen and (max-width: 28.125rem) {
-  .nav-link {
-    font-size: var(--fs-19);
   }
 }
