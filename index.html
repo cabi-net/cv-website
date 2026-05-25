@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meric Sila Taskin &ndash; Portfolio</title>
+  <title>Meric Sila Taskin &ndash; CV</title>
   <link rel="stylesheet" href="./fonts.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,35 @@
   <link rel="stylesheet" href="./main.css" />
 </head>
 <body class="dark-mode">
+  <a class="pdf-link" href="./Meric-Sila-Taskin_CV.pdf" download="Meric-Sila-Taskin_CV.pdf" aria-label="Download PDF version">pdf ↓</a>
   <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">dark</button>
+
+  <!-- Garland — meandering string of pearls flowing around the page -->
+  <canvas class="garland-canvas" id="garland-canvas" aria-hidden="true"></canvas>
+  <div class="garland-labels" id="garland-labels">
+    <div class="garland-label" data-anchor="edu" data-side="left">
+      <h3>Honours BSc</h3>
+      <p>University of Toronto</p>
+      <p class="garland-meta">Economics (Data Analytics) &middot; Computer Science &middot; Statistics</p>
+    </div>
+    <div class="garland-label" data-anchor="cert">
+      <h3>UX Design Certificate</h3>
+      <p>Google &middot; Coursera</p>
+      <p class="garland-meta">Figma &middot; User Research &middot; Wireframing &middot; Prototyping</p>
+    </div>
+    <div class="garland-label" data-anchor="lang">
+      <h3>Languages</h3>
+      <p>English, Turkish (bilingual)</p>
+      <p>French C1 &mdash; Advanced</p>
+    </div>
+    <div class="garland-label" data-anchor="contact">
+      <h3>creative technologist.</h3>
+      <p>based in Toronto, Canada.</p>
+      <p><a class="email-link" data-user="silataskin" data-domain="gmail.com" href="#" aria-label="Email address (revealed by JavaScript)">[email]</a></p>
+      <p><a href="https://github.com/cabi-net" target="_blank" rel="noopener">GitHub</a></p>
+    </div>
+  </div>
+
   <div class="page-wrapper">
 
     <!-- HEADER -->
@@ -45,11 +73,11 @@
                     <div class="exp-header">
                       <div class="exp-header-left">
                         <h3 class="exp-title">Software Development Engineer in Test <span class="exp-title-sub">(Test Analyst)</span></h3>
-                        <p class="exp-company">CIBC</p>
+                        <p class="exp-company">CIBC &middot; Toronto</p>
                       </div>
                       <div class="exp-header-right">
                         <time class="exp-date" datetime="2024-02/2026-02">Feb 2024 &ndash; Feb 2026</time>
-                        <span class="exp-expand-icon">▼</span>
+                        <span class="exp-expand-icon">⇣</span>
                       </div>
                     </div>
                     <div class="exp-content">
@@ -83,7 +111,7 @@
                       </div>
                       <div class="exp-header-right">
                         <time class="exp-date" datetime="2025-03/2025-06">Mar &ndash; Jun 2025</time>
-                        <span class="exp-expand-icon">▼</span>
+                        <span class="exp-expand-icon">⇣</span>
                       </div>
                     </div>
                     <div class="exp-content">
@@ -109,7 +137,7 @@
                       </div>
                       <div class="exp-header-right">
                         <time class="exp-date" datetime="2023-02/2023-05">Feb &ndash; May 2023</time>
-                        <span class="exp-expand-icon">▼</span>
+                        <span class="exp-expand-icon">⇣</span>
                       </div>
                     </div>
                     <div class="exp-content">
@@ -131,11 +159,11 @@
                     <div class="exp-header">
                       <div class="exp-header-left">
                         <h3 class="exp-title">Cybersecurity Analyst</h3>
-                        <p class="exp-company">BMO</p>
+                        <p class="exp-company">BMO &middot; Toronto</p>
                       </div>
                       <div class="exp-header-right">
                         <time class="exp-date" datetime="2022-05/2022-12">May &ndash; Dec 2022</time>
-                        <span class="exp-expand-icon">▼</span>
+                        <span class="exp-expand-icon">⇣</span>
                       </div>
                     </div>
                     <div class="exp-content">
@@ -151,9 +179,8 @@
 
                 <div class="section-group">
                   <h2 class="section-heading primary">Independent Practice</h2>
-                  <p class="section-intro">Tools developed outside of roles &mdash; through personal projects, learning, and curiosity.</p>
+                  <p class="section-intro">Tools developed outside of roles, through personal projects and interests.</p>
                   <div class="also-tags">
-                    <span class="tag" data-skill="figma" data-type="tool">Figma</span>
                     <span class="tag" data-skill="photoshop" data-type="tool">Photoshop</span>
                     <span class="tag" data-skill="krita" data-type="tool">Krita</span>
                     <span class="tag" data-skill="aseprite" data-type="tool">Aseprite</span>
@@ -165,53 +192,15 @@
                   <a class="cabinet-link" href="https://cabi-net.neocities.org/" target="_blank" rel="noopener">Explore my work ↗</a>
                 </div>
 
-                <div class="section-group">
-                  <article class="experience-item" data-role="uoft-bsc">
-                    <div class="exp-header">
-                      <div class="exp-header-left">
-                        <h3 class="exp-title">Honours Bachelor of Science</h3>
-                        <p class="exp-company">University of Toronto</p>
-                      </div>
-                      <div class="exp-header-right">
-                        <span class="exp-expand-icon">▼</span>
-                      </div>
-                    </div>
-                    <div class="exp-content">
-                      <div class="edu-tags">
-                        <span class="edu-tag">Economics (Focus in Data Analytics)</span>
-                        <span class="edu-tag">Computer Science</span>
-                        <span class="edu-tag">Statistics</span>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-
-                <div class="section-group">
-                  <div class="lang-list">
-                    <div class="lang-item">
-                      <span class="lang-name">English, Turkish</span>
-                      <span class="lang-level">Bilingual</span>
-                    </div>
-                    <div class="lang-item">
-                      <span class="lang-name">French</span>
-                      <span class="lang-level">C1 &mdash; Advanced</span>
-                    </div>
-                  </div>
-                </div>
               </div>
             </section>
           </div>
 
-          <!-- RIGHT COLUMN (meta + detail panel) -->
+          <!-- RIGHT COLUMN -->
           <aside class="sidebar-detail">
-            <div class="meta-block">
-              <div class="header-bio">
-                <p class="bio-what">automation engineer, creative technologist</p>
-                <p class="bio-where">UofT BSc · French C1 · Toronto</p>
-              </div>
-              <div class="header-contact">
-                <a href="mailto:silataskin@gmail.com">silataskin@gmail.com</a>
-              </div>
+            <div class="detail-hint" id="detail-hint">
+              <span class="detail-hint-mark">❦</span>
+              <p>click an experience, skill or tool<br>for more.</p>
             </div>
             <div class="detail-panel" id="detail-panel"></div>
           </aside>
@@ -222,8 +211,11 @@
     <!-- FOOTER -->
     <footer class="page-footer">
       <div class="container">
-        <div class="footer-content">
-          <a href="mailto:silataskin@gmail.com">silataskin@gmail.com</a>
+        <div class="main-layout footer-layout">
+          <div class="content-wrapper">
+            <div class="footer-content">❦ <a class="footer-postcard" href="https://postc4rd.neocities.org/" target="_blank" rel="noopener">send me a postcard</a></div>
+          </div>
+          <aside class="sidebar-detail footer-sidebar-spacer" aria-hidden="true"></aside>
         </div>
       </div>
     </footer>
