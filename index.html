@@ -3,29 +3,52 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meric Sila Taskin &ndash; Portfolio</title>
+  <title>Meric Sila Taskin &ndash; CV</title>
   <link rel="stylesheet" href="./fonts.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./main.css" />
 </head>
-<body>
+<body class="dark-mode">
+  <a class="pdf-link" href="./Meric-Sila-Taskin_CV.pdf" download="Meric-Sila-Taskin_CV.pdf" aria-label="Download PDF version">pdf ↓</a>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">dark</button>
+
+  <!-- Garland — meandering string of pearls flowing around the page -->
+  <canvas class="garland-canvas" id="garland-canvas" aria-hidden="true"></canvas>
+  <div class="garland-labels" id="garland-labels">
+    <div class="garland-label" data-anchor="edu" data-side="left">
+      <h3>Honours BSc</h3>
+      <p>University of Toronto</p>
+      <p class="garland-meta">Economics (Data Analytics) &middot; Computer Science &middot; Statistics</p>
+    </div>
+    <div class="garland-label" data-anchor="cert">
+      <h3>UX Design Certificate</h3>
+      <p>Google &middot; Coursera</p>
+      <p class="garland-meta">Figma &middot; User Research &middot; Wireframing &middot; Prototyping</p>
+    </div>
+    <div class="garland-label" data-anchor="lang">
+      <h3>Languages</h3>
+      <p>English, Turkish (bilingual)</p>
+      <p>French C1 &mdash; Advanced</p>
+    </div>
+    <div class="garland-label" data-anchor="contact">
+      <h3>creative technologist.</h3>
+      <p>based in Toronto, Canada.</p>
+      <p><a class="email-link" data-user="silataskin" data-domain="gmail.com" href="#" aria-label="Email address (revealed by JavaScript)">[email]</a></p>
+      <p><a href="https://github.com/cabi-net" target="_blank" rel="noopener">GitHub</a></p>
+    </div>
+  </div>
+
   <div class="page-wrapper">
 
     <!-- HEADER -->
     <header class="header">
-      <div class="container">
+      <div class="container container--wide">
         <div class="header-content">
           <div class="header-name">
-            <h1>Meric Sila Taskin</h1>
-          </div>
-          <div class="header-info">
-            <div class="header-bio">
-              <p class="bio-what">automation engineer, creative technologist</p>
-              <p class="bio-where">UofT BSc · French C1 · Toronto</p>
-            </div>
-            <div class="header-contact">
-              <a href="mailto:silataskin@gmail.com">silataskin@gmail.com</a>
-              <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">dark</button>
-            </div>
+            <h1 class="visually-hidden">Meric Sila Taskin</h1>
+            <canvas class="wordmark" id="wordmark-canvas" aria-hidden="true"></canvas>
           </div>
         </div>
       </div>
@@ -36,39 +59,25 @@
       <div class="container">
         <div class="main-layout">
 
-          <!-- LEFT SIDEBAR (tulip + nav hanging left) -->
-          <aside class="sidebar-left">
-            <nav class="main-nav">
-              <ul class="nav-list">
-                <li><button class="nav-link active" data-section="experience">Credentials</button></li>
-                <li><button class="nav-link" data-section="tools">Capabilities</button></li>
-                <li><a class="nav-link" href="https://cabi-net.neocities.org/" target="_blank" rel="noopener">Work ↗</a></li>
-              </ul>
-            </nav>
-            <div class="sidebar-decor">
-              <img class="lale-icon" src="./gfx/lale.png" alt="Decorative tulip illustration" />
-            </div>
-          </aside>
-
           <!-- CONTENT AREA -->
           <div class="content-wrapper">
 
-            <!-- EXPERIENCE SECTION -->
+            <!-- MAIN CONTENT (single page) -->
             <section class="content-section active" data-section="experience">
               <div class="content-inner">
 
                 <div class="section-group">
-                  <h2 class="section-heading">Experience</h2>
+                  <h2 class="section-heading primary">Experience</h2>
 
                   <article class="experience-item" data-role="cibc">
                     <div class="exp-header">
                       <div class="exp-header-left">
-                        <h3 class="exp-title">QA Automation Engineer <span class="exp-title-sub">(Test Analyst)</span></h3>
-                        <p class="exp-company">CIBC</p>
+                        <h3 class="exp-title">Software Development Engineer in Test <span class="exp-title-sub">(Test Analyst)</span></h3>
+                        <p class="exp-company">CIBC &middot; Toronto</p>
                       </div>
                       <div class="exp-header-right">
                         <time class="exp-date" datetime="2024-02/2026-02">Feb 2024 &ndash; Feb 2026</time>
-                        <span class="exp-expand-icon">▼</span>
+                        <span class="exp-expand-icon">⇣</span>
                       </div>
                     </div>
                     <div class="exp-content">
@@ -86,7 +95,9 @@
                           <span class="tag" data-skill="pyspark" data-type="tool">PySpark</span>
                           <span class="tag" data-skill="sql" data-type="tool">SQL</span>
                           <span class="tag" data-skill="azure-devops" data-type="tool">Azure DevOps</span>
-                          <span class="tag" data-skill="git-github" data-type="tool">GitHub Actions</span>
+                          <span class="tag" data-skill="github-actions" data-type="tool">GitHub Actions</span>
+                          <span class="tag" data-skill="jira" data-type="tool">JIRA</span>
+                          <span class="tag" data-skill="git-github" data-type="tool">Git & GitHub</span>
                         </div>
                       </div>
                     </div>
@@ -100,7 +111,7 @@
                       </div>
                       <div class="exp-header-right">
                         <time class="exp-date" datetime="2025-03/2025-06">Mar &ndash; Jun 2025</time>
-                        <span class="exp-expand-icon">▼</span>
+                        <span class="exp-expand-icon">⇣</span>
                       </div>
                     </div>
                     <div class="exp-content">
@@ -126,7 +137,7 @@
                       </div>
                       <div class="exp-header-right">
                         <time class="exp-date" datetime="2023-02/2023-05">Feb &ndash; May 2023</time>
-                        <span class="exp-expand-icon">▼</span>
+                        <span class="exp-expand-icon">⇣</span>
                       </div>
                     </div>
                     <div class="exp-content">
@@ -148,11 +159,11 @@
                     <div class="exp-header">
                       <div class="exp-header-left">
                         <h3 class="exp-title">Cybersecurity Analyst</h3>
-                        <p class="exp-company">BMO</p>
+                        <p class="exp-company">BMO &middot; Toronto</p>
                       </div>
                       <div class="exp-header-right">
                         <time class="exp-date" datetime="2022-05/2022-12">May &ndash; Dec 2022</time>
-                        <span class="exp-expand-icon">▼</span>
+                        <span class="exp-expand-icon">⇣</span>
                       </div>
                     </div>
                     <div class="exp-content">
@@ -167,140 +178,31 @@
                 </div>
 
                 <div class="section-group">
-                  <h2 class="section-heading">Education</h2>
-
-                  <article class="experience-item" data-role="uoft-bsc">
-                    <div class="exp-header">
-                      <div class="exp-header-left">
-                        <h3 class="exp-title">Honours Bachelor of Science</h3>
-                        <p class="exp-company">University of Toronto</p>
-                      </div>
-                      <div class="exp-header-right">
-                        <span class="exp-expand-icon">▼</span>
-                      </div>
-                    </div>
-                    <div class="exp-content">
-                      <div class="edu-tags">
-                        <span class="edu-tag">Economics (Focus in Data Analytics)</span>
-                        <span class="edu-tag">Computer Science</span>
-                        <span class="edu-tag">Statistics</span>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-
-                <div class="section-group">
-                  <h2 class="section-heading">Languages</h2>
-                  <div class="lang-list">
-                    <div class="lang-item">
-                      <span class="lang-name">English, Turkish</span>
-                      <span class="lang-level">Bilingual</span>
-                    </div>
-                    <div class="lang-item">
-                      <span class="lang-name">French</span>
-                      <span class="lang-level">C1 &mdash; Advanced</span>
-                    </div>
+                  <h2 class="section-heading primary">Independent Practice</h2>
+                  <p class="section-intro">Tools developed outside of roles, through personal projects and interests.</p>
+                  <div class="also-tags">
+                    <span class="tag" data-skill="photoshop" data-type="tool">Photoshop</span>
+                    <span class="tag" data-skill="krita" data-type="tool">Krita</span>
+                    <span class="tag" data-skill="aseprite" data-type="tool">Aseprite</span>
+                    <span class="tag" data-skill="unity" data-type="tool">Unity</span>
+                    <span class="tag" data-skill="p5js" data-type="tool">p5.js</span>
+                    <span class="tag" data-skill="touchdesigner" data-type="tool">TouchDesigner</span>
+                    <span class="tag" data-skill="javascript" data-type="tool">JavaScript</span>
                   </div>
+                  <a class="cabinet-link" href="https://cabi-net.neocities.org/" target="_blank" rel="noopener">Explore my work ↗</a>
                 </div>
-              </div>
 
-            </section>
-
-            <!-- TOOLS SECTION -->
-            <section class="content-section" data-section="tools">
-              <div class="content-inner">
-                <div class="section-group">
-                  <h2 class="section-heading">Tools</h2>
-
-                  <article class="capability-item" data-category="creative">
-                    <div class="capability-header">
-                      <h3 class="capability-title">Creative</h3>
-                      <span class="capability-expand-icon">▼</span>
-                    </div>
-                    <div class="capability-content">
-                      <div class="tag-group">
-                        <span class="tag" data-skill="figma" data-type="tool">Figma</span>
-                        <span class="tag" data-skill="photoshop" data-type="tool">Photoshop</span>
-                        <span class="tag" data-skill="gimp" data-type="tool">GIMP</span>
-                        <span class="tag" data-skill="krita" data-type="tool">Krita</span>
-                        <span class="tag" data-skill="aseprite" data-type="tool">Aseprite</span>
-                        <span class="tag" data-skill="unity" data-type="tool">Unity</span>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="capability-item" data-category="web">
-                    <div class="capability-header">
-                      <h3 class="capability-title">Web</h3>
-                      <span class="capability-expand-icon">▼</span>
-                    </div>
-                    <div class="capability-content">
-                      <div class="tag-group">
-                        <span class="tag" data-skill="html" data-type="tool">HTML</span>
-                        <span class="tag" data-skill="css" data-type="tool">CSS</span>
-                        <span class="tag" data-skill="javascript" data-type="tool">JavaScript</span>
-                        <span class="tag" data-skill="react" data-type="tool">React</span>
-                        <span class="tag" data-skill="typescript" data-type="tool">TypeScript</span>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="capability-item" data-category="programming">
-                    <div class="capability-header">
-                      <h3 class="capability-title">Programming & Data</h3>
-                      <span class="capability-expand-icon">▼</span>
-                    </div>
-                    <div class="capability-content">
-                      <div class="tag-group">
-                        <span class="tag" data-skill="python" data-type="tool">Python</span>
-                        <span class="tag" data-skill="sql" data-type="tool">SQL</span>
-                        <span class="tag" data-skill="pandas" data-type="tool">Pandas</span>
-                        <span class="tag" data-skill="git" data-type="tool">Git</span>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="capability-item" data-category="ux">
-                    <div class="capability-header">
-                      <h3 class="capability-title">UX Design</h3>
-                      <span class="capability-expand-icon">▼</span>
-                    </div>
-                    <div class="capability-content">
-                      <div class="tag-group">
-                        <span class="tag" data-skill="user-research" data-type="skill">User Research</span>
-                        <span class="tag" data-skill="wireframing" data-type="skill">Wireframing</span>
-                        <span class="tag" data-skill="prototyping" data-type="skill">Prototyping</span>
-                        <span class="tag" data-skill="usability-testing" data-type="skill">Usability Testing</span>
-                      </div>
-                      <div class="tag-group">
-                        <span class="tag" data-skill="google-ux" data-type="tool">Google UX Certificate</span>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="capability-item" data-category="exploring">
-                    <div class="capability-header">
-                      <h3 class="capability-title">Currently Exploring</h3>
-                      <span class="capability-expand-icon">▼</span>
-                    </div>
-                    <div class="capability-content">
-                      <div class="tag-group">
-                        <span class="tag" data-skill="p5js" data-type="tool">p5.js</span>
-                        <span class="tag" data-skill="touchdesigner" data-type="tool">TouchDesigner</span>
-                        <span class="tag" data-skill="creative-coding" data-type="tool">creative coding</span>
-                      </div>
-                    </div>
-                  </article>
-                </div>
               </div>
             </section>
           </div>
 
-          <!-- DETAIL PANEL (right column) -->
+          <!-- RIGHT COLUMN -->
           <aside class="sidebar-detail">
-            <div class="detail-panel empty" id="detail-panel">
-              click on a tag for details
+            <div class="detail-hint" id="detail-hint">
+              <span class="detail-hint-mark">❦</span>
+              <p>click an experience, skill or tool<br>for more.</p>
             </div>
+            <div class="detail-panel" id="detail-panel"></div>
           </aside>
         </div>
       </div>
@@ -309,8 +211,11 @@
     <!-- FOOTER -->
     <footer class="page-footer">
       <div class="container">
-        <div class="footer-content">
-          <a href="mailto:silataskin@gmail.com">silataskin@gmail.com</a>
+        <div class="main-layout footer-layout">
+          <div class="content-wrapper">
+            <div class="footer-content">❦ <a class="footer-postcard" href="https://postc4rd.neocities.org/" target="_blank" rel="noopener">send me a postcard</a></div>
+          </div>
+          <aside class="sidebar-detail footer-sidebar-spacer" aria-hidden="true"></aside>
         </div>
       </div>
     </footer>

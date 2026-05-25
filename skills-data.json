@@ -1,39 +1,23 @@
 {
   "test-automation": {
     "title": "Test Automation",
-    "description": "Building systems that do repetitive work automatically \u2014 testing, data processing, workflow orchestration.",
+    "description": "Designing and building automated test frameworks — UI, integration, and data validation.",
     "examples": [
-      "Built UI automation framework from scratch using Python + Selenium",
-      "Created scheduled workflows processing millions of records",
-      "Integrated automated pipelines with CI/CD"
-    ]
-  },
-  "automation": {
-    "title": "Process Automation",
-    "description": "Scripting solutions to eliminate tedious manual work.",
-    "examples": [
-      "Automated repetitive tasks using Python and AI-assisted tooling",
-      "Built end-to-end workflows from raw input to final output",
-      "Created reusable automation components for team use"
+      "Designed and built a crawler that maps internal web applications — inputs, dropdowns, flows — and generates test scripts from the gathered structure",
+      "Built and maintained test suites using Selenium + Python and Robot Framework",
+      "Built data validation workflows and scripts on Databricks"
     ]
   },
   "web-scraping": {
     "title": "Data Collection & Web Scraping",
     "description": "Extracting large-scale data from the web for research and creative projects.",
     "examples": [
-      "Collected 630,000+ paintings with metadata for published ML research at UofT",
-      "Built pipelines handling dynamic content, infinite scroll, rate limiting",
-      "Processed millions of records from Google Arts & Culture"
+      "Tuned and maintained web scraping pipelines collecting 630,000+ artworks with metadata from Google Arts & Culture"
     ]
   },
   "browser-automation": {
     "title": "Browser Automation",
-    "description": "Programmatically controlling browsers for testing and data collection.",
-    "examples": [
-      "Automated data collection from protected platforms",
-      "Handled dynamic JavaScript content and lazy-loaded elements",
-      "Built systems to navigate complex multi-step web flows"
-    ]
+    "description": "Programmatically controlling browsers to navigate dynamic web applications and extract structured data."
   },
   "data-monitoring": {
     "title": "Security Monitoring",
@@ -53,7 +37,7 @@
   },
   "responsive-web": {
     "title": "Responsive Web Development",
-    "description": "Building interfaces that work beautifully across all screen sizes.",
+    "description": "Building interfaces that work across all screen sizes.",
     "examples": [
       "Developed React components with mobile-first responsive layouts",
       "Created modular, reusable UI components",
@@ -71,12 +55,7 @@
   },
   "python": {
     "title": "Python",
-    "description": "Go-to language for automation, data processing, and creative tooling.",
-    "examples": [
-      "Built automation frameworks and data pipelines",
-      "Developed web scraping systems for ML research",
-      "Created custom tools for various workflows"
-    ]
+    "description": "Used across automation, data work, and creative tooling."
   },
   "selenium": {
     "title": "Selenium",
@@ -89,202 +68,94 @@
   },
   "robot-framework": {
     "title": "Robot Framework",
-    "description": "Keyword-driven automation for readable test suites.",
-    "examples": [
-      "Built UI automation framework from scratch",
-      "Created custom keywords for reusable components",
-      "Designed human-readable tests for team collaboration"
-    ]
+    "description": "Keyword-driven automation for readable test suites."
   },
   "databricks": {
     "title": "Databricks",
-    "description": "Cloud platform for large-scale data processing.",
-    "examples": [
-      "Built data validation workflows in notebooks",
-      "Created automated pipelines for scheduled checks",
-      "Processed large datasets using distributed computing"
-    ]
+    "description": "Cloud platform for large-scale data processing."
   },
   "pyspark": {
     "title": "PySpark",
-    "description": "Distributed data processing for large-scale datasets.",
-    "examples": [
-      "Wrote transformation and comparison scripts based on requirements specifications",
-      "Performed validations on millions of records"
-    ]
+    "description": "Python API for distributed data processing and transformation."
   },
   "sql": {
     "title": "SQL",
-    "description": "Database querying for data analysis and validation.",
-    "examples": [
-      "Wrote complex queries for data comparison",
-      "Built validation scripts for large-scale pipelines"
-    ]
-  },
-  "toad": {
-    "title": "TOAD for Oracle",
-    "description": "Database management for Oracle environments.",
-    "examples": [
-      "Performed data comparisons across environments",
-      "Validated integrity on enterprise-scale systems"
-    ]
+    "description": "queries."
   },
   "azure-devops": {
     "title": "Azure DevOps",
-    "description": "CI/CD platform for automated builds and deployments.",
-    "examples": [
-      "Configured pipelines for automated test execution",
-      "Set up continuous integration workflows"
-    ]
+    "description": "Project tracking and CI/CD pipeline management."
   },
   "jira": {
     "title": "JIRA",
-    "description": "Project management and issue tracking.",
-    "examples": [
-      "Managed tasks, bugs, and feature tracking",
-      "Coordinated work across teams"
-    ]
+    "description": "issue tracking."
+  },
+  "git-github": {
+    "title": "Git & GitHub",
+    "description": "version control."
   },
   "pandas": {
     "title": "Pandas",
-    "description": "Python library for data manipulation and analysis.",
+    "description": "Data manipulation and analysis library.",
     "examples": [
       "Processed 630,000+ records for ML research",
       "Cleaned and structured collected datasets for handoff to research pipeline"
     ]
   },
-  "beautifulsoup": {
-    "title": "BeautifulSoup",
-    "description": "HTML/XML parsing for web scraping.",
-    "examples": [
-      "Extracted structured data from complex pages",
-      "Parsed millions of pages for research"
-    ]
-  },
   "react": {
     "title": "React",
-    "description": "Component-based UI development for interactive web apps.",
-    "examples": [
-      "Built modular, reusable components for client projects",
-      "Implemented interactive features with state management",
-      "Designed architecture for maintainability"
-    ]
+    "description": "component-based UI."
   },
   "typescript": {
     "title": "TypeScript",
-    "description": "Type-safe JavaScript for reliable code.",
-    "examples": [
-      "Developed React components with full type safety",
-      "Created clear interfaces for team collaboration"
-    ]
+    "description": "typed JavaScript."
   },
   "css": {
     "title": "CSS",
-    "description": "Styling for polished, responsive interfaces.",
-    "examples": [
-      "Created layouts with intentional spacing and hierarchy",
-      "Built smooth transitions and hover animations",
-      "Implemented responsive designs for all screens"
-    ]
+    "description": "styling."
   },
   "html": {
     "title": "HTML",
-    "description": "Semantic markup for accessible, structured content.",
-    "examples": [
-      "Built accessible component structures",
-      "Created semantic layouts for SEO and screen readers"
-    ]
-  },
-  "figma": {
-    "title": "Figma",
-    "description": "Design tool for UI mockups and prototypes.",
-    "examples": [
-      "Created wireframes and high-fidelity mockups",
-      "Designed component libraries for consistency",
-      "Collaborated on design iterations"
-    ]
-  },
-  "photoshop": {
-    "title": "Photoshop",
-    "description": "Image editing and digital composition.",
-    "examples": [
-      "Photo manipulation and retouching",
-      "Digital collages and mixed media compositions",
-      "Layer-based editing for complex visuals"
-    ]
-  },
-  "gimp": {
-    "title": "GIMP",
-    "description": "Open-source image editing and digital art.",
-    "examples": [
-      "Photo editing and color correction",
-      "Digital painting and illustration",
-      "Texture creation and manipulation"
-    ]
-  },
-  "krita": {
-    "title": "Krita",
-    "description": "Digital painting and illustration.",
-    "examples": [
-      "Created digital collages with found imagery and hand-drawn elements",
-      "Layered compositions exploring botanical and organic forms",
-      "Produced visuals for personal creative projects"
-    ]
-  },
-  "aseprite": {
-    "title": "Aseprite",
-    "description": "Pixel art for sprites, UI elements, and retro graphics.",
-    "examples": [
-      "Designed pixel art interfaces and decorative frames",
-      "Created custom lettering and iconography"
-    ]
-  },
-  "unity": {
-    "title": "Unity",
-    "description": "Game engine for interactive 2D/3D experiences.",
-    "examples": [
-      "Developed 2D game with custom art and mechanics",
-      "Implemented game logic with C# scripting"
-    ]
-  },
-  "p5js": {
-    "title": "p5.js",
-    "description": "Creative coding for generative art and interactive visuals.",
-    "examples": [
-      "Built the interactive flower trail on this portfolio",
-      "Experimenting with algorithmic and generative systems"
-    ]
-  },
-  "touchdesigner": {
-    "title": "TouchDesigner",
-    "description": "Visual programming for real-time interactive multimedia.",
-    "examples": [
-      "Exploring generative visuals and interactive installations"
-    ]
-  },
-  "creative-coding": {
-    "title": "Creative Coding",
-    "description": "Using code as a medium for artistic expression.",
-    "examples": [
-      "Building generative art, algorithmic designs, and interactive experiences"
-    ]
+    "description": "markup."
   },
   "javascript": {
     "title": "JavaScript",
-    "description": "Core language for web interactivity and creative coding.",
-    "examples": [
-      "Built this portfolio's interactive features (flower trails, accordions, garden)",
-      "Implemented dynamic content and state management",
-      "Exploring p5.js for generative art"
-    ]
+    "description": "interactivity."
+  },
+  "figma": {
+    "title": "Figma",
+    "description": "UI/UX design — components, variables, and wireframing."
+  },
+  "photoshop": {
+    "title": "Photoshop",
+    "description": "Digital image editing and composition — collage, recolouring, blending, and filter work."
+  },
+  "krita": {
+    "title": "Krita",
+    "description": "Digital painting, drawing, and composition — also used for simple animation."
+  },
+  "aseprite": {
+    "title": "Aseprite",
+    "description": "Pixel art and simple animation."
+  },
+  "unity": {
+    "title": "Unity",
+    "description": "Built a 2D shooter game — custom art, mechanics, and C# scripting."
+  },
+  "p5js": {
+    "title": "p5.js",
+    "description": "Creative coding for generative and interactive visuals — currently learning more."
+  },
+  "touchdesigner": {
+    "title": "TouchDesigner",
+    "description": "Learning — can produce real-time visual effects, masking, and signal-based manipulation."
   },
   "data-validation": {
     "title": "Data Validation",
-    "description": "Verifying data integrity across enterprise pipelines at scale.",
+    "description": "Validating data transformations and schemas across enterprise pipelines.",
     "examples": [
-      "Validated large-scale data migrations at CIBC using PySpark and SQL",
-      "Built automated comparison scripts across environments",
-      "Processed millions of records through Databricks pipelines"
+      "Worked with team to validate data migrations at CIBC — transformations, schemas, and record integrity across millions of rows",
+      "Built comparison scripts across environments using PySpark and SQL"
     ]
   },
   "github-actions": {
@@ -292,7 +163,6 @@
     "description": "CI/CD automation via GitHub workflows.",
     "examples": [
       "Configured automated test pipelines triggered on pull requests",
-      "Built scheduled workflows for recurring data validation",
       "Integrated test results reporting into CI pipeline"
     ]
   }
