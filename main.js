@@ -951,11 +951,11 @@ window.addEventListener('resize', () => {
   positionGarlandLabels();
 });
 
-// Dark mode toggle — dark is default; light requires explicit opt-in
+// Dark mode toggle — light is default; dark requires explicit opt-in
 const themeToggle = document.getElementById('theme-toggle');
 const savedTheme = localStorage.getItem('cv-theme');
-if (savedTheme === 'light') {
-  document.body.classList.remove('dark-mode');
+if (savedTheme === 'dark') {
+  document.body.classList.add('dark-mode');
 }
 themeToggle.textContent = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
 themeToggle.addEventListener('click', () => {
