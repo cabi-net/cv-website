@@ -2,7 +2,7 @@
 const WORDMARK_DEFAULTS = {
   fontFactor: 0.82,   // fraction of canvas height used as initial font size
   gridDivisor: 34,    // grid spacing = fontSize / gridDivisor (smaller = denser)
-  dotRatio: 1.05,     // dot diameter = grid spacing * dotRatio
+  dotRatio: 1.25,     // dot diameter = grid spacing * dotRatio
 };
 
 function getWordmarkSettings() {
@@ -295,7 +295,8 @@ function buildPearlSprite(radius, accentHex) {
   const base = `rgb(${r}, ${g}, ${b})`;
   const deep = `rgb(${Math.max(0, r - 50)}, ${Math.max(0, g - 25)}, ${Math.max(0, b - 30)})`;
 
-  const padding = 2; // room for soft edge / glow
+  const glowRadius = radius * 1.9; // soft halo extends well past the pearl
+  const padding = Math.ceil(glowRadius - radius) + 2;
   const size = Math.ceil(radius * 2 + padding * 2);
   const sprite = document.createElement('canvas');
   sprite.width = size;
@@ -303,6 +304,16 @@ function buildPearlSprite(radius, accentHex) {
   const sctx = sprite.getContext('2d');
   const cx = size / 2;
   const cy = size / 2;
+
+  // Soft halo behind the pearl — lifts it off the textured background
+  const halo = sctx.createRadialGradient(cx, cy, radius * 0.6, cx, cy, glowRadius);
+  halo.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.55)`);
+  halo.addColorStop(0.5, `rgba(${r}, ${g}, ${b}, 0.18)`);
+  halo.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
+  sctx.fillStyle = halo;
+  sctx.beginPath();
+  sctx.arc(cx, cy, glowRadius, 0, Math.PI * 2);
+  sctx.fill();
 
   // Main pearl gradient — highlight at top-left, deep on bottom-right
   const grad = sctx.createRadialGradient(
@@ -344,7 +355,7 @@ function renderWordmark(divisorOverride) {
   const divisor = divisorOverride !== undefined ? divisorOverride : settings.gridDivisor;
   wordmarkColor = getComputedStyle(document.body).getPropertyValue('--color-accent').trim() || '#a8456f';
 
-  const DPR = 2;
+  const DPR = 3;
   const cssW = canvas.clientWidth;
   const cssH = canvas.clientHeight;
   canvas.width = cssW * DPR;
@@ -500,23 +511,23 @@ const GARLAND_DEFAULTS = {
   // Control points expressed as fractions of viewport (x, y in 0..1).
   // Catmull-Rom spline interpolates smoothly through these.
   controlPoints: [
-    { x: 0.15, y: 0.23 },
-    { x: 0.11, y: 0.29 },
-    { x: 0.21, y: 0.47 },
-    { x: 0.18, y: 0.61 },
-    { x: 0.11, y: 0.57 },
-    { x: 0.05, y: 0.66 },
-    { x: 0.15, y: 0.91 },
-    { x: 0.38, y: 0.88 },
-    { x: 0.57, y: 0.87 },
-    { x: 0.81, y: 0.95 },
-    { x: 0.71, y: 0.59 },
-    { x: 0.85, y: 0.53 },
-    { x: 0.90, y: 0.22 },
-    { x: 0.92, y: 0.16 },
+    { x: 0.13, y: 0.23 },
+    { x: 0.09, y: 0.29 },
+    { x: 0.13, y: 0.47 },
+    { x: 0.11, y: 0.61 },
+    { x: 0.07, y: 0.57 },
+    { x: 0.04, y: 0.72 },
+    { x: 0.15, y: 0.93 },
+    { x: 0.38, y: 0.90 },
+    { x: 0.57, y: 0.89 },
+    { x: 0.82, y: 0.95 },
+    { x: 0.88, y: 0.59 },
+    { x: 0.93, y: 0.53 },
+    { x: 0.91, y: 0.22 },
+    { x: 0.93, y: 0.16 },
   ],
   // Where labels sit along the path (fraction 0..1 of arc length)
-  labelAnchors: { edu: 0.11, cert: 0.24, lang: 0.29, contact: 0.99 },
+  labelAnchors: { edu: 0.10, cert: 0.22, lang: 0.34 },
 };
 
 let garlandSettings = null;
@@ -701,9 +712,10 @@ function positionGarlandLabels() {
     let left = placeRight ? (pt.x + offsetX) : (pt.x - offsetX - labelW);
     let top = pt.y - labelH / 2;
 
-    // Clamp to viewport
-    left = Math.max(8, Math.min(vw - labelW - 8, left));
-    top = Math.max(8, Math.min(window.innerHeight - labelH - 8, top));
+    // Clamp to viewport with a comfortable margin so labels don't kiss the edge
+    const edgeMargin = 32;
+    left = Math.max(edgeMargin, Math.min(vw - labelW - edgeMargin, left));
+    top = Math.max(edgeMargin, Math.min(window.innerHeight - labelH - edgeMargin, top));
 
     el.style.left = left + 'px';
     el.style.top = top + 'px';
