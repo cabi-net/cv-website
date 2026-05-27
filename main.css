@@ -1,10 +1,10 @@
 html {
-  font-size: 67%;
+  font-size: 75%;
 }
 
 :root {
   --color-black: #2a1a1a;
-  --color-violet: #a8456f;
+  --color-violet: #8a2e54;
   --color-olive: #8a6b85;
   --color-white: #f7efe0;
   --color-text: var(--color-black);
@@ -12,8 +12,8 @@ html {
   --color-accent: var(--color-violet);
   --color-accent2: var(--color-olive);
   --color-surface: #fbf5e8;
-  --color-text-muted: rgba(42, 26, 26, 0.4);
-  --color-text-mid: rgba(42, 26, 26, 0.6);
+  --color-text-muted: rgba(42, 26, 26, 0.55);
+  --color-text-mid: rgba(42, 26, 26, 0.78);
   --gap-3: 0.1875rem;
   --gap-7: 0.4375rem;
   --gap-10: 0.625rem;
@@ -45,6 +45,17 @@ html {
 
 * {
   box-sizing: border-box;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.tag:focus-visible,
+.experience-item:focus-visible {
+  outline-offset: 4px;
 }
 
 body {
@@ -123,6 +134,19 @@ body.dark-mode {
   justify-content: space-between;
   width: 100%;
   gap: var(--gap-20);
+  min-height: 13rem;
+}
+
+.header-name {
+  position: fixed;
+  top: 0;
+  left: 2.5rem;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.header-name .wordmark {
+  pointer-events: auto;
 }
 
 .header-name h1 {
@@ -217,23 +241,6 @@ body.dark-mode {
   text-transform: uppercase;
 }
 
-.header-contact {
-  display: flex;
-  align-items: center;
-  gap: var(--gap-15);
-}
-
-.header-contact a {
-  color: var(--color-text);
-  text-decoration: none;
-  font-size: var(--fs-16);
-}
-
-.header-contact a:hover {
-  text-decoration: underline dotted;
-  text-underline-offset: 0.25em;
-}
-
 .cabinet-link {
   align-self: flex-start;
   display: inline-block;
@@ -272,10 +279,53 @@ body.dark-mode {
   justify-content: center;
   gap: 1.25rem;
   width: 100%;
-  padding: var(--padding-15) 0;
+  padding: 0 0 var(--padding-15);
 }
 
-/* ==================== LEFT ASIDE (edu + lang) ==================== */
+/* ==================== HEADER CONTACT (top-right) ==================== */
+.header-contact {
+  font-family: "EB Garamond", Georgia, serif;
+  text-align: right;
+  max-width: 18rem;
+  padding-top: 3rem;
+  margin-left: auto;
+}
+
+.header-contact h2 {
+  margin: 0 0 0.35rem 0;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+}
+
+.header-contact p {
+  margin: 0;
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.header-contact p + p {
+  margin-top: 0.15rem;
+}
+
+.header-contact a {
+  color: inherit;
+  font-style: normal;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--color-accent);
+  padding-bottom: 1px;
+  transition: color 0.2s ease;
+}
+
+.header-contact a:hover {
+  color: var(--color-accent);
+}
+
+/* ==================== LEFT ASIDE (spacer for floating garland labels) ==================== */
 .aside-left {
   width: 20rem;
   flex-shrink: 0;
@@ -317,7 +367,7 @@ body.dark-mode {
 .garland-label h3 {
   margin: 0 0 0.45rem 0;
   font-family: "EB Garamond", Georgia, serif;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   font-weight: 500;
   font-style: normal;
   color: var(--color-accent);
@@ -327,7 +377,7 @@ body.dark-mode {
 
 .garland-label p {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-style: italic;
   line-height: 1.5;
   color: var(--color-text);
@@ -339,7 +389,7 @@ body.dark-mode {
 
 .garland-label .garland-meta {
   margin-top: 0.45rem;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-style: italic;
   line-height: 1.45;
   color: var(--color-text-mid);
@@ -361,7 +411,7 @@ body.dark-mode {
 /* ==================== RIGHT COLUMN (detail panel) ==================== */
 .sidebar-detail {
   position: relative;
-  width: 18rem;
+  width: 20rem;
   flex-shrink: 0;
   padding-top: var(--padding-15);
   display: flex;
@@ -1204,6 +1254,15 @@ body.dark-mode .detail-panel.tool-detail {
 
 /* ==================== RESPONSIVE ==================== */
 
+/* Mid-width — narrow the side columns so the content card stays readable
+   before we fully collapse to single-column at 56rem */
+@media screen and (max-width: 80rem) {
+  .aside-left,
+  .sidebar-detail {
+    width: 14rem;
+  }
+}
+
 /* Tablet — stack the columns */
 @media screen and (max-width: 56rem) {
   /* Hide garland on narrow widths; labels reflow as a normal stacked list */
@@ -1224,6 +1283,11 @@ body.dark-mode .detail-panel.tool-detail {
   }
 
   .container {
+    max-width: 100%;
+  }
+
+  .header-contact {
+    text-align: left;
     max-width: 100%;
   }
 
