@@ -84,9 +84,9 @@ function createThreadLabel() {
     background: none;
     border: none;
     cursor: pointer;
-    font-family: "EB Garamond", Georgia, serif;
-    font-style: italic;
-    font-size: 1.6rem;
+    font-family: "Karla", sans-serif;
+    font-style: normal;
+    font-size: 1rem;
     color: var(--color-accent);
     padding: 0.25rem 0.5rem;
     opacity: 0;
@@ -1107,42 +1107,4 @@ document.querySelectorAll('.tag').forEach(tag => {
 narrowQuery.addEventListener('change', hideDetailPanel);
 
 
-/* ==================== POINTER-REACTIVE NACRE ====================
-   The pearly surfaces shift their highlight bloom + iridescent sheen toward
-   the pointer, like light moving across a real pearl. Pointer-only (skips
-   touch / coarse pointers), throttled to one update per animation frame. */
-(function initReactiveNacre() {
-  const finePointer = window.matchMedia('(pointer: fine)');
-  if (!finePointer.matches) return;
-
-  const surfaces = document.querySelectorAll('.section-group');
-  let frame = null;
-
-  function onMove(e) {
-    const el = e.currentTarget;
-    if (frame) return;
-    frame = requestAnimationFrame(() => {
-      frame = null;
-      const r = el.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width;   // 0..1
-      const py = (e.clientY - r.top) / r.height;   // 0..1
-      // Highlight bloom tracks the pointer; sheen angle skews with horizontal pos
-      el.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
-      el.style.setProperty('--my', (py * 100).toFixed(1) + '%');
-      el.style.setProperty('--shf', (95 + px * 50).toFixed(0) + 'deg');
-    });
-  }
-
-  function onLeave(e) {
-    const el = e.currentTarget;
-    el.style.removeProperty('--mx');
-    el.style.removeProperty('--my');
-    el.style.removeProperty('--shf');
-  }
-
-  surfaces.forEach(el => {
-    el.addEventListener('pointermove', onMove);
-    el.addEventListener('pointerleave', onLeave);
-  });
-})();
 
