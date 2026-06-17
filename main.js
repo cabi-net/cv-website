@@ -953,8 +953,8 @@ function revealEmailLinks() {
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-if (document.fonts && document.fonts.ready) {
-  document.fonts.ready.then(initAll);
+if (document.fonts && document.fonts.load) {
+  document.fonts.load('1em "the_blanger"').then(() => initAll());
 } else {
   window.addEventListener('load', initAll);
 }
