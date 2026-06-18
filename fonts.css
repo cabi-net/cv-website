@@ -32,6 +32,38 @@
   font-display: swap;
 }
 @font-face {
+  font-family: "Avara";
+  src: url("./fonts/Avara-master/fonts/webfonts/Bold/Avara-Bold.woff2") format("woff2"),
+       url("./fonts/Avara-master/fonts/webfonts/Bold/Avara-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avara";
+  src: url("./fonts/Avara-master/fonts/webfonts/BoldItalic/Avara-BoldItalic.woff2") format("woff2"),
+       url("./fonts/Avara-master/fonts/webfonts/BoldItalic/Avara-BoldItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avara";
+  src: url("./fonts/Avara-master/fonts/webfonts/Black/Avara-Black.woff2") format("woff2"),
+       url("./fonts/Avara-master/fonts/webfonts/Black/Avara-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Feroniapi";
+  src: url("./fonts/feroniapi-main/fonts/woff2/Feroniapi-MediumItalic.woff2") format("woff2"),
+       url("./fonts/feroniapi-main/fonts/woff/Feroniapi-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
   font-family: "Isenheim";
   src: url("./fonts/isenheim-main/isenheim-main/fonts/OpenType-PS/Isenheim_Regulier.otf") format("opentype");
   font-weight: 400;

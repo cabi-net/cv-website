@@ -84,9 +84,9 @@ function createThreadLabel() {
     background: none;
     border: none;
     cursor: pointer;
-    font-family: "EB Garamond", Georgia, serif;
-    font-style: italic;
-    font-size: 1.6rem;
+    font-family: "Karla", sans-serif;
+    font-style: normal;
+    font-size: 1rem;
     color: var(--color-accent);
     padding: 0.25rem 0.5rem;
     opacity: 0;
@@ -498,7 +498,7 @@ function animateWordmark() {
   }
   ctx.globalAlpha = 1;
 
-  wordmarkAnimationFrame = requestAnimationFrame(animateWordmark);
+  if (!reduceMotion.matches) wordmarkAnimationFrame = requestAnimationFrame(animateWordmark);
 }
 
 // ============================================================
@@ -683,14 +683,14 @@ function animateGarland() {
   }
   ctx.globalAlpha = 1;
 
-  garlandAnimFrame = requestAnimationFrame(animateGarland);
+  if (!reduceMotion.matches) garlandAnimFrame = requestAnimationFrame(animateGarland);
 }
 
 function positionGarlandLabels() {
   if (!garlandSettings || garlandSamples.length === 0) return;
   const vw = window.innerWidth;
   // Drop label positioning on narrow viewports — CSS handles fallback layout
-  if (vw <= 56 * 16) return;
+  if (vw <= 80 * 16) return;
 
   document.querySelectorAll('.garland-label').forEach(el => {
     const anchor = el.dataset.anchor;
@@ -951,8 +951,10 @@ function revealEmailLinks() {
   });
 }
 
-if (document.fonts && document.fonts.ready) {
-  document.fonts.ready.then(initAll);
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+if (document.fonts && document.fonts.load) {
+  document.fonts.load('1em "the_blanger"').then(() => initAll());
 } else {
   window.addEventListener('load', initAll);
 }
@@ -961,6 +963,16 @@ window.addEventListener('resize', () => {
   renderWordmark();
   renderGarland();
   positionGarlandLabels();
+});
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    if (wordmarkAnimationFrame) { cancelAnimationFrame(wordmarkAnimationFrame); wordmarkAnimationFrame = null; }
+    if (garlandAnimFrame) { cancelAnimationFrame(garlandAnimFrame); garlandAnimFrame = null; }
+  } else {
+    if (!wordmarkAnimationFrame) animateWordmark();
+    if (!garlandAnimFrame) animateGarland();
+  }
 });
 
 // Dark mode toggle — light is default; dark requires explicit opt-in
@@ -989,103 +1001,27 @@ fetch('./skills-data.json')
   .then(data => { skillDetails = data; })
   .catch(error => console.error('Error loading skill details:', error));
 
-// Global flower trail effect
-const globalFlowers = [];
-const flowerColors = {
-  light: {
-    primary: 'rgba(255, 109, 226, ',
-    secondary: 'rgba(155, 186, 111, ',
-    petal: 'rgba(255, 182, 235, ',
-  },
-  dark: {
-    primary: 'rgba(255, 179, 240, ',
-    secondary: 'rgba(255, 60, 100, ',
-    petal: 'rgba(255, 220, 245, ',
+
+
+// Narrow viewports show skill details inline (under the tapped tag group)
+// instead of in the right-hand side panel.
+const narrowQuery = window.matchMedia('(max-width: 80rem)');
+
+function buildDetailMarkup(tag) {
+  const skillData = skillDetails[tag.dataset.skill];
+  if (skillData) {
+    return `
+      <h3>${skillData.title}</h3>
+      ${skillData.description ? `<p>${skillData.description}</p>` : ''}
+      ${skillData.examples ? `<ul>${skillData.examples.map(ex => `<li>${ex}</li>`).join('')}</ul>` : ''}
+    `;
   }
-};
-
-function getColors() {
-  return document.body.classList.contains('dark-mode') ? flowerColors.dark : flowerColors.light;
+  return `<h3>${tag.textContent}</h3><p>Details coming soon...</p>`;
 }
 
-let globalCanvas, globalCtx;
-let lastGlobalMousePos = { x: 0, y: 0 };
-
-function initGlobalFlowers() {
-  globalCanvas = document.createElement('canvas');
-  globalCanvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999';
-  document.body.appendChild(globalCanvas);
-  globalCtx = globalCanvas.getContext('2d');
-  resizeGlobalCanvas();
-  globalFlowerLoop();
+function clearInlineDetails() {
+  document.querySelectorAll('.inline-detail').forEach(el => el.remove());
 }
-
-function resizeGlobalCanvas() {
-  globalCanvas.width = window.innerWidth;
-  globalCanvas.height = window.innerHeight;
-}
-
-function addGlobalFlower(x, y) {
-  globalFlowers.push({
-    x, y,
-    size: 3 + Math.random() * 5,
-    petals: 4 + Math.floor(Math.random() * 3),
-    rotation: Math.random() * Math.PI * 2,
-    usePrimary: Math.random() > 0.5,
-    life: 1,
-    decay: 0.008 + Math.random() * 0.005
-  });
-}
-
-function globalFlowerLoop() {
-  globalCtx.clearRect(0, 0, globalCanvas.width, globalCanvas.height);
-  const colors = getColors();
-
-  for (let i = globalFlowers.length - 1; i >= 0; i--) {
-    const flower = globalFlowers[i];
-    flower.life -= flower.decay;
-    if (flower.life <= 0) { globalFlowers.splice(i, 1); continue; }
-
-    globalCtx.save();
-    globalCtx.translate(flower.x, flower.y);
-    globalCtx.rotate(flower.rotation);
-    const isDark = document.body.classList.contains('dark-mode');
-    globalCtx.globalAlpha = flower.life * (isDark ? 0.9 : 0.6);
-
-    globalCtx.fillStyle = (flower.usePrimary ? colors.primary : colors.petal) + (isDark ? '1)' : '0.7)');
-    for (let j = 0; j < flower.petals; j++) {
-      const angle = (j / flower.petals) * Math.PI * 2;
-      globalCtx.beginPath();
-      globalCtx.ellipse(
-        Math.cos(angle) * flower.size * 0.5,
-        Math.sin(angle) * flower.size * 0.5,
-        flower.size * 0.6, flower.size * 0.3,
-        angle, 0, Math.PI * 2
-      );
-      globalCtx.fill();
-    }
-
-    globalCtx.fillStyle = colors.secondary + (isDark ? '1)' : '0.8)');
-    globalCtx.beginPath();
-    globalCtx.arc(0, 0, flower.size * 0.25, 0, Math.PI * 2);
-    globalCtx.fill();
-    globalCtx.restore();
-  }
-  requestAnimationFrame(globalFlowerLoop);
-}
-
-document.addEventListener('mousemove', (e) => {
-  if (document.body.classList.contains('dark-mode')) return;
-  const dist = Math.hypot(e.clientX - lastGlobalMousePos.x, e.clientY - lastGlobalMousePos.y);
-  if (dist > 30) {
-    addGlobalFlower(e.clientX, e.clientY);
-    lastGlobalMousePos = { x: e.clientX, y: e.clientY };
-  }
-});
-
-window.addEventListener('resize', resizeGlobalCanvas);
-window.addEventListener('load', initGlobalFlowers);
-
 
 function hideDetailPanel() {
   const panel = document.getElementById('detail-panel');
@@ -1093,6 +1029,7 @@ function hideDetailPanel() {
   panel.innerHTML = '';
   panel.style.top = '';
   document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+  clearInlineDetails();
   const hint = document.getElementById('detail-hint');
   if (hint) hint.classList.remove('hidden');
 }
@@ -1103,8 +1040,9 @@ document.querySelectorAll('.experience-item').forEach(item => {
     if (e.target.classList.contains('tag')) return;
     const wasExpanded = item.classList.contains('expanded');
     document.querySelectorAll('.experience-item').forEach(i => i.classList.remove('expanded'));
+    // Collapsing any item clears its open skill detail
+    hideDetailPanel();
     if (!wasExpanded) item.classList.add('expanded');
-    else hideDetailPanel();
   });
 });
 
@@ -1114,31 +1052,49 @@ document.querySelectorAll('.tag').forEach(tag => {
   tag.addEventListener('click', (e) => {
     e.stopPropagation();
 
-    const skillId = tag.dataset.skill;
     const tagType = tag.dataset.type;
-    const skillData = skillDetails[skillId];
-    const detailPanel = document.getElementById('detail-panel');
+    const wasActive = tag.classList.contains('active');
 
+    // Reset prior selection state across both presentations
     document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+    clearInlineDetails();
+
+    // Toggle off if re-tapping the same tag
+    if (wasActive) {
+      hideDetailPanel();
+      return;
+    }
     tag.classList.add('active');
 
+    if (narrowQuery.matches) {
+      // Inline: drop the detail right after this tag's .exp-content
+      const detailPanel = document.getElementById('detail-panel');
+      detailPanel.classList.remove('visible', 'tool-detail');
+      detailPanel.innerHTML = '';
+
+      const inline = document.createElement('div');
+      inline.className = 'inline-detail detail-panel';
+      if (tagType === 'tool') inline.classList.add('tool-detail');
+      inline.innerHTML = buildDetailMarkup(tag);
+
+      const expContent = tag.closest('.exp-content');
+      if (expContent) {
+        expContent.appendChild(inline);
+        inline.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      return;
+    }
+
+    // Wide: render into the side panel, anchored to the clicked tag
+    const detailPanel = document.getElementById('detail-panel');
     detailPanel.classList.toggle('tool-detail', tagType === 'tool');
     detailPanel.classList.add('visible');
     detailPanel.classList.remove('empty');
     const hint = document.getElementById('detail-hint');
     if (hint) hint.classList.add('hidden');
 
-    if (skillData) {
-      detailPanel.innerHTML = `
-        <h3>${skillData.title}</h3>
-        <p>${skillData.description}</p>
-        ${skillData.examples ? `<ul>${skillData.examples.map(ex => `<li>${ex}</li>`).join('')}</ul>` : ''}
-      `;
-    } else {
-      detailPanel.innerHTML = `<h3>${tag.textContent}</h3><p>Details coming soon...</p>`;
-    }
+    detailPanel.innerHTML = buildDetailMarkup(tag);
 
-    // Anchor panel vertically to the clicked tag
     const sidebarDetail = document.querySelector('.sidebar-detail');
     const tagRect = tag.getBoundingClientRect();
     const sidebarRect = sidebarDetail.getBoundingClientRect();
@@ -1146,4 +1102,9 @@ document.querySelectorAll('.tag').forEach(tag => {
     detailPanel.style.top = Math.max(0, offsetWithinSidebar - 8) + 'px';
   });
 });
+
+// If the viewport crosses the wide/narrow boundary, reset any open detail
+narrowQuery.addEventListener('change', hideDetailPanel);
+
+
 

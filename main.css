@@ -1,6 +1,7 @@
 html {
-  font-size: 75%;
+  font-size: 81.25%;
 }
+
 
 :root {
   --color-black: #2a1a1a;
@@ -39,7 +40,7 @@ html {
   --lh-36: 2.25rem;
   --max-w-1200: 75rem;
   --border-1: 1.5px dotted var(--color-accent);
-  --font-univers: Univers, sans-serif;
+  --font-univers: "Karla", sans-serif;
   --height-100: 6.25rem;
 }
 
@@ -94,7 +95,7 @@ body.dark-mode {
   background-size: auto, auto, 280px 280px, 130px 130px;
   background-position: 0 0, 0 0, 47px 91px, 0 0;
   background-repeat: no-repeat, no-repeat, repeat, repeat;
-  background-blend-mode: normal, normal, soft-light, soft-light;
+  background-blend-mode: normal, normal, multiply, multiply;
   background-attachment: fixed, fixed, fixed, fixed;
 }
 
@@ -287,14 +288,15 @@ body.dark-mode {
   font-family: "EB Garamond", Georgia, serif;
   text-align: right;
   max-width: 18rem;
-  padding-top: 3rem;
+  padding-top: 3.75rem;
   margin-left: auto;
 }
 
 .header-contact h2 {
   margin: 0 0 0.35rem 0;
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-family: "Avara", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--color-accent);
   letter-spacing: 0.01em;
   line-height: 1.25;
@@ -302,8 +304,9 @@ body.dark-mode {
 
 .header-contact p {
   margin: 0;
-  font-size: 1.15rem;
-  font-style: italic;
+  font-family: "Karla", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
   line-height: 1.5;
   color: var(--color-text);
 }
@@ -366,9 +369,9 @@ body.dark-mode {
 
 .garland-label h3 {
   margin: 0 0 0.45rem 0;
-  font-family: "EB Garamond", Georgia, serif;
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-family: "Avara", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
   font-style: normal;
   color: var(--color-accent);
   letter-spacing: 0.01em;
@@ -377,8 +380,9 @@ body.dark-mode {
 
 .garland-label p {
   margin: 0;
-  font-size: 1.15rem;
-  font-style: italic;
+  font-family: "Karla", sans-serif;
+  font-size: 0.95rem;
+  font-style: normal;
   line-height: 1.5;
   color: var(--color-text);
 }
@@ -389,8 +393,9 @@ body.dark-mode {
 
 .garland-label .garland-meta {
   margin-top: 0.45rem;
-  font-size: 1.05rem;
-  font-style: italic;
+  font-family: "Karla", sans-serif;
+  font-size: 0.9rem;
+  font-style: normal;
   line-height: 1.45;
   color: var(--color-text-mid);
 }
@@ -445,14 +450,17 @@ body.dark-mode {
   top: 2rem;
   padding: 1.75rem 1.25rem;
   text-align: center;
-  font-family: "EB Garamond", Georgia, serif;
-  font-style: italic;
+  font-family: "Karla", sans-serif;
+  font-style: normal;
   color: var(--color-text);
   border: 1.5px dotted var(--color-accent);
   border-radius: var(--br-7);
   background-color: color-mix(in srgb, var(--color-bg) 50%, transparent);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
+  box-shadow:
+    0 0 26px 3px rgba(168, 226, 222, 0.32),
+    0 0 52px 6px rgba(200, 220, 235, 0.18);
   transition: opacity 0.35s ease;
   pointer-events: none;
 }
@@ -526,52 +534,63 @@ body.dark-mode {
   gap: var(--gap-15);
   padding: 1.5rem 1.75rem;
   border-radius: 1.5rem;
+  --shf: 120deg;
+  border: 1px solid rgba(196, 118, 152, 0.25);
   background:
+    /* iridescent nacre sheen — pink → aqua/seafoam → gold → lilac (abalone) */
+    linear-gradient(var(--shf),
+      rgba(255, 200, 220, 0.2) 0%,
+      rgba(170, 232, 226, 0.18) 28%,
+      rgba(200, 240, 225, 0.14) 42%,
+      rgba(245, 230, 195, 0.18) 57%,
+      rgba(215, 200, 240, 0.18) 78%,
+      rgba(255, 210, 225, 0.2) 100%),
+    /* body tone */
     radial-gradient(ellipse at 28% 18%,
-      rgba(255, 250, 240, 0.75) 0%,
-      rgba(247, 232, 224, 0.5) 35%,
-      rgba(232, 210, 220, 0.35) 65%,
-      rgba(200, 180, 195, 0.3) 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.55),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.06),
-    0 6px 20px rgba(80, 40, 60, 0.08),
-    0 2px 4px rgba(80, 40, 60, 0.05);
+      rgba(253, 244, 236, 0.78) 0%,
+      rgba(244, 222, 226, 0.58) 35%,
+      rgba(226, 196, 212, 0.46) 65%,
+      rgba(198, 170, 192, 0.42) 100%);
+  box-shadow: none;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }
 
 body.dark-mode .section-group {
+  border-color: rgba(224, 138, 171, 0.3);
   background:
+    radial-gradient(ellipse 38% 30% at 26% 14%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 70%),
+    linear-gradient(120deg,
+      rgba(170, 232, 226, 0.1) 0%,
+      rgba(245, 230, 195, 0.08) 50%,
+      rgba(215, 200, 240, 0.1) 100%),
     radial-gradient(ellipse at 28% 18%,
       rgba(80, 55, 70, 0.85) 0%,
       rgba(50, 30, 40, 0.7) 40%,
       rgba(35, 22, 28, 0.6) 70%,
       rgba(25, 15, 20, 0.55) 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-    0 6px 24px rgba(0, 0, 0, 0.35),
-    0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
 }
 
 
 .section-heading {
   margin: 0;
   padding: 0 var(--padding-15);
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
   color: var(--color-text-mid);
-  font-family: "EB Garamond", Georgia, serif;
+  font-family: "Karla", sans-serif;
   text-transform: none;
   letter-spacing: 0.01em;
 }
 
 .section-heading.primary {
-  font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
-  font-size: 1.35rem;
-  font-weight: 500;
+  font-family: "Avara", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
   font-style: normal;
   text-transform: none;
   letter-spacing: 0.01em;
@@ -601,19 +620,33 @@ body.dark-mode .section-group {
 }
 
 /* ==================== EXPERIENCE ACCORDION ==================== */
+/* Entries are plain text rows within the nacre block, divided by a hairline
+   and lifted by a soft tint on hover/expand. */
 .experience-item {
-  padding: var(--padding-6) var(--padding-14);
-  border-radius: var(--br-15);
-  overflow: hidden;
+  padding: var(--padding-10) var(--padding-14);
+  border-radius: var(--br-7);
   transition: background-color 0.2s ease;
 }
 
-.experience-item:hover:not(.expanded) {
-  background-color: rgba(168, 69, 111, 0.07);
+.experience-item + .experience-item {
+  border-top: 1px solid rgba(196, 118, 152, 0.2);
 }
 
-body.dark-mode .experience-item:hover:not(.expanded) {
-  background-color: rgba(224, 138, 171, 0.1);
+.experience-item:hover:not(.expanded) {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.experience-item.expanded {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .experience-item + .experience-item {
+  border-top-color: rgba(224, 138, 171, 0.18);
+}
+
+body.dark-mode .experience-item:hover:not(.expanded),
+body.dark-mode .experience-item.expanded {
+  background-color: rgba(255, 255, 255, 0.06);
 }
 
 /* ==================== CAPABILITY ACCORDION ==================== */
@@ -641,7 +674,7 @@ body.dark-mode .experience-item:hover:not(.expanded) {
   font-size: var(--fs-20);
   font-weight: 700;
   color: var(--color-text);
-  font-family: "Univers Condensed", sans-serif;
+  font-family: "Karla", sans-serif;
 }
 
 .capability-expand-icon {
@@ -680,11 +713,17 @@ body.dark-mode .experience-item:hover:not(.expanded) {
   justify-content: space-between;
   gap: var(--gap-20);
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+  border-radius: var(--br-7);
 }
 
 .exp-header:hover {
   opacity: 0.7;
+}
+
+/* Touch feedback — clearer tap affordance on narrow screens */
+.exp-header:active {
+  background-color: rgba(168, 69, 111, 0.08);
 }
 
 .exp-header-left {
@@ -696,14 +735,14 @@ body.dark-mode .experience-item:hover:not(.expanded) {
 
 .exp-title {
   margin: 0;
-  font-family: "Univers Condensed", sans-serif;
+  font-family: "Karla", sans-serif;
   font-size: var(--fs-20);
   font-weight: 700;
   color: var(--color-text);
 }
 
 .exp-title-sub {
-  font-family: "EB Garamond", Georgia, serif;
+  font-family: "Karla", sans-serif;
   font-weight: 400;
   font-style: italic;
   color: var(--color-text-mid);
@@ -711,9 +750,9 @@ body.dark-mode .experience-item:hover:not(.expanded) {
 
 .exp-company {
   margin: 0;
-  font-family: "EB Garamond", Georgia, serif;
-  font-style: italic;
-  font-size: 1.1rem;
+  font-family: "Karla", sans-serif;
+  font-style: normal;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--color-text-mid);
   line-height: 1.3;
@@ -728,7 +767,7 @@ body.dark-mode .experience-item:hover:not(.expanded) {
 .exp-date {
   flex-shrink: 0;
   font-size: var(--fs-16);
-  font-family: "Univers Condensed", sans-serif;
+  font-family: "Karla", sans-serif;
   white-space: nowrap;
 }
 
@@ -764,7 +803,7 @@ body.dark-mode .experience-item:hover:not(.expanded) {
 }
 
 .experience-item.expanded .exp-content {
-  max-height: 37.5rem;
+  max-height: 75rem;
   opacity: 1;
   margin-top: var(--gap-15);
 }
@@ -799,7 +838,7 @@ body.dark-mode .experience-item:hover:not(.expanded) {
   background-color: var(--color-accent);
   color: var(--color-bg);
   transform: translateY(-1px);
-  box-shadow: 0 0.125rem 0.25rem rgba(168, 69, 111, 0.3);
+  box-shadow: 0 0 12px 2px rgba(168, 226, 222, 0.55);
 }
 
 .tag-group:first-child .tag.active {
@@ -818,7 +857,7 @@ body.dark-mode .experience-item:hover:not(.expanded) {
   background-color: var(--color-accent2);
   color: var(--color-bg);
   transform: translateY(-1px);
-  box-shadow: 0 0.125rem 0.25rem rgba(138, 107, 133, 0.3);
+  box-shadow: 0 0 12px 2px rgba(168, 226, 222, 0.55);
 }
 
 .tag-group:nth-child(2) .tag.active,
@@ -884,6 +923,12 @@ body.dark-mode .experience-item:hover:not(.expanded) {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--color-text);
   background:
+    /* faint aqua/seafoam iridescent flash, echoing the card nacre */
+    linear-gradient(125deg,
+      transparent 12%,
+      rgba(170, 232, 226, 0.28) 32%,
+      rgba(205, 240, 228, 0.16) 46%,
+      transparent 62%),
     radial-gradient(ellipse at 22% 18%,
       rgba(255, 235, 245, 0.92) 0%,
       rgba(245, 200, 220, 0.78) 35%,
@@ -891,11 +936,23 @@ body.dark-mode .experience-item:hover:not(.expanded) {
       rgba(170, 110, 145, 0.55) 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.7),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1),
-    0 8px 24px rgba(120, 60, 90, 0.15),
-    0 2px 6px rgba(120, 60, 90, 0.1);
+    /* cool seafoam glow from behind, harmonizing with the blocks */
+    0 0 30px 4px rgba(168, 226, 222, 0.4),
+    0 0 60px 8px rgba(200, 220, 235, 0.22);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
+}
+
+/* Inline detail (narrow screens) sits in flow under the tapped tag group */
+.inline-detail {
+  margin-top: var(--gap-15);
+  min-height: 0;
+  animation: inline-detail-in 0.3s ease;
+}
+
+@keyframes inline-detail-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .detail-panel.tool-detail {
@@ -915,10 +972,10 @@ body.dark-mode .experience-item:hover:not(.expanded) {
 body.dark-mode .detail-panel {
   background:
     radial-gradient(ellipse at 22% 18%,
-      rgba(140, 80, 105, 0.85) 0%,
-      rgba(100, 55, 75, 0.75) 40%,
-      rgba(70, 35, 55, 0.65) 75%,
-      rgba(45, 20, 35, 0.55) 100%);
+      rgba(118, 66, 88, 0.88) 0%,
+      rgba(82, 45, 62, 0.8) 40%,
+      rgba(56, 28, 44, 0.72) 75%,
+      rgba(34, 15, 27, 0.65) 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.15),
     inset 0 -1px 0 rgba(0, 0, 0, 0.3),
@@ -937,6 +994,7 @@ body.dark-mode .detail-panel.tool-detail {
 
 .detail-panel h3 {
   margin: 0 0 0.625rem 0;
+  font-family: "Avara", Georgia, serif;
   font-size: var(--fs-20);
   color: var(--color-accent);
   font-weight: 700;
@@ -949,6 +1007,8 @@ body.dark-mode .detail-panel.tool-detail {
 
 .detail-panel p {
   margin: 0 0 0.625rem 0;
+  font-family: "Karla", sans-serif;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
@@ -998,7 +1058,7 @@ body.dark-mode .detail-panel.tool-detail {
 
 .edu-tag {
   font-size: var(--fs-16);
-  font-family: "Univers Condensed", sans-serif;
+  font-family: "Karla", sans-serif;
   color: var(--color-text-mid);
 }
 
@@ -1022,57 +1082,17 @@ body.dark-mode .detail-panel.tool-detail {
 }
 
 .lang-name {
-  font-family: "Univers Condensed", sans-serif;
+  font-family: "Karla", sans-serif;
   font-size: var(--fs-20);
   font-weight: 700;
 }
 
 .lang-level {
-  font-family: "EB Garamond", Georgia, serif;
-  font-style: italic;
-  font-size: 1rem;
+  font-family: "Karla", sans-serif;
+  font-style: normal;
+  font-size: 0.9rem;
   color: var(--color-text-mid);
 }
-
-/* ==================== PAGE FOOTER ==================== */
-.page-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 40;
-  pointer-events: none;
-}
-
-.footer-content {
-  padding: 0.65rem var(--padding-20);
-  text-align: center;
-  color: var(--color-accent);
-  font-size: 1.4rem;
-  user-select: none;
-  pointer-events: auto;
-}
-
-.footer-postcard {
-  font-family: "Univers", sans-serif;
-  font-size: 0.75rem;
-  color: var(--color-accent);
-  text-decoration: none;
-  letter-spacing: 0.04em;
-  opacity: 0.7;
-  vertical-align: middle;
-  margin-left: 0.6rem;
-  transition: opacity 0.2s;
-}
-
-.footer-postcard:hover {
-  opacity: 1;
-  text-decoration: underline;
-}
-
 
 /* ==================== WORDMARK DEV PANEL ==================== */
 #wordmark-dev-panel,
@@ -1262,22 +1282,15 @@ body.dark-mode .detail-panel.tool-detail {
 
 /* Mid-width — narrow the side columns so the content card stays readable
    before we fully collapse to single-column at 56rem */
+/* Tablet & below — stack into a single column, hide floating garland */
 @media screen and (max-width: 80rem) {
-  .aside-left,
-  .sidebar-detail {
-    width: 14rem;
-  }
-}
-
-/* Tablet — stack the columns */
-@media screen and (max-width: 56rem) {
   /* Hide garland on narrow widths; labels reflow as a normal stacked list */
   .garland-canvas { display: none; }
   .garland-labels {
     position: static;
     width: auto;
     height: auto;
-    padding: 1.5rem 1.25rem 0;
+    padding: 1.5rem 1.25rem 2rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -1313,20 +1326,11 @@ body.dark-mode .detail-panel.tool-detail {
     min-height: 0;
   }
 
-  .meta-block {
-    max-width: 100%;
-    border-left: none;
-    border-top: 1.5px dotted var(--color-accent);
-    padding: 1rem var(--padding-14) 0;
-    margin-top: 0;
-  }
-
   .main-layout {
     flex-direction: column;
     gap: 1.5rem;
   }
 
-  .aside-left,
   .content-wrapper,
   .sidebar-detail {
     width: 100%;
@@ -1334,13 +1338,39 @@ body.dark-mode .detail-panel.tool-detail {
     padding-top: 0;
   }
 
-  /* On mobile, put experience first, then edu/lang, then detail panel */
-  .aside-left { order: 2; }
-  .content-wrapper { order: 1; }
-  .sidebar-detail { order: 3; }
-
   .sidebar-detail .detail-panel {
     position: static;
+  }
+
+  /* Experience leads on narrow screens; credentials drop below it */
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .header { order: 1; }
+  .main { order: 2; }
+  .garland-labels { order: 3; }
+
+  /* The empty detail-hint / side panel are redundant once details go inline */
+  .detail-hint,
+  .sidebar-detail .detail-panel:empty {
+    display: none;
+  }
+  .sidebar-detail {
+    display: none;
+  }
+
+  /* Stronger tappability cue on touch-sized screens */
+  .exp-expand-icon {
+    font-size: 1.4rem;
+    opacity: 0.85;
+  }
+  .exp-header {
+    padding: 0.35rem 0.5rem;
+    margin: 0 -0.5rem;
+  }
+  .section-group {
+    padding: 1.25rem 1.25rem;
   }
 }
 
@@ -1362,11 +1392,6 @@ body.dark-mode .detail-panel.tool-detail {
     height: 6rem;
   }
 
-  .footer-content {
-    font-size: 1.1rem;
-    padding: 0.5rem var(--padding-15);
-  }
-
   .bio-what {
     font-size: 1.1rem;
   }
@@ -1384,19 +1409,44 @@ body.dark-mode .detail-panel.tool-detail {
     font-size: 0.95rem;
   }
 
+  /* Title → company → date read as one tight block in a single family */
   .exp-header {
     flex-wrap: wrap;
+    gap: 0.15rem;
+  }
+
+  .exp-header-left {
+    width: 100%;
   }
 
   .exp-header-right {
     width: 100%;
     justify-content: flex-start;
-    gap: 0.5rem;
-    margin-top: 0.25rem;
+    align-items: baseline;
+    gap: 0.45rem;
+    margin-top: 0;
   }
 
   .exp-date {
-    font-size: 0.85rem;
+    font-family: "Karla", sans-serif;
+    font-style: normal;
+    font-size: 0.95rem;
+    color: var(--color-text-mid);
+  }
+
+  /* Chevron reads as a clear tap target right after the date */
+  .exp-expand-icon {
+    font-size: 1.1rem;
+    opacity: 1;
+    transform: translateY(0.05rem);
+  }
+
+  /* Inline detail reads smaller on phones */
+  .inline-detail {
+    font-size: 0.92rem;
+  }
+  .inline-detail h3 {
+    font-size: 1.1rem;
   }
 
   .content-inner {

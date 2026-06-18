@@ -1,57 +1,46 @@
 {
   "test-automation": {
     "title": "Test Automation",
-    "description": "Designing and building automated test frameworks — UI, integration, and data validation.",
+    "description": "Built and maintained automated testing infrastructure across web applications.",
     "examples": [
-      "Designed and built a crawler that maps internal web applications — inputs, dropdowns, flows — and generates test scripts from the gathered structure",
-      "Built and maintained test suites using Selenium + Python and Robot Framework",
-      "Built data validation workflows and scripts on Databricks"
+      "Built a crawler that maps internal web applications and generates test scripts from the gathered structure",
+      "Maintained automated test suites using Selenium + Python and Robot Framework",
+      "Developed data validation workflows and scripts on Databricks"
     ]
   },
-  "web-scraping": {
-    "title": "Data Collection & Web Scraping",
-    "description": "Extracting large-scale data from the web for research and creative projects.",
+  "data-validation": {
+    "title": "Data Validation",
+    "description": "Validated data transformations and record integrity during large-scale migrations.",
     "examples": [
-      "Tuned and maintained web scraping pipelines collecting 630,000+ artworks with metadata from Google Arts & Culture"
+      "Built comparison scripts across environments using PySpark and SQL"
     ]
   },
   "browser-automation": {
     "title": "Browser Automation",
-    "description": "Programmatically controlling browsers to navigate dynamic web applications and extract structured data."
+    "description": "Programmatically controlled browsers to navigate dynamic web applications and extract structured data."
+  },
+  "web-scraping": {
+    "title": "Web Scraping",
+    "description": "Extracting large-scale data from the web for research and creative projects.",
+    "examples": [
+      "Scraped 630,000+ artworks with metadata from Google Arts & Culture"
+    ]
   },
   "data-monitoring": {
     "title": "Security Monitoring",
-    "description": "Analyzing behavioral patterns and system data to identify threats.",
-    "examples": [
-      "Monitored user behavior at enterprise banking scale (BMO)",
-      "Identified security anomalies through behavioral analysis"
-    ]
+    "description": "Analyzed behavioral patterns at enterprise banking scale to identify threats."
   },
   "incident-response": {
     "title": "Incident Response",
-    "description": "Investigating issues and coordinating responses.",
-    "examples": [
-      "Assessed and classified security incidents by severity",
-      "Coordinated stakeholder communications and response actions"
-    ]
+    "description": "Investigated and classified security incidents, coordinated stakeholder communications."
   },
   "responsive-web": {
     "title": "Responsive Web Development",
-    "description": "Building interfaces that work across all screen sizes.",
-    "examples": [
-      "Developed React components with mobile-first responsive layouts",
-      "Created modular, reusable UI components",
-      "Implemented smooth interactions and state management"
-    ]
+    "description": "Built mobile-first React interfaces with reusable components and smooth interactions."
   },
   "ui-design": {
     "title": "UI Design",
-    "description": "Crafting interfaces with attention to visual hierarchy and interaction.",
-    "examples": [
-      "Designed layouts with intentional spacing and visual rhythm",
-      "Created hover states, transitions, and micro-interactions",
-      "Developed consistent styling systems"
-    ]
+    "description": "Crafted interfaces with visual hierarchy, micro-interactions, and consistent styling."
   },
   "python": {
     "title": "Python",
@@ -61,9 +50,8 @@
     "title": "Selenium",
     "description": "Browser automation for testing and data extraction.",
     "examples": [
-      "Handled dropdowns, dynamic inputs, alerts, and option selections",
-      "Managed timeouts, waits, and JavaScript-heavy page interactions",
-      "Wrote assertions for UI state validation across complex flows"
+      "Handled dynamic inputs, dropdowns, alerts, and JavaScript-heavy interactions",
+      "Wrote UI state assertions across complex user flows"
     ]
   },
   "robot-framework": {
@@ -80,7 +68,7 @@
   },
   "sql": {
     "title": "SQL",
-    "description": "queries."
+    "description": "Query language for data retrieval and transformation."
   },
   "azure-devops": {
     "title": "Azure DevOps",
@@ -88,39 +76,36 @@
   },
   "jira": {
     "title": "JIRA",
-    "description": "issue tracking."
+    "description": "Issue tracking and sprint management."
   },
   "git-github": {
     "title": "Git & GitHub",
-    "description": "version control."
+    "description": "Version control and collaborative development."
   },
   "pandas": {
     "title": "Pandas",
-    "description": "Data manipulation and analysis library.",
-    "examples": [
-      "Processed 630,000+ records for ML research",
-      "Cleaned and structured collected datasets for handoff to research pipeline"
-    ]
+    "description": "Data manipulation and analysis.",
+    "examples": ["Processed and cleaned 630,000+ records"]
   },
   "react": {
     "title": "React",
-    "description": "component-based UI."
+    "description": "Component-based UI development."
   },
   "typescript": {
     "title": "TypeScript",
-    "description": "typed JavaScript."
+    "description": "Statically typed JavaScript for safer, more maintainable code."
   },
   "css": {
     "title": "CSS",
-    "description": "styling."
+    "description": "Styling and layout — including animations and responsive design."
   },
   "html": {
     "title": "HTML",
-    "description": "markup."
+    "description": "Semantic markup and document structure."
   },
   "javascript": {
     "title": "JavaScript",
-    "description": "interactivity."
+    "description": "Interactivity and client-side logic."
   },
   "figma": {
     "title": "Figma",
@@ -144,26 +129,17 @@
   },
   "p5js": {
     "title": "p5.js",
-    "description": "Creative coding for generative and interactive visuals — currently learning more."
+    "description": "Creative coding for generative and interactive visuals."
   },
   "touchdesigner": {
     "title": "TouchDesigner",
-    "description": "Learning — can produce real-time visual effects, masking, and signal-based manipulation."
-  },
-  "data-validation": {
-    "title": "Data Validation",
-    "description": "Validating data transformations and schemas across enterprise pipelines.",
-    "examples": [
-      "Worked with team to validate data migrations at CIBC — transformations, schemas, and record integrity across millions of rows",
-      "Built comparison scripts across environments using PySpark and SQL"
-    ]
+    "description": "Learning — real-time visual effects, masking, and signal-based manipulation."
   },
   "github-actions": {
     "title": "GitHub Actions",
     "description": "CI/CD automation via GitHub workflows.",
     "examples": [
-      "Configured automated test pipelines triggered on pull requests",
-      "Integrated test results reporting into CI pipeline"
+      "Configured test pipelines triggered on pull requests with results reporting"
     ]
   }
 }

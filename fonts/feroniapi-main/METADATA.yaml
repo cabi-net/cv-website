@@ -1,0 +1,17 @@
+---
+unified font repository version: "0.2"
+unified font repository url: https://github.com/raphaelbastide/Unified-Font-Repository/
+typeface family:
+  name: Feronia
+  tags:
+  - Human made
+  - Serif
+  - Fantasy
+  repository url: https://gitlab.com/velvetyne/feronia
+  project url: https://juliennerichard.com
+  tools:
+  - Glyphs
+  similar fonts:
+  - Basteleur
+  sample text: Sphinx of black quartz, judge my vow!
+...
