@@ -1012,7 +1012,7 @@ function buildDetailMarkup(tag) {
   if (skillData) {
     return `
       <h3>${skillData.title}</h3>
-      <p>${skillData.description}</p>
+      ${skillData.description ? `<p>${skillData.description}</p>` : ''}
       ${skillData.examples ? `<ul>${skillData.examples.map(ex => `<li>${ex}</li>`).join('')}</ul>` : ''}
     `;
   }
