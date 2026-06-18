@@ -85,9 +85,7 @@
   "pandas": {
     "title": "Pandas",
     "description": "Data manipulation and analysis.",
-    "examples": [
-      "Processed and cleaned 630,000+ records for ML research pipeline"
-    ]
+    "examples": ["Processed and cleaned 630,000+ records"]
   },
   "react": {
     "title": "React",
