@@ -512,22 +512,22 @@ const GARLAND_DEFAULTS = {
   // Catmull-Rom spline interpolates smoothly through these.
   controlPoints: [
     { x: 0.13, y: 0.23 },
-    { x: 0.09, y: 0.29 },
-    { x: 0.13, y: 0.47 },
-    { x: 0.11, y: 0.61 },
-    { x: 0.07, y: 0.57 },
-    { x: 0.04, y: 0.72 },
-    { x: 0.15, y: 0.93 },
-    { x: 0.38, y: 0.90 },
-    { x: 0.57, y: 0.89 },
-    { x: 0.82, y: 0.95 },
-    { x: 0.88, y: 0.59 },
-    { x: 0.93, y: 0.53 },
-    { x: 0.91, y: 0.22 },
-    { x: 0.93, y: 0.16 },
+    { x: 0.06, y: 0.32 },
+    { x: 0.15, y: 0.42 },
+    { x: 0.16, y: 0.50 },
+    { x: 0.12, y: 0.60 },
+    { x: 0.19, y: 0.72 },
+    { x: 0.16, y: 0.98 },
+    { x: 0.38, y: 0.92 },
+    { x: 0.57, y: 0.94 },
+    { x: 0.89, y: 0.96 },
+    { x: 0.81, y: 0.78 },
+    { x: 0.72, y: 0.65 },
+    { x: 0.96, y: 0.41 },
+    { x: 0.83, y: 0.17 },
   ],
   // Where labels sit along the path (fraction 0..1 of arc length)
-  labelAnchors: { edu: 0.10, cert: 0.22, lang: 0.34 },
+  labelAnchors: { edu: 0.11, cert: 0.20, lang: 0.92 },
 };
 
 let garlandSettings = null;
