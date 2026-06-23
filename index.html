@@ -1,218 +1,410 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meric Sila Taskin &ndash; CV</title>
-  <link rel="stylesheet" href="./fonts.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Karla:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./main.css" />
-</head>
-<body>
-  <a class="pdf-link" href="./Meric-Sila-Taskin_CV.pdf" download="Meric-Sila-Taskin_CV.pdf" aria-label="Download PDF version">pdf ↓</a>
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">dark</button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meric Sila Taskin &ndash; CV</title>
+    <link rel="stylesheet" href="./fonts.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Karla:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <a
+      class="pdf-link"
+      href="./Meric-Sila-Taskin_CV.pdf"
+      download="Meric-Sila-Taskin_CV.pdf"
+      aria-label="Download PDF version"
+      >pdf ↓</a
+    >
+    <button
+      class="theme-toggle"
+      id="theme-toggle"
+      aria-label="Toggle dark mode"
+    >
+      dark
+    </button>
 
+    <!-- Garland — meandering string of pearls flowing around the page -->
+    <canvas
+      class="garland-canvas"
+      id="garland-canvas"
+      aria-hidden="true"
+    ></canvas>
 
-  <!-- Garland — meandering string of pearls flowing around the page -->
-  <canvas class="garland-canvas" id="garland-canvas" aria-hidden="true"></canvas>
-
-  <div class="page-wrapper">
-
-    <!-- HEADER -->
-    <header class="header">
-      <div class="container container--wide">
-        <div class="header-content">
-          <div class="header-name">
-            <h1 class="visually-hidden">Meric Sila Taskin</h1>
-            <canvas class="wordmark" id="wordmark-canvas" aria-hidden="true"></canvas>
-          </div>
-          <div class="header-contact">
-            <h2>creative technologist.</h2>
-            <p>based in Toronto, Canada.</p>
-            <p><a class="email-link" data-user="silataskin" data-domain="gmail.com" href="#" aria-label="Email address (revealed by JavaScript)">[email]</a></p>
-            <p><a href="https://postc4rd.neocities.org/" target="_blank" rel="noopener">send me a postcard</a></p>
+    <div class="page-wrapper">
+      <!-- HEADER -->
+      <header class="header">
+        <div class="container container--wide">
+          <div class="header-content">
+            <div class="header-name">
+              <h1 class="visually-hidden">Meric Sila Taskin</h1>
+              <canvas
+                class="wordmark"
+                id="wordmark-canvas"
+                aria-hidden="true"
+              ></canvas>
+            </div>
+            <div class="header-contact">
+              <h2>creative technologist.</h2>
+              <p>based in Toronto, Canada.</p>
+              <p>
+                <a
+                  class="email-link"
+                  data-user="silataskin"
+                  data-domain="gmail.com"
+                  href="#"
+                  aria-label="Email address (revealed by JavaScript)"
+                  >[email]</a
+                >
+              </p>
+              <p>
+                <a
+                  href="https://postc4rd.neocities.org/"
+                  target="_blank"
+                  rel="noopener"
+                  >send me a postcard</a
+                >
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <!-- Garland labels — float along the garland on wide screens (positioned by JS);
+      <!-- Garland labels — float along the garland on wide screens (positioned by JS);
          stack as a normal credentials block on narrow screens -->
-    <div class="garland-labels" id="garland-labels">
-      <div class="garland-label" data-anchor="edu" data-side="left">
-        <h3>Honours BSc</h3>
-        <p>University of Toronto</p>
-        <p class="garland-meta">Economics (Data Analytics) &middot; Computer&nbsp;Science &middot; Statistics</p>
+      <div class="garland-labels" id="garland-labels">
+        <div class="garland-label" data-anchor="edu" data-side="left">
+          <h3>Honours BSc</h3>
+          <p>University of Toronto</p>
+          <p class="garland-meta">
+            Economics (Data Analytics) &middot; Computer&nbsp;Science &middot;
+            Statistics
+          </p>
+        </div>
+        <div class="garland-label" data-anchor="cert" data-side="left">
+          <h3>UX Design Certificate</h3>
+          <p>Google &middot; Coursera</p>
+          <p class="garland-meta">
+            Figma &middot; User Research &middot; Wireframing &middot;
+            Prototyping
+          </p>
+        </div>
+        <div class="garland-label" data-anchor="lang" data-side="left">
+          <h3>Languages</h3>
+          <p>English, Turkish (bilingual)</p>
+          <p>French C1 &mdash; Advanced</p>
+        </div>
       </div>
-      <div class="garland-label" data-anchor="cert" data-side="left">
-        <h3>UX Design Certificate</h3>
-        <p>Google &middot; Coursera</p>
-        <p class="garland-meta">Figma &middot; User Research &middot; Wireframing &middot; Prototyping</p>
-      </div>
-      <div class="garland-label" data-anchor="lang" data-side="left">
-        <h3>Languages</h3>
-        <p>English, Turkish (bilingual)</p>
-        <p>French C1 &mdash; Advanced</p>
-      </div>
+
+      <!-- MAIN CONTENT -->
+      <main class="main">
+        <div class="container">
+          <div class="main-layout">
+            <!-- CONTENT AREA -->
+            <div class="content-wrapper">
+              <!-- MAIN CONTENT (single page) -->
+              <section class="content-section active" data-section="experience">
+                <div class="content-inner">
+                  <div class="section-group">
+                    <h2 class="section-heading primary">Experience</h2>
+
+                    <article class="experience-item" data-role="cibc">
+                      <div class="exp-header">
+                        <div class="exp-header-left">
+                          <h3 class="exp-title">
+                            Software Development Engineer in Test
+                          </h3>
+                          <p class="exp-company">CIBC &middot; Toronto</p>
+                        </div>
+                        <div class="exp-header-right">
+                          <time class="exp-date" datetime="2024-02/2026-02"
+                            >Feb 2024 &ndash; Feb 2026</time
+                          >
+                          <span class="exp-expand-icon">⇣</span>
+                        </div>
+                      </div>
+                      <div class="exp-content">
+                        <div class="exp-tags">
+                          <div class="tag-group">
+                            <span
+                              class="tag"
+                              data-skill="test-automation"
+                              data-type="skill"
+                              >Test Automation</span
+                            >
+                            <span
+                              class="tag"
+                              data-skill="data-validation"
+                              data-type="skill"
+                              >Data Validation</span
+                            >
+                            <span
+                              class="tag"
+                              data-skill="browser-automation"
+                              data-type="skill"
+                              >Browser Automation</span
+                            >
+                          </div>
+                          <div class="tag-group">
+                            <span
+                              class="tag"
+                              data-skill="python"
+                              data-type="tool"
+                              >Python</span
+                            >
+                            <span
+                              class="tag"
+                              data-skill="selenium"
+                              data-type="tool"
+                              >Selenium</span
+                            >
+                            <span
+                              class="tag"
+                              data-skill="robot-framework"
+                              data-type="tool"
+                              >Robot Framework</span
+                            >
+                            <span
+                              class="tag"
+                              data-skill="databricks"
+                              data-type="tool"
+                              >Databricks</span
+                            >
+                            <span
+                              class="tag"
+                              data-skill="pyspark"
+                              data-type="tool"
+                              >PySpark</span
+                            >
+                            <span class="tag" data-skill="sql" data-type="tool"
+                              >SQL</span
+                            >
+                            <span
+                              class="tag"
+                              data-skill="azure-devops"
+                              data-type="tool"
+                              >Azure DevOps</span
+                            >
+                            <span
+                              class="tag"
+                              data-skill="github-actions"
+                              data-type="tool"
+                              >GitHub Actions</span
+                            >
+                            <span class="tag" data-skill="jira" data-type="tool"
+                              >JIRA</span
+                            >
+                            <span
+                              class="tag"
+                              data-skill="git-github"
+                              data-type="tool"
+                              >Git & GitHub</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="experience-item" data-role="freelance">
+                      <div class="exp-header">
+                        <div class="exp-header-left">
+                          <h3 class="exp-title">Frontend Developer</h3>
+                          <p class="exp-company">
+                            Real Estate Listings Platform (Freelance)
+                          </p>
+                        </div>
+                        <div class="exp-header-right">
+                          <time class="exp-date" datetime="2025-03/2025-06"
+                            >Mar &ndash; Jun 2025</time
+                          >
+                          <span class="exp-expand-icon">⇣</span>
+                        </div>
+                      </div>
+                      <div class="exp-content">
+                        <div class="exp-tags">
+                          <div class="tag-group">
+                            <span
+                              class="tag"
+                              data-skill="responsive-web"
+                              data-type="skill"
+                              >Responsive Web</span
+                            >
+                            <span
+                              class="tag"
+                              data-skill="ui-design"
+                              data-type="skill"
+                              >UI Design</span
+                            >
+                          </div>
+                          <div class="tag-group">
+                            <span
+                              class="tag"
+                              data-skill="react"
+                              data-type="tool"
+                              >React</span
+                            >
+                            <span
+                              class="tag"
+                              data-skill="typescript"
+                              data-type="tool"
+                              >TypeScript</span
+                            >
+                            <span class="tag" data-skill="css" data-type="tool"
+                              >CSS</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="experience-item" data-role="uoft">
+                      <div class="exp-header">
+                        <div class="exp-header-left">
+                          <h3 class="exp-title">ML Research Assistant</h3>
+                          <p class="exp-company">University of Toronto</p>
+                        </div>
+                        <div class="exp-header-right">
+                          <time class="exp-date" datetime="2023-02/2023-05"
+                            >Feb &ndash; May 2023</time
+                          >
+                          <span class="exp-expand-icon">⇣</span>
+                        </div>
+                      </div>
+                      <div class="exp-content">
+                        <div class="exp-tags">
+                          <div class="tag-group">
+                            <span
+                              class="tag"
+                              data-skill="browser-automation"
+                              data-type="skill"
+                              >Browser Automation</span
+                            >
+                            <span
+                              class="tag"
+                              data-skill="web-scraping"
+                              data-type="skill"
+                              >Web Scraping</span
+                            >
+                          </div>
+                          <div class="tag-group">
+                            <span
+                              class="tag"
+                              data-skill="python"
+                              data-type="tool"
+                              >Python</span
+                            >
+                            <span
+                              class="tag"
+                              data-skill="selenium"
+                              data-type="tool"
+                              >Selenium</span
+                            >
+                            <span
+                              class="tag"
+                              data-skill="pandas"
+                              data-type="tool"
+                              >Pandas</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="experience-item" data-role="bmo">
+                      <div class="exp-header">
+                        <div class="exp-header-left">
+                          <h3 class="exp-title">Cybersecurity Analyst</h3>
+                          <p class="exp-company">BMO &middot; Toronto</p>
+                        </div>
+                        <div class="exp-header-right">
+                          <time class="exp-date" datetime="2022-05/2022-12"
+                            >May &ndash; Dec 2022</time
+                          >
+                          <span class="exp-expand-icon">⇣</span>
+                        </div>
+                      </div>
+                      <div class="exp-content">
+                        <div class="exp-tags">
+                          <div class="tag-group">
+                            <span
+                              class="tag"
+                              data-skill="data-monitoring"
+                              data-type="skill"
+                              >Security Monitoring</span
+                            >
+                            <span
+                              class="tag"
+                              data-skill="incident-response"
+                              data-type="skill"
+                              >Incident Response</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+
+                  <div class="section-group">
+                    <h2 class="section-heading primary">
+                      Independent Practice
+                    </h2>
+                    <!-- <p class="section-intro">Tools developed outside of roles, through personal projects and interests.</p> -->
+                    <div class="also-tags">
+                      <span class="tag" data-skill="photoshop" data-type="tool"
+                        >Photoshop</span
+                      >
+                      <span class="tag" data-skill="krita" data-type="tool"
+                        >Krita</span
+                      >
+                      <span class="tag" data-skill="aseprite" data-type="tool"
+                        >Aseprite</span
+                      >
+                      <span class="tag" data-skill="unity" data-type="tool"
+                        >Unity</span
+                      >
+                      <span class="tag" data-skill="p5js" data-type="tool"
+                        >p5.js</span
+                      >
+                      <span
+                        class="tag"
+                        data-skill="touchdesigner"
+                        data-type="tool"
+                        >TouchDesigner</span
+                      >
+                      <span class="tag" data-skill="javascript" data-type="tool"
+                        >JavaScript</span
+                      >
+                    </div>
+                    <a
+                      class="cabinet-link"
+                      href="https://cabi-net.neocities.org/"
+                      target="_blank"
+                      rel="noopener"
+                      >Explore my work ↗</a
+                    >
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <aside class="sidebar-detail">
+              <div class="detail-hint" id="detail-hint">
+                <span class="detail-hint-mark">❦</span>
+                <p>click an experience, skill or tool<br />for more.</p>
+              </div>
+              <div class="detail-panel" id="detail-panel"></div>
+            </aside>
+          </div>
+        </div>
+      </main>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <main class="main">
-      <div class="container">
-        <div class="main-layout">
-
-          <!-- CONTENT AREA -->
-          <div class="content-wrapper">
-
-            <!-- MAIN CONTENT (single page) -->
-            <section class="content-section active" data-section="experience">
-              <div class="content-inner">
-
-                <div class="section-group">
-                  <h2 class="section-heading primary">Experience</h2>
-
-                  <article class="experience-item" data-role="cibc">
-                    <div class="exp-header">
-                      <div class="exp-header-left">
-                        <h3 class="exp-title">Software Development Engineer in Test <span class="exp-title-sub">(Test Analyst)</span></h3>
-                        <p class="exp-company">CIBC &middot; Toronto</p>
-                      </div>
-                      <div class="exp-header-right">
-                        <time class="exp-date" datetime="2024-02/2026-02">Feb 2024 &ndash; Feb 2026</time>
-                        <span class="exp-expand-icon">⇣</span>
-                      </div>
-                    </div>
-                    <div class="exp-content">
-                      <div class="exp-tags">
-                        <div class="tag-group">
-                          <span class="tag" data-skill="test-automation" data-type="skill">Test Automation</span>
-                          <span class="tag" data-skill="data-validation" data-type="skill">Data Validation</span>
-                          <span class="tag" data-skill="browser-automation" data-type="skill">Browser Automation</span>
-                        </div>
-                        <div class="tag-group">
-                          <span class="tag" data-skill="python" data-type="tool">Python</span>
-                          <span class="tag" data-skill="selenium" data-type="tool">Selenium</span>
-                          <span class="tag" data-skill="robot-framework" data-type="tool">Robot Framework</span>
-                          <span class="tag" data-skill="databricks" data-type="tool">Databricks</span>
-                          <span class="tag" data-skill="pyspark" data-type="tool">PySpark</span>
-                          <span class="tag" data-skill="sql" data-type="tool">SQL</span>
-                          <span class="tag" data-skill="azure-devops" data-type="tool">Azure DevOps</span>
-                          <span class="tag" data-skill="github-actions" data-type="tool">GitHub Actions</span>
-                          <span class="tag" data-skill="jira" data-type="tool">JIRA</span>
-                          <span class="tag" data-skill="git-github" data-type="tool">Git & GitHub</span>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="experience-item" data-role="freelance">
-                    <div class="exp-header">
-                      <div class="exp-header-left">
-                        <h3 class="exp-title">Frontend Developer</h3>
-                        <p class="exp-company">Real Estate Listings Platform (Client Project)</p>
-                      </div>
-                      <div class="exp-header-right">
-                        <time class="exp-date" datetime="2025-03/2025-06">Mar &ndash; Jun 2025</time>
-                        <span class="exp-expand-icon">⇣</span>
-                      </div>
-                    </div>
-                    <div class="exp-content">
-                      <div class="exp-tags">
-                        <div class="tag-group">
-                          <span class="tag" data-skill="responsive-web" data-type="skill">Responsive Web</span>
-                          <span class="tag" data-skill="ui-design" data-type="skill">UI Design</span>
-                        </div>
-                        <div class="tag-group">
-                          <span class="tag" data-skill="react" data-type="tool">React</span>
-                          <span class="tag" data-skill="typescript" data-type="tool">TypeScript</span>
-                          <span class="tag" data-skill="css" data-type="tool">CSS</span>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="experience-item" data-role="uoft">
-                    <div class="exp-header">
-                      <div class="exp-header-left">
-                        <h3 class="exp-title">ML Research Assistant</h3>
-                        <p class="exp-company">University of Toronto</p>
-                      </div>
-                      <div class="exp-header-right">
-                        <time class="exp-date" datetime="2023-02/2023-05">Feb &ndash; May 2023</time>
-                        <span class="exp-expand-icon">⇣</span>
-                      </div>
-                    </div>
-                    <div class="exp-content">
-                      <div class="exp-tags">
-                        <div class="tag-group">
-                          <span class="tag" data-skill="browser-automation" data-type="skill">Browser Automation</span>
-                          <span class="tag" data-skill="web-scraping" data-type="skill">Web Scraping</span>
-                        </div>
-                        <div class="tag-group">
-                          <span class="tag" data-skill="python" data-type="tool">Python</span>
-                          <span class="tag" data-skill="selenium" data-type="tool">Selenium</span>
-                          <span class="tag" data-skill="pandas" data-type="tool">Pandas</span>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="experience-item" data-role="bmo">
-                    <div class="exp-header">
-                      <div class="exp-header-left">
-                        <h3 class="exp-title">Cybersecurity Analyst</h3>
-                        <p class="exp-company">BMO &middot; Toronto</p>
-                      </div>
-                      <div class="exp-header-right">
-                        <time class="exp-date" datetime="2022-05/2022-12">May &ndash; Dec 2022</time>
-                        <span class="exp-expand-icon">⇣</span>
-                      </div>
-                    </div>
-                    <div class="exp-content">
-                      <div class="exp-tags">
-                        <div class="tag-group">
-                          <span class="tag" data-skill="data-monitoring" data-type="skill">Security Monitoring</span>
-                          <span class="tag" data-skill="incident-response" data-type="skill">Incident Response</span>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-
-                <div class="section-group">
-                  <h2 class="section-heading primary">Independent Practice</h2>
-                  <!-- <p class="section-intro">Tools developed outside of roles, through personal projects and interests.</p> -->
-                  <div class="also-tags">
-                    <span class="tag" data-skill="photoshop" data-type="tool">Photoshop</span>
-                    <span class="tag" data-skill="krita" data-type="tool">Krita</span>
-                    <span class="tag" data-skill="aseprite" data-type="tool">Aseprite</span>
-                    <span class="tag" data-skill="unity" data-type="tool">Unity</span>
-                    <span class="tag" data-skill="p5js" data-type="tool">p5.js</span>
-                    <span class="tag" data-skill="touchdesigner" data-type="tool">TouchDesigner</span>
-                    <span class="tag" data-skill="javascript" data-type="tool">JavaScript</span>
-                  </div>
-                  <a class="cabinet-link" href="https://cabi-net.neocities.org/" target="_blank" rel="noopener">Explore my work ↗</a>
-                </div>
-
-              </div>
-            </section>
-          </div>
-
-          <!-- RIGHT COLUMN -->
-          <aside class="sidebar-detail">
-            <div class="detail-hint" id="detail-hint">
-              <span class="detail-hint-mark">❦</span>
-              <p>click an experience, skill or tool<br>for more.</p>
-            </div>
-            <div class="detail-panel" id="detail-panel"></div>
-          </aside>
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <script src="./main.js"></script>
-</body>
+    <script src="./main.js"></script>
+  </body>
 </html>
